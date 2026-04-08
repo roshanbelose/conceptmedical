@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Concept Medical - APSC 2026</title>
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #0d2d6b 0%, #1c4ba4 100%);
+  min-height: 100vh;
+  padding: 40px 16px 60px;
+}
+
+.page-footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.3px;
+}
+
+.page-footer a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+  max-width: 720px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #1c4ba4;
+  padding: 32px 24px 28px;
+  text-align: center;
+}
+
+.logo-wrap {
+  background: #ffffff;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 10px 22px;
+  margin-bottom: 18px;
+}
+
+.logo-wrap img {
+  max-width: 220px;
+  display: block;
+}
+
+.event-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 30px;
+  padding: 4px 20px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.card-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.card-header p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px;
+  font-weight: 400;
+}
+
+.card-body {
+  padding: 32px 36px 36px;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  margin: 8px 0 20px;
+  gap: 10px;
+  color: #0d2d6b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #dde4ef;
+}
+
+.row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 0;
+}
+
+.col {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 6px;
+  letter-spacing: 0.3px;
+}
+
+.required::after {
+  content: ' *';
+  color: #d0021b;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #333333;
+  background: #ffffff;
+  border: 1.5px solid #cdd5e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231c4ba4' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1c4ba4;
+  box-shadow: 0 0 0 3px rgba(28, 75, 164, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.consent-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0 24px;
+  background: #f0f4fc;
+  border: 1px solid #dde4ef;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.consent-block input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  accent-color: #1c4ba4;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.consent-block label {
+  font-size: 12px;
+  color: #555555;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.btn-submit {
+  width: 100%;
+  background: #1c4ba4;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 6px;
+  padding: 13px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #0d2d6b;
+  transform: translateY(-1px);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .card-body {
+    padding: 24px 20px 28px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .col {
+    flex: none;
+    width: 100%;
+  }
+
+  .card-header h2 {
+    font-size: 18px;
+  }
+}
+
+</style>
+
+<script>
+$(document).ready(function () {
+
+  /* disable submit until consent is checked */
+  $('#btnSubmit').prop('disabled', true);
+  $('#IsAccept').on('change', function () {
+    $('#btnSubmit').prop('disabled', !this.checked);
+  });
+
+  /* auto-populate today's date in dd/mm/yyyy */
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0');
+  var yyyy = today.getFullYear();
+  $('#eventdate').val(dd + '/' + mm + '/' + yyyy);
+
+});
+</script>
+
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- Header -->
+  <div class="card-header">
+    <div class="logo-wrap">
+      <img src="https://bit.ly/3RjgTpu" alt="Concept Medical">
+    </div>
+    <div class="event-badge">Trade Show</div>
+    <h2>APSC 2026</h2>
+    <p>Enquiry Form &mdash; Please fill in your details below</p>
+  </div>
+
+  <!-- Body -->
+  <div class="card-body">
+
+    <form id="leadForm"
+          method="POST"
+          action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
+
+      <!-- Salesforce hidden fields -->
+      <input type="hidden" name="oid"             value="00D5g000005VEmP">
+      <input type="hidden" name="retURL"          value="https://www.conceptmedical.com/thank-you-for-connecting-with-concept-medical/">
+      <input type="hidden" name="lead_source"     value="Trade Show">
+      <input type="hidden" name="00NC6000000O0gt" value="Webform">
+      <input type="hidden" name="event_name"      value="APSC 2026">
+      <input type="hidden" id="eventdate"         name="00NC6000000Nw5P">
+
+      <!-- Personal Details -->
+      <div class="section-divider">Personal Details</div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="required" for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" placeholder="Enter first name" required>
+        </div>
+        <div class="col form-group">
+          <label class="required" for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" placeholder="Enter last name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="required" for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="example@email.com" required>
+        </div>
+        <div class="col form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX">
+        </div>
+      </div>
+
+      <!-- Professional Details -->
+      <div class="section-divider">Professional Details</div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="required" for="company">Organization / Institution / Hospital</label>
+          <input type="text" name="company" placeholder="Enter organization name" required>
+        </div>
+        <div class="col form-group">
+          <label for="city">City</label>
+          <input type="text" name="city" placeholder="Enter city">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="required">Category</label>
+          <select name="00NC6000000O0et" required>
+            <option value="">Select category</option>
+            <option value="Coronary">Coronary</option>
+            <option value="Peripheral">Peripheral</option>
+          </select>
+        </div>
+        <div class="col form-group">
+          <label>Inquiry For</label>
+          <select name="00NC6000000NmNJ">
+            <option value="">Select product</option>
+            <option value="MagicTouch">MagicTouch</option>
+            <option value="MagicTouch AVF">MagicTouch AVF</option>
+            <option value="MagicTouch PTA">MagicTouch PTA</option>
+            <option value="MagicTouch ED">MagicTouch ED</option>
+            <option value="Mitigator">Mitigator</option>
+            <option value="Fusion">Fusion</option>
+            <option value="Nostrum">Nostrum</option>
+            <option value="Abluminus DES+">Abluminus DES+</option>
+            <option value="Abluminus NP">Abluminus NP</option>
+            <option value="FocusNP">FocusNP</option>
+            <option value="XtremeTouch">XtremeTouch</option>
+            <option value="Distributorship">Distributorship</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Event Details -->
+      <div class="section-divider">Event Details</div>
+
+      <div class="row">
+        <div class="col form-group">
+          <label class="required">Attended By (Concept Medical Team)</label>
+          <select id="00NC6000000Ny0v" name="00NC6000000Ny0v" required>
+            <option value="">Select team member</option>
+            <option value="Jashu Bambhaniya">Jashu Bambhaniya</option>
+            <option value="Arrchana Joshi">Arrchana Joshi</option>
+            <option value="Amit Saha">Amit Saha</option>
+            <option value="Pushpak Sengupta">Pushpak Sengupta</option>
+            <option value="Palla Swaminaidu">Palla Swaminaidu</option>
+            <option value="N Manickam">N Manickam</option>
+            <option value="Vinay Tiwari">Vinay Tiwari</option>
+            <option value="Sanjay Dhangar">Sanjay Dhangar</option>
+            <option value="Roshan Raj">Roshan Raj</option>
+            <option value="Santha Kumar">Santha Kumar</option>
+            <option value="Ihshanulla M">Ihshanulla M</option>
+            <option value="Sabari Nathan">Sabari Nathan</option>
+            <option value="Jesidaran Sekar">Jesidaran Sekar</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-full form-group">
+        <label for="description">Remarks</label>
+        <textarea id="description" name="description" placeholder="Any additional notes or comments..."></textarea>
+      </div>
+
+      <!-- Consent -->
+      <div class="consent-block">
+        <input type="checkbox" id="IsAccept">
+        <label for="IsAccept">
+          I agree and confirm that Concept Medical may use my information for
+          educational and communication purposes.
+        </label>
+      </div>
+
+      <button type="submit" id="btnSubmit" class="btn-submit">
+        Submit Enquiry
+      </button>
+
+    </form>
+
+  </div><!-- /card-body -->
+</div><!-- /card -->
+
+<!-- Page footer -->
+<div class="page-footer">
+  &copy; 2026 Concept Medical &nbsp;|&nbsp;
+  <a href="https://www.conceptmedical.com" target="_blank" rel="noopener">www.conceptmedical.com</a>
+</div>
+
+</body>
+</html>
