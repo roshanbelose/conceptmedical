@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Concept Medical - CSI NIC 2026</title>
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+
+body{
+background:#1c4ba4;
+}
+
+.container{
+background:#ffffff;
+padding:30px;
+border-radius:6px;
+margin-top:30px;
+}
+
+.required:after{
+content:" *";
+color:red;
+font-weight:bold;
+}
+
+.btn-submit{
+background:#1c4ba4;
+color:white;
+border:none;
+}
+
+</style>
+
+<script>
+
+$(document).ready(function(){
+
+$('#btnSubmit').prop('disabled', true);
+
+$('#IsAccept').change(function(){
+$('#btnSubmit').prop('disabled', !this.checked);
+});
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2,'0');
+var mm = String(today.getMonth()+1).padStart(2,'0');
+var yyyy = today.getFullYear();
+
+$("#eventdate").val(dd+'/'+mm+'/'+yyyy);
+
+});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="text-center">
+<img src="https://bit.ly/3RjgTpu" style="max-width:260px">
+</div>
+
+<h3 class="text-center">CSI NIC 2026 – Enquiry Form</h3>
+
+<form id="leadForm"
+method="POST"
+action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
+
+<input type="hidden" name="oid" value="00D5g000005VEmP">
+
+<input type="hidden" name="retURL"
+value="https://www.conceptmedical.com/thank-you-for-connecting-with-concept-medical/">
+
+<input type="hidden" name="lead_source" value="Trade Show">
+
+<input type="hidden" name="00NC6000000O0gt" value="Webform">
+
+<input type="hidden" name="event_name" value="CSI NIC 2026">
+
+<input type="hidden" id="eventdate" name="00NC6000000Nw5P">
+
+<div class="row">
+
+<div class="col-md-6 form-group">
+<label class="required">First Name</label>
+<input class="form-control" id="first_name" name="first_name" required>
+</div>
+
+<div class="col-md-6 form-group">
+<label class="required">Last Name</label>
+<input class="form-control" id="last_name" name="last_name" required>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 form-group">
+<label class="required">Email</label>
+<input class="form-control" id="email" name="email" type="email" required>
+</div>
+
+<div class="col-md-6 form-group">
+<label>Phone</label>
+<input class="form-control" name="phone">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 form-group">
+<label class="required">Organization / Institution / Hospital</label>
+<input class="form-control" name="company" required>
+</div>
+
+<div class="col-md-6 form-group">
+<label>City</label>
+<input class="form-control" name="city">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 form-group">
+
+<label class="required">Category</label>
+
+<select class="form-control" name="00NC6000000O0et" required>
+
+<option value="">Select</option>
+<option value="Coronary">Coronary</option>
+<option value="Peripheral">Peripheral</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 form-group">
+
+<label>Inquiry For</label>
+
+<select class="form-control" name="00NC6000000NmNJ">
+
+<option value="">Select</option>
+<option value="MagicTouch">MagicTouch</option>
+<option value="MagicTouch AVF">MagicTouch AVF</option>
+<option value="MagicTouch PTA">MagicTouch PTA</option>
+<option value="MagicTouch ED">MagicTouch ED</option>
+<option value="Mitigator">Mitigator</option>
+<option value="Fusion">Fusion</option>
+<option value="Nostrum">Nostrum</option>
+<option value="Abluminus DES+">Abluminus DES+</option>
+<option value="Abluminus NP">Abluminus NP</option>
+<option value="FocusNP">FocusNP</option>
+<option value="XtremeTouch">XtremeTouch</option>
+<option value="Distributorship">Distributorship</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 form-group">
+
+<label class="required">Attended By (Concept Medical Team)</label>
+
+<select class="form-control" id="00NC6000000Ny0v" name="00NC6000000Ny0v" required>
+
+<option value="">Select Team Member</option>
+
+<option value="Sanjay Dhangar">Sanjay Dhangar</option>
+<option value="Sanjay Mehta">Sanjay Mehta</option>
+<option value="Pushpak Sengupta">Pushpak Sengupta</option>
+<option value="Amarsingh Rajpurohit">Amarsingh Rajpurohit</option>
+<option value="Nishith Ranjan Roy">Nishith Ranjan Roy</option>
+<option value="Biju AL">Biju AL</option>
+<option value="Jesidaran Sekar">Jesidaran Sekar</option>
+<option value="Sharwalik Mishra">Sharwalik Mishra</option>
+<option value="Bhuwan Baniyal">Bhuwan Baniyal</option>
+<option value="Nikhil Deshpande">Nikhil Deshpande</option>
+<option value="Alok Nath Prasad">Alok Nath Prasad</option>
+<option value="Roshan Belose">Roshan Belose</option>
+<option value="Shreyas Patidar">Shreyas Patidar</option>
+<option value="Chinmayanand Mishra">Chinmayanand Mishra</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Remarks</label>
+
+<textarea class="form-control" name="description"></textarea>
+
+</div>
+
+<div class="checkbox">
+
+<label>
+<input type="checkbox" id="IsAccept">
+I agree and confirm that Concept Medical may use my information for educational and communication purposes.
+</label>
+
+</div>
+
+<button type="submit"
+id="btnSubmit"
+class="btn btn-submit btn-block">
+
+Submit
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
