@@ -76,20 +76,6 @@ body {
   display: block;
 }
 
-.event-badge {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  border: 1.5px solid rgba(255,255,255,0.4);
-  border-radius: 30px;
-  padding: 4px 20px;
-  margin-bottom: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
 .card-header h2 {
   font-size: 22px;
   font-weight: 700;
@@ -285,13 +271,11 @@ textarea {
 <script>
 $(document).ready(function () {
 
-  /* disable submit until consent is checked */
   $('#btnSubmit').prop('disabled', true);
   $('#IsAccept').on('change', function () {
     $('#btnSubmit').prop('disabled', !this.checked);
   });
 
-  /* auto-populate today's date in dd/mm/yyyy */
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -307,24 +291,20 @@ $(document).ready(function () {
 
 <div class="card">
 
-  <!-- Header -->
   <div class="card-header">
     <div class="logo-wrap">
       <img src="https://bit.ly/3RjgTpu" alt="Concept Medical">
     </div>
-    <div class="event-badge">Trade Show</div>
     <h2>APSC 2026</h2>
     <p>Enquiry Form &mdash; Please fill in your details below</p>
   </div>
 
-  <!-- Body -->
   <div class="card-body">
 
     <form id="leadForm"
           method="POST"
           action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8">
 
-      <!-- Salesforce hidden fields -->
       <input type="hidden" name="oid"             value="00D5g000005VEmP">
       <input type="hidden" name="retURL"          value="https://www.conceptmedical.com/thank-you-for-connecting-with-concept-medical/">
       <input type="hidden" name="lead_source"     value="Trade Show">
@@ -332,7 +312,6 @@ $(document).ready(function () {
       <input type="hidden" name="event_name"      value="APSC 2026">
       <input type="hidden" id="eventdate"         name="00NC6000000Nw5P">
 
-      <!-- Personal Details -->
       <div class="section-divider">Personal Details</div>
 
       <div class="row">
@@ -357,7 +336,6 @@ $(document).ready(function () {
         </div>
       </div>
 
-      <!-- Professional Details -->
       <div class="section-divider">Professional Details</div>
 
       <div class="row">
@@ -400,7 +378,6 @@ $(document).ready(function () {
         </div>
       </div>
 
-      <!-- Event Details -->
       <div class="section-divider">Event Details</div>
 
       <div class="row">
@@ -430,7 +407,6 @@ $(document).ready(function () {
         <textarea id="description" name="description" placeholder="Any additional notes or comments..."></textarea>
       </div>
 
-      <!-- Consent -->
       <div class="consent-block">
         <input type="checkbox" id="IsAccept">
         <label for="IsAccept">
@@ -445,10 +421,9 @@ $(document).ready(function () {
 
     </form>
 
-  </div><!-- /card-body -->
-</div><!-- /card -->
+  </div>
+</div>
 
-<!-- Page footer -->
 <div class="page-footer">
   &copy; 2026 Concept Medical &nbsp;|&nbsp;
   <a href="https://www.conceptmedical.com" target="_blank" rel="noopener">www.conceptmedical.com</a>
