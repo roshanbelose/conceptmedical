@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Concept Medical — Product Line Executive Dashboard</title>
+<meta name="description" content="Executive Command Center for medical device manufacturing — capacity, utilization, product mix, quality, yield and OEE across the Drug-Coated Balloon and Drug-Eluting Stent portfolio." />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   Concept Medical — Brand Tokens (mirrored from colors_and_type.css)
+   ============================================================ */
+:root{
+  /* Core brand blues */
+  --cm-blue-50:#E8EFF9; --cm-blue-100:#97DAF8; --cm-blue-200:#00B7F1;
+  --cm-blue-300:#4D7BBE; --cm-blue-400:#3260AD; --cm-blue-500:#1D4E9F;
+  --cm-blue-600:#1B499F; --cm-blue-700:#213E7B; --cm-blue-800:#182B53; --cm-blue-900:#122248;
+  --cm-ink:#3F60A8;
+
+  /* Neutrals */
+  --neutral-0:#FFFFFF; --neutral-50:#F7F8FB; --neutral-100:#EEF1F6; --neutral-200:#E1E6EE;
+  --neutral-300:#C9D0DC; --neutral-400:#9AA3B5; --neutral-500:#6B7589; --neutral-600:#4A5267;
+  --neutral-700:#2F3645; --neutral-800:#1B202B; --neutral-900:#0E1119;
+
+  /* Product accents */
+  --product-teal:#00B79B; --product-azure:#79A3DC; --product-cyan:#2AB6EA;
+  --product-violet:#8871B3; --product-cobalt:#1E448D; --product-deepblue:#183760;
+
+  /* Semantic */
+  --bg:var(--neutral-50); --card:var(--neutral-0);
+  --fg:var(--neutral-800); --fg-muted:var(--neutral-500); --fg-subtle:var(--neutral-400);
+  --primary:var(--cm-blue-500); --accent:var(--cm-blue-200);
+  --border:var(--neutral-200); --border-strong:var(--neutral-300); --divider:var(--neutral-100);
+  --success:#1E9F6E; --warning:#C77700; --danger:#B11F29;
+  --success-soft:#E6F4EE; --warning-soft:#FBF1E0; --danger-soft:#F8E7E8;
+
+  /* Elevation */
+  --shadow-xs:0 1px 2px rgba(18,34,72,.06);
+  --shadow-sm:0 2px 6px rgba(18,34,72,.08);
+  --shadow-md:0 8px 22px rgba(18,34,72,.10);
+  --shadow-lg:0 18px 48px rgba(18,34,72,.14);
+
+  /* Radii */
+  --radius-md:8px; --radius-lg:14px; --radius-xl:22px; --radius-pill:999px;
+
+  --font-brand:"Poppins",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  font-family:var(--font-brand);
+  background:var(--bg);
+  color:var(--fg);
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+h1,h2,h3,h4{margin:0;color:var(--cm-blue-700);font-weight:600;letter-spacing:-0.01em;}
+
+/* ── Top App Bar ─────────────────────────────────────────── */
+.appbar{
+  background:linear-gradient(110deg,var(--cm-blue-900) 0%,var(--cm-blue-700) 55%,var(--cm-blue-500) 130%);
+  color:#fff; padding:18px 32px;
+  display:flex; align-items:center; gap:20px;
+  position:sticky; top:0; z-index:50;
+  box-shadow:var(--shadow-md);
+}
+.appbar .mark{
+  width:42px;height:42px;border-radius:50%;
+  background:#fff;display:flex;align-items:center;justify-content:center;flex:none;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+.appbar .mark svg{width:30px;height:30px;}
+.appbar .titles{display:flex;flex-direction:column;line-height:1.2;}
+.appbar .titles .eyebrow{
+  font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cm-blue-100);
+}
+.appbar .titles h1{font-size:20px;color:#fff;font-weight:600;letter-spacing:-0.01em;}
+.appbar .spacer{flex:1;}
+.appbar .controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.seg{
+  display:flex;background:rgba(255,255,255,.12);border-radius:var(--radius-pill);padding:3px;
+  backdrop-filter:blur(4px);
+}
+.seg button{
+  border:0;background:transparent;color:rgba(255,255,255,.78);
+  font-family:inherit;font-size:12.5px;font-weight:500;
+  padding:6px 14px;border-radius:var(--radius-pill);cursor:pointer;transition:all .15s ease;
+}
+.seg button.active{background:#fff;color:var(--cm-blue-700);font-weight:600;box-shadow:var(--shadow-sm);}
+.pill-info{
+  display:flex;align-items:center;gap:8px;font-size:12.5px;color:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.10);padding:7px 14px;border-radius:var(--radius-pill);
+}
+.pill-info .dot{width:8px;height:8px;border-radius:50%;background:#3BE3A1;box-shadow:0 0 0 4px rgba(59,227,161,.25);}
+
+/* ── Layout shell ────────────────────────────────────────── */
+.shell{max-width:1480px;margin:0 auto;padding:26px 32px 56px;}
+.section-head{display:flex;align-items:baseline;gap:12px;margin:0 0 14px;}
+.section-head .eyebrow{
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);
+}
+
+/* ── Cards ───────────────────────────────────────────────── */
+.card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-xs);padding:20px 22px;
+}
+.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;}
+.card-head .eyebrow{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-subtle);}
+.card-head h3{font-size:16px;}
+.card-head .sub{font-size:12px;color:var(--fg-muted);margin-top:2px;}
+.legend{display:flex;gap:14px;flex-wrap:wrap;}
+.legend .item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg-muted);cursor:pointer;user-select:none;}
+.legend .item .sw{width:11px;height:11px;border-radius:3px;flex:none;}
+.legend .item.off{opacity:.38;}
+.legend .item.off .sw{background:var(--neutral-300)!important;}
+
+/* ── KPI grid ────────────────────────────────────────────── */
+.kpi-grid{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-bottom:24px;
+}
+.kpi{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  padding:16px 18px;box-shadow:var(--shadow-xs);position:relative;overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.kpi:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--primary);}
+.kpi .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.kpi .ico{
+  width:36px;height:36px;border-radius:10px;background:var(--cm-blue-50);color:var(--primary);
+  display:flex;align-items:center;justify-content:center;flex:none;
+}
+.kpi .ico svg{width:20px;height:20px;}
+.kpi .label{font-size:11px;font-weight:600;letter-spacing:.04em;color:var(--fg-muted);text-transform:uppercase;line-height:1.3;}
+.kpi .value{font-size:27px;font-weight:700;color:var(--neutral-900);letter-spacing:-0.02em;line-height:1.1;}
+.kpi .value .unit{font-size:15px;font-weight:600;color:var(--fg-muted);margin-left:2px;}
+.kpi .trend{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;margin-top:7px;}
+.kpi .trend.up{color:var(--success);}
+.kpi .trend.down{color:var(--danger);}
+.kpi .trend.flat{color:var(--fg-muted);}
+.kpi .trend .mom{color:var(--fg-subtle);font-weight:500;}
+.kpi.warn::before{background:var(--warning);}
+.kpi.warn .ico{background:var(--warning-soft);color:var(--warning);}
+.kpi.good::before{background:var(--success);}
+.kpi.good .ico{background:var(--success-soft);color:var(--success);}
+
+/* ── Chart grid rows ─────────────────────────────────────── */
+.row{display:grid;gap:20px;margin-bottom:20px;}
+.row.r-2-1{grid-template-columns:1.55fr 1fr;}
+.row.r-1{grid-template-columns:1fr;}
+.row.r-1-1{grid-template-columns:1fr 1fr;}
+
+svg.chart{width:100%;height:auto;display:block;overflow:visible;}
+.axis-label{font-size:10px;fill:var(--fg-muted);font-family:var(--font-brand);}
+.tick{font-size:10px;fill:var(--fg-subtle);font-family:var(--font-brand);}
+.grid-line{stroke:var(--neutral-100);stroke-width:1;}
+
+/* Tooltip */
+.tt{
+  position:fixed;pointer-events:none;z-index:200;background:var(--neutral-900);color:#fff;
+  font-size:12px;line-height:1.45;padding:9px 12px;border-radius:8px;box-shadow:var(--shadow-lg);
+  opacity:0;transform:translateY(4px);transition:opacity .12s ease,transform .12s ease;max-width:240px;
+}
+.tt.show{opacity:1;transform:translateY(0);}
+.tt .tt-title{font-weight:600;margin-bottom:4px;font-size:12px;}
+.tt .tt-row{display:flex;align-items:center;gap:7px;}
+.tt .tt-row .sw{width:9px;height:9px;border-radius:2px;flex:none;}
+.tt .tt-row .k{color:rgba(255,255,255,.7);}
+.tt .tt-row .v{margin-left:auto;font-weight:600;font-variant-numeric:tabular-nums;}
+
+/* Utilization rows */
+.util{display:flex;flex-direction:column;gap:16px;margin-top:4px;}
+.util .row-u{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:14px;}
+.util .nm{font-size:13px;font-weight:500;color:var(--fg);}
+.util .nm small{display:block;font-size:11px;color:var(--fg-muted);font-weight:400;}
+.util .track{height:26px;background:var(--neutral-100);border-radius:7px;position:relative;overflow:hidden;}
+.util .fill{height:100%;border-radius:7px;display:flex;align-items:center;transition:width .9s cubic-bezier(.4,0,.2,1);}
+.util .target{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--neutral-700);}
+.util .target::after{content:"TGT";position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:8px;font-weight:700;color:var(--neutral-700);letter-spacing:.04em;}
+.util .pct{font-size:15px;font-weight:700;text-align:right;font-variant-numeric:tabular-nums;}
+
+/* OEE gauges */
+.oee-wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:start;}
+.gauge{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.gauge .gname{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-muted);margin-top:2px;}
+.gauge .gsub{font-size:10px;color:var(--fg-subtle);}
+
+/* Donut center */
+.donut-wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.donut-legend{display:flex;flex-direction:column;gap:11px;flex:1;min-width:170px;}
+.donut-legend .li{display:flex;align-items:center;gap:10px;font-size:12.5px;}
+.donut-legend .li .sw{width:11px;height:11px;border-radius:3px;flex:none;}
+.donut-legend .li .nm{color:var(--fg);font-weight:500;}
+.donut-legend .li .meta{margin-left:auto;text-align:right;}
+.donut-legend .li .meta .p{font-weight:700;color:var(--neutral-900);font-variant-numeric:tabular-nums;}
+.donut-legend .li .meta .u{font-size:10.5px;color:var(--fg-muted);}
+
+.footnote{font-size:11px;color:var(--fg-subtle);margin-top:14px;border-top:1px solid var(--divider);padding-top:10px;}
+
+/* Responsive */
+@media (max-width:1180px){
+  .kpi-grid{grid-template-columns:repeat(3,1fr);}
+  .row.r-2-1,.row.r-1-1{grid-template-columns:1fr;}
+  .oee-wrap{grid-template-columns:repeat(4,1fr);}
+}
+@media (max-width:680px){
+  .shell{padding:18px 14px 40px;}
+  .appbar{padding:14px 16px;flex-wrap:wrap;}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+  .oee-wrap{grid-template-columns:repeat(2,1fr);gap:16px;}
+  .util .row-u{grid-template-columns:1fr;gap:4px;}
+  .util .pct{text-align:left;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── App Bar ─────────────────────────────────────────────── -->
+<header class="appbar">
+  <div class="mark" aria-hidden="true">
+    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="#1D4E9F" stroke-width="7"/><text x="50" y="64" font-family="Georgia,serif" font-size="46" font-weight="700" fill="#1D4E9F" text-anchor="middle">CM</text></svg>
+  </div>
+  <div class="titles">
+    <span class="eyebrow">Concept Medical · Manufacturing Intelligence</span>
+    <h1>Product Line Executive Dashboard</h1>
+  </div>
+  <div class="spacer"></div>
+  <div class="controls">
+    <div class="seg" id="period-seg" role="tablist" aria-label="Reporting period">
+      <button data-p="MTD">MTD</button>
+      <button data-p="QTD" class="active">QTD</button>
+      <button data-p="YTD">YTD</button>
+    </div>
+    <div class="pill-info"><span class="dot"></span> Live · Updated 09 Jun 2026, 08:00 IST</div>
+  </div>
+</header>
+
+<main class="shell">
+
+  <!-- ── KPI ROW ──────────────────────────────────────────── -->
+  <section aria-label="Executive KPIs">
+    <div class="kpi-grid" id="kpiGrid"></div>
+  </section>
+
+  <!-- ── ROW 1: Capacity by line  |  Product mix ──────────── -->
+  <div class="row r-2-1">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Operations</div>
+          <h3>Production Capacity by Product Line</h3>
+          <div class="sub">Units / month · planned capacity vs. monthly target reference</div>
+        </div>
+        <div class="legend" id="capLegend"></div>
+      </div>
+      <div id="capChart"></div>
+      <div class="footnote">Dashed line = monthly production target (1,250 units/line). Hover bars for capacity, output and utilization detail.</div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Portfolio</div>
+          <h3>Product Mix Contribution</h3>
+          <div class="sub">Share of total output · QTD</div>
+        </div>
+      </div>
+      <div class="donut-wrap">
+        <div id="mixDonut"></div>
+        <div class="donut-legend" id="mixLegend"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ── ROW 2: Utilization ───────────────────────────────── -->
+  <div class="row r-1">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Efficiency</div>
+          <h3>Product Line Utilization</h3>
+          <div class="sub">Actual output ÷ available capacity</div>
+        </div>
+        <div class="legend">
+          <span class="item"><span class="sw" style="background:var(--success)"></span>≥ 90% Optimal</span>
+          <span class="item"><span class="sw" style="background:var(--warning)"></span>75–90% Watch</span>
+          <span class="item"><span class="sw" style="background:var(--danger)"></span>&lt; 75% Underutilized</span>
+        </div>
+      </div>
+      <div class="util" id="utilList"></div>
+    </section>
+  </div>
+
+  <!-- ── ROW 3: Production trend ──────────────────────────── -->
+  <div class="row r-1">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Trend</div>
+          <h3>Production Output Trend — Trailing 12 Months</h3>
+          <div class="sub">Units / month by product family · dashed segment = forecast</div>
+        </div>
+        <div class="legend" id="trendLegend"></div>
+      </div>
+      <div id="trendChart"></div>
+    </section>
+  </div>
+
+  <!-- ── ROW 4: Quality combo | OEE ───────────────────────── -->
+  <div class="row r-2-1">
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Quality</div>
+          <h3>Quality &amp; Yield Analysis</h3>
+          <div class="sub">Units produced vs. first-pass yield &amp; rejection rate</div>
+        </div>
+        <div class="legend" id="qualLegend"></div>
+      </div>
+      <div id="qualChart"></div>
+    </section>
+
+    <section class="card">
+      <div class="card-head">
+        <div>
+          <div class="eyebrow">Equipment</div>
+          <h3>OEE Performance</h3>
+          <div class="sub">vs. World-Class benchmark 85%</div>
+        </div>
+      </div>
+      <div class="oee-wrap" id="oeeWrap"></div>
+      <div class="footnote">OEE = Availability × Performance × Quality. Outer ring marker (▲) = 85% world-class benchmark.</div>
+    </section>
+  </div>
+
+</main>
+
+<div class="tt" id="tooltip" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   Concept Medical — Product Line Executive Dashboard
+   Pure SVG charts, no dependencies. Brand-tokened, interactive.
+   ============================================================ */
+(function(){
+"use strict";
+
+/* ---- Brand palette pulled from CSS custom props ---- */
+const css = getComputedStyle(document.documentElement);
+const C = n => css.getPropertyValue(n).trim();
+const BLUE   = C('--cm-blue-500');
+const CYAN   = C('--cm-blue-200');
+const TEAL   = C('--product-teal');
+const AZURE  = C('--product-azure');
+const NAVY   = C('--cm-blue-700');
+const GRID   = C('--neutral-100');
+const AXIS   = C('--neutral-300');
+const MUTE   = C('--neutral-500');
+const SUBTLE = C('--neutral-400');
+const GREEN  = C('--success');
+const AMBER  = C('--warning');
+const RED    = C('--danger');
+const NS = 'http://www.w3.org/2000/svg';
+
+/* ---- Product families & brand colors ---- */
+const FAM = {
+  pta:  {name:'MagicTouch PTA',   short:'PTA',  color:BLUE},
+  scb:  {name:'MagicTouch SCB',   short:'SCB',  color:CYAN},
+  bio:  {name:'BioPath',          short:'BioPath', color:TEAL},
+  perp: {name:'Peripheral DCB',   short:'Periph.', color:AZURE},
+};
+
+/* ---- DATA MODEL (QTD baseline; period selector scales it) ---- */
+const DATA = {
+  kpis:[
+    {key:'capacity', label:'Total Production Capacity', icon:'capacity', value:45000, unit:'units', mom:+3.2, trend:'up'},
+    {key:'output',   label:'Actual Production Output',  icon:'output',   value:39150, unit:'units', mom:+5.1, trend:'up'},
+    {key:'util',     label:'Capacity Utilization',      icon:'gauge',    value:87,    unit:'%',     mom:+1.8, trend:'up'},
+    {key:'yield',    label:'First-Pass Yield Rate',     icon:'check',    value:96.4,  unit:'%',     mom:+0.6, trend:'up', tone:'good'},
+    {key:'reject',   label:'Rejection Rate',            icon:'alert',    value:2.1,   unit:'%',     mom:-0.4, trend:'up', tone:'good', invert:true},
+    {key:'oee',      label:'Overall Equipment Eff. (OEE)', icon:'oee',   value:82,    unit:'%',     mom:+2.3, trend:'up'},
+  ],
+  // Production lines (grouped column): capacity per product per line
+  lines:[
+    {line:'DCB Coating Line CL-01', pta:1180, scb:1240, capPta:1300, capScb:1350},
+    {line:'DCB Coating Line CL-02', pta:1290, scb:1320, capPta:1350, capScb:1400},
+    {line:'Stent Assembly Line AL-03', pta:1040, scb:1110, capPta:1200, capScb:1250},
+  ],
+  target:1250,
+  // Utilization
+  util:[
+    {name:FAM.pta.name,  sub:'Coronary DCB',          cap:13000, out:11050, pct:85},
+    {name:FAM.scb.name,  sub:'Sirolimus Coated Balloon', cap:14000, out:12880, pct:92},
+    {name:FAM.bio.name,  sub:'Below-the-knee DCB',    cap:9000,  out:7020,  pct:78},
+    {name:FAM.perp.name, sub:'SFA / Femoropopliteal', cap:9000,  out:7920,  pct:88},
+  ],
+  // Product mix donut
+  mix:[
+    {name:'Coronary DCB',           units:15660, color:BLUE},
+    {name:'Peripheral DCB',         units:11745, color:CYAN},
+    {name:'Drug-Eluting Stents',    units:8613,  color:TEAL},
+    {name:'New Product Development',units:3132,  color:AZURE},
+  ],
+  // 12-month trend (actual 10 months + 2 forecast)
+  months:['Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun'],
+  forecastFrom:9, // index where forecast (dashed) begins (May, Jun)
+  trend:{
+    pta:  [3050,3120,3080,3210,3260,3180,3320,3380,3410,3460,3520,3580],
+    scb:  [3380,3420,3510,3560,3600,3640,3720,3790,3850,3910,3990,4060],
+    bio:  [1880,1920,1980,2010,2060,2090,2140,2180,2210,2250,2300,2350],
+    perp: [2210,2260,2300,2340,2390,2420,2470,2520,2560,2600,2660,2710],
+  },
+  // Quality combo (per line / per month subset)
+  quality:[
+    {label:'Jan', units:11800, yield:95.4, reject:2.6},
+    {label:'Feb', units:12050, yield:95.9, reject:2.4},
+    {label:'Mar', units:12380, yield:96.1, reject:2.3},
+    {label:'Apr', units:12640, yield:96.2, reject:2.2},
+    {label:'May', units:12980, yield:96.6, reject:2.0},
+    {label:'Jun', units:13150, yield:96.4, reject:2.1},
+  ],
+  // OEE breakdown
+  oee:[
+    {name:'Availability', value:91, color:BLUE},
+    {name:'Performance',  value:89, color:CYAN},
+    {name:'Quality',      value:96, color:TEAL},
+    {name:'OEE',          value:82, color:NAVY},
+  ],
+  benchmark:85,
+};
+
+/* Period scaling factors applied to volume-based numbers for the toggle */
+const PERIOD = {MTD:{f:0.34,label:'Month-to-date'}, QTD:{f:1,label:'Quarter-to-date'}, YTD:{f:3.9,label:'Year-to-date'}};
+let period = 'QTD';
+
+/* ---- helpers ---- */
+function el(tag,attrs,parent){
+  const e=document.createElementNS(NS,tag);
+  if(attrs)for(const k in attrs)e.setAttribute(k,attrs[k]);
+  if(parent)parent.appendChild(e);
+  return e;
+}
+function svg(w,h){const s=el('svg',{viewBox:`0 0 ${w} ${h}`,class:'chart',role:'img'});return s;}
+function fmt(n){return Math.round(n).toLocaleString('en-US');}
+function txt(parent,x,y,str,attrs){const t=el('text',Object.assign({x,y},attrs),parent);t.textContent=str;return t;}
+
+/* ---- tooltip ---- */
+const tip=document.getElementById('tooltip');
+function showTip(html,evt){
+  tip.innerHTML=html; tip.classList.add('show');
+  moveTip(evt);
+}
+function moveTip(evt){
+  const pad=14, w=tip.offsetWidth, h=tip.offsetHeight;
+  let x=evt.clientX+pad, y=evt.clientY+pad;
+  if(x+w>window.innerWidth-8) x=evt.clientX-w-pad;
+  if(y+h>window.innerHeight-8) y=evt.clientY-h-pad;
+  tip.style.left=x+'px'; tip.style.top=y+'px';
+}
+function hideTip(){tip.classList.remove('show');}
+
+/* =========================================================
+   ICONS (inline, 24x24 stroke)
+   ========================================================= */
+const ICONS={
+  capacity:'<path d="M3 3v18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><rect x="7" y="11" width="3" height="6" rx="1" fill="currentColor"/><rect x="12" y="7" width="3" height="10" rx="1" fill="currentColor"/><rect x="17" y="4" width="3" height="13" rx="1" fill="currentColor"/>',
+  output:'<path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 7h6v6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  gauge:'<path d="M12 13l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 19a8 8 0 1 1 16 0" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.6" fill="currentColor"/>',
+  check:'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8.5 12.5l2.5 2.5 4.5-5" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>',
+  alert:'<path d="M12 4l9 16H3z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/><path d="M12 10v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="currentColor"/>',
+  oee:'<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 3a9 9 0 0 1 9 9" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="currentColor"/>',
+};
+function arrow(dir){ // trend arrow
+  return dir==='up'
+    ? '<svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    : '<svg width="13" height="13" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+}
+
+/* =========================================================
+   1. KPI CARDS
+   ========================================================= */
+function renderKPIs(){
+  const grid=document.getElementById('kpiGrid'); grid.innerHTML='';
+  const f=PERIOD[period].f;
+  DATA.kpis.forEach(k=>{
+    const card=document.createElement('div');
+    card.className='kpi'+(k.tone?' '+k.tone:'');
+    let val=k.value, unit=k.unit;
+    if(unit==='units'){ val=Math.round(k.value*f); }
+    const display = unit==='units'
+      ? `${fmt(val)}<span class="unit">${unit}</span>`
+      : `${val}<span class="unit">${unit}</span>`;
+    // For rejection rate, a down move is good (invert): show arrow by direction, color by goodness
+    const goodMove = k.invert ? (k.mom<0) : (k.mom>0);
+    const dir = k.mom>0?'up':(k.mom<0?'down':'flat');
+    const cls = goodMove?'up':(k.mom===0?'flat':'down');
+    const momTxt = (k.mom>0?'+':'')+k.mom+(unit==='%'?' pts':'%');
+    card.innerHTML=`
+      <div class="top">
+        <div class="ico">${svgIco(k.icon)}</div>
+        <div class="trend ${cls}">${arrow(dir)}<span>${momTxt}</span></div>
+      </div>
+      <div class="label">${k.label}</div>
+      <div class="value">${display}</div>
+      <div class="trend ${cls}" style="margin-top:4px;"><span class="mom">${PERIOD[period].label} · MoM</span></div>
+    `;
+    grid.appendChild(card);
+  });
+}
+function svgIco(name){return `<svg viewBox="0 0 24 24" fill="none">${ICONS[name]||''}</svg>`;}
+
+/* =========================================================
+   2. GROUPED COLUMN — Capacity by Product Line
+   ========================================================= */
+function renderCapacity(){
+  const host=document.getElementById('capChart'); host.innerHTML='';
+  const W=760,H=320,padL=54,padR=20,padT=24,padB=58;
+  const s=svg(W,H); host.appendChild(s);
+  const lines=DATA.lines;
+  const maxV=1500;
+  const yToPx=v=>padT+(1-v/maxV)*(H-padT-padB);
+  const plotW=W-padL-padR;
+  const groupW=plotW/lines.length;
+  const barW=Math.min(46,groupW*0.28);
+  const gap=10;
+
+  // gridlines + y ticks
+  for(let v=0;v<=maxV;v+=250){
+    const y=yToPx(v);
+    el('line',{x1:padL,y1:y,x2:W-padR,y2:y,class:'grid-line'},s);
+    txt(s,padL-8,y+3,fmt(v),{class:'tick','text-anchor':'end'});
+  }
+  // axis
+  el('line',{x1:padL,y1:padT,x2:padL,y2:H-padB,stroke:AXIS,'stroke-width':1},s);
+
+  // target reference line
+  const ty=yToPx(DATA.target);
+  el('line',{x1:padL,y1:ty,x2:W-padR,y2:ty,stroke:NAVY,'stroke-width':1.5,'stroke-dasharray':'6 4'},s);
+  txt(s,W-padR,ty-6,`Target ${fmt(DATA.target)}`,{class:'tick','text-anchor':'end',fill:NAVY,'font-weight':'600'});
+
+  lines.forEach((ln,i)=>{
+    const gx=padL+i*groupW+groupW/2;
+    const x0=gx-barW-gap/2;
+    const x1=gx+gap/2;
+    bar(s,x0,ln.pta,FAM.pta,ln);
+    bar(s,x1,ln.scb,FAM.scb,ln);
+    // line label
+    txt(s,gx,H-padB+20,ln.line.replace(/DCB |Stent /,''),{class:'tick','text-anchor':'middle','font-weight':'600',fill:MUTE});
+    txt(s,gx,H-padB+34,ln.line.match(/(CL-\d+|AL-\d+)/)[0],{class:'tick','text-anchor':'middle'});
+  });
+
+  function bar(s,x,val,fam,ln){
+    const y=yToPx(val), h=H-padB-y;
+    const r=el('rect',{x,y:H-padB,width:barW,height:0,rx:3,fill:fam.color,opacity:0.92,style:'cursor:pointer'},s);
+    // data label
+    const lbl=txt(s,x+barW/2,y-6,fmt(val),{class:'tick','text-anchor':'middle','font-weight':'700',fill:fam.color,opacity:0});
+    // animate
+    requestAnimationFrame(()=>{
+      r.style.transition='height .8s cubic-bezier(.4,0,.2,1), y .8s cubic-bezier(.4,0,.2,1)';
+      r.setAttribute('y',y); r.setAttribute('height',Math.max(0,h));
+      lbl.style.transition='opacity .4s ease .6s'; lbl.setAttribute('opacity','1');
+    });
+    const cap = fam===FAM.pta?ln.capPta:ln.capScb;
+    const util=Math.round(val/cap*100);
+    r.addEventListener('mousemove',e=>{
+      r.setAttribute('opacity','1');
+      showTip(`<div class="tt-title">${ln.line}</div>
+        <div class="tt-row"><span class="sw" style="background:${fam.color}"></span><span class="k">${fam.name}</span><span class="v">${fmt(val)}</span></div>
+        <div class="tt-row"><span class="k" style="padding-left:16px">Capacity</span><span class="v">${fmt(cap)}</span></div>
+        <div class="tt-row"><span class="k" style="padding-left:16px">Utilization</span><span class="v">${util}%</span></div>`,e);
+    });
+    r.addEventListener('mouseleave',()=>{r.setAttribute('opacity','0.92');hideTip();});
+  }
+
+  // axis titles
+  txt(s,padL-44,padT-8,'Units / month',{class:'axis-label','font-weight':'600'});
+
+  // legend
+  const lg=document.getElementById('capLegend'); lg.innerHTML='';
+  [FAM.pta,FAM.scb].forEach(f=>{
+    const it=document.createElement('span'); it.className='item';
+    it.innerHTML=`<span class="sw" style="background:${f.color}"></span>${f.name}`;
+    lg.appendChild(it);
+  });
+}
+
+/* =========================================================
+   3. DONUT — Product Mix Contribution
+   ========================================================= */
+function renderMix(){
+  const host=document.getElementById('mixDonut'); host.innerHTML='';
+  const size=200,r=78,rin=52,cx=size/2,cy=size/2;
+  const s=svg(size,size); s.style.maxWidth=size+'px'; s.style.flex='none'; host.appendChild(s);
+  const total=DATA.mix.reduce((a,d)=>a+d.units,0);
+  let a0=-Math.PI/2;
+  const segs=[];
+  DATA.mix.forEach(d=>{
+    const frac=d.units/total;
+    const a1=a0+frac*Math.PI*2;
+    const path=el('path',{d:arcPath(cx,cy,r,rin,a0,a1),fill:d.color,opacity:0.92,style:'cursor:pointer;transition:opacity .15s, transform .15s',transform:'scale(1)'},s);
+    const mid=(a0+a1)/2;
+    path.addEventListener('mousemove',e=>{
+      path.setAttribute('opacity','1');
+      showTip(`<div class="tt-title">${d.name}</div>
+        <div class="tt-row"><span class="sw" style="background:${d.color}"></span><span class="k">Units</span><span class="v">${fmt(d.units*PERIOD[period].f)}</span></div>
+        <div class="tt-row"><span class="k">Share</span><span class="v">${(frac*100).toFixed(1)}%</span></div>`,e);
+      highlightMix(d.name,true);
+    });
+    path.addEventListener('mouseleave',()=>{path.setAttribute('opacity','0.92');hideTip();highlightMix(d.name,false);});
+    segs.push({d,path});
+    a0=a1;
+  });
+  // center label
+  txt(s,cx,cy-4,fmt(total*PERIOD[period].f),{'text-anchor':'middle','font-size':'22','font-weight':'700',fill:C('--neutral-900'),'font-family':'Poppins'});
+  txt(s,cx,cy+14,'TOTAL UNITS',{'text-anchor':'middle','font-size':'9','font-weight':'600',fill:MUTE,'letter-spacing':'0.1em','font-family':'Poppins'});
+
+  // legend
+  const lg=document.getElementById('mixLegend'); lg.innerHTML='';
+  DATA.mix.forEach(d=>{
+    const frac=d.units/total;
+    const li=document.createElement('div'); li.className='li'; li.dataset.nm=d.name;
+    li.innerHTML=`<span class="sw" style="background:${d.color}"></span>
+      <span class="nm">${d.name}</span>
+      <span class="meta"><span class="p">${(frac*100).toFixed(1)}%</span><br><span class="u">${fmt(d.units*PERIOD[period].f)} units</span></span>`;
+    lg.appendChild(li);
+  });
+  window._mixSegs=segs;
+}
+function highlightMix(name,on){
+  (window._mixSegs||[]).forEach(o=>{
+    if(o.d.name===name) o.path.setAttribute('transform', on?`scale(1.04)`:'scale(1)');
+    o.path.style.transformOrigin='center';
+  });
+  document.querySelectorAll('#mixLegend .li').forEach(li=>{
+    li.style.background = (on&&li.dataset.nm===name)?'var(--neutral-50)':'';
+  });
+}
+function arcPath(cx,cy,r,rin,a0,a1){
+  const p=(rad,ang)=>[cx+rad*Math.cos(ang),cy+rad*Math.sin(ang)];
+  const large=(a1-a0)>Math.PI?1:0;
+  const [x0,y0]=p(r,a0),[x1,y1]=p(r,a1),[x2,y2]=p(rin,a1),[x3,y3]=p(rin,a0);
+  return `M${x0},${y0} A${r},${r} 0 ${large} 1 ${x1},${y1} L${x2},${y2} A${rin},${rin} 0 ${large} 0 ${x3},${y3} Z`;
+}
+
+/* =========================================================
+   4. UTILIZATION — Horizontal bars, color-coded
+   ========================================================= */
+function utilColor(p){return p>=90?GREEN:(p>=75?AMBER:RED);}
+function renderUtil(){
+  const host=document.getElementById('utilList'); host.innerHTML='';
+  DATA.util.forEach(u=>{
+    const col=utilColor(u.pct);
+    const row=document.createElement('div'); row.className='row-u';
+    row.innerHTML=`
+      <div class="nm">${u.name}<small>${u.sub}</small></div>
+      <div class="track" title="${fmt(u.out)} / ${fmt(u.cap)} units">
+        <div class="fill" style="width:0;background:linear-gradient(90deg,${col},${col})"></div>
+        <div class="target" style="left:90%"></div>
+      </div>
+      <div class="pct" style="color:${col}">${u.pct}%</div>`;
+    host.appendChild(row);
+    const fill=row.querySelector('.fill');
+    requestAnimationFrame(()=>{ setTimeout(()=>fill.style.width=u.pct+'%',60); });
+    const track=row.querySelector('.track');
+    track.style.cursor='pointer';
+    track.addEventListener('mousemove',e=>showTip(
+      `<div class="tt-title">${u.name}</div>
+       <div class="tt-row"><span class="k">Capacity</span><span class="v">${fmt(u.cap*PERIOD[period].f)}</span></div>
+       <div class="tt-row"><span class="k">Actual output</span><span class="v">${fmt(u.out*PERIOD[period].f)}</span></div>
+       <div class="tt-row"><span class="sw" style="background:${col}"></span><span class="k">Utilization</span><span class="v">${u.pct}%</span></div>`,e));
+    track.addEventListener('mouseleave',hideTip);
+  });
+}
+
+/* =========================================================
+   5. MULTI-LINE TREND — 12 months + forecast + legend toggle
+   ========================================================= */
+const trendState={pta:true,scb:true,bio:true,perp:true};
+function renderTrend(){
+  const host=document.getElementById('trendChart'); host.innerHTML='';
+  const W=1180,H=340,padL=56,padR=120,padT=24,padB=44;
+  const s=svg(W,H); host.appendChild(s);
+  const M=DATA.months, n=M.length;
+  const fy=DATA.forecastFrom;
+  let maxV=0;
+  Object.keys(FAM).forEach(k=>{if(trendState[k])DATA.trend[k].forEach(v=>maxV=Math.max(maxV,v));});
+  maxV=Math.ceil((maxV*1.1)/500)*500||5000;
+  const xToPx=i=>padL+(i/(n-1))*(W-padL-padR);
+  const yToPx=v=>padT+(1-v/maxV)*(H-padT-padB);
+
+  // grid + y ticks
+  for(let v=0;v<=maxV;v+=1000){
+    const y=yToPx(v);
+    el('line',{x1:padL,y1:y,x2:W-padR,y2:y,class:'grid-line'},s);
+    txt(s,padL-8,y+3,fmt(v),{class:'tick','text-anchor':'end'});
+  }
+  el('line',{x1:padL,y1:padT,x2:padL,y2:H-padB,stroke:AXIS,'stroke-width':1},s);
+
+  // forecast shaded band
+  const fx=xToPx(fy);
+  el('rect',{x:fx,y:padT,width:(W-padR)-fx,height:H-padT-padB,fill:GRID,opacity:0.55},s);
+  txt(s,(fx+(W-padR))/2,padT+12,'FORECAST',{class:'tick','text-anchor':'middle','letter-spacing':'0.14em',fill:SUBTLE,'font-weight':'600'});
+
+  // x labels
+  M.forEach((m,i)=>txt(s,xToPx(i),H-padB+18,m,{class:'tick','text-anchor':'middle'}));
+
+  // lines
+  Object.keys(FAM).forEach(k=>{
+    if(!trendState[k])return;
+    const fam=FAM[k], series=DATA.trend[k];
+    // solid (actual) up to forecastFrom, dashed beyond
+    const solid=series.slice(0,fy+1), dash=series.slice(fy);
+    pathLine(solid.map((v,i)=>[xToPx(i),yToPx(v)]),fam.color,2.4,null);
+    pathLine(dash.map((v,i)=>[xToPx(fy+i),yToPx(v)]),fam.color,2.4,'6 5');
+    // dots + hover
+    series.forEach((v,i)=>{
+      const cx=xToPx(i),cy=yToPx(v);
+      const dot=el('circle',{cx,cy,r:i>=fy?3:3.2,fill:i>=fy?'#fff':fam.color,stroke:fam.color,'stroke-width':i>=fy?2:1.5,style:'cursor:pointer'},s);
+      dot.addEventListener('mousemove',e=>showTip(
+        `<div class="tt-title">${M[i]} 2026 ${i>=fy?'· forecast':''}</div>
+         <div class="tt-row"><span class="sw" style="background:${fam.color}"></span><span class="k">${fam.name}</span><span class="v">${fmt(v)}</span></div>`,e));
+      dot.addEventListener('mouseleave',hideTip);
+    });
+    // end label
+    const last=series[n-1];
+    txt(s,W-padR+8,yToPx(last)+3,fam.short,{class:'tick',fill:fam.color,'font-weight':'700','text-anchor':'start'});
+  });
+  txt(s,padL-46,padT-8,'Units / month',{class:'axis-label','font-weight':'600'});
+
+  function pathLine(pts,color,w,dash){
+    if(pts.length<2 && !dash)return;
+    let d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+    el('path',Object.assign({d,fill:'none',stroke:color,'stroke-width':w,'stroke-linejoin':'round','stroke-linecap':'round'},dash?{'stroke-dasharray':dash}:{}),s);
+  }
+
+  // interactive legend
+  const lg=document.getElementById('trendLegend'); lg.innerHTML='';
+  Object.keys(FAM).forEach(k=>{
+    const fam=FAM[k];
+    const it=document.createElement('span');
+    it.className='item'+(trendState[k]?'':' off');
+    it.innerHTML=`<span class="sw" style="background:${fam.color}"></span>${fam.name}`;
+    it.addEventListener('click',()=>{ trendState[k]=!trendState[k]; renderTrend(); });
+    lg.appendChild(it);
+  });
+}
+
+/* =========================================================
+   6. QUALITY & YIELD — Combo (bars + 2 lines)
+   ========================================================= */
+const qualState={units:true,yield:true,reject:true};
+function renderQuality(){
+  const host=document.getElementById('qualChart'); host.innerHTML='';
+  const W=760,H=320,padL=54,padR=52,padT=24,padB=44;
+  const s=svg(W,H); host.appendChild(s);
+  const Q=DATA.quality, n=Q.length;
+  const maxU=15000;
+  const plotW=W-padL-padR;
+  const slot=plotW/n;
+  const bw=Math.min(46,slot*0.5);
+  const yU=v=>padT+(1-v/maxU)*(H-padT-padB);
+  // right axis for % (90-100)
+  const pMin=88,pMax=100;
+  const yP=v=>padT+(1-(v-pMin)/(pMax-pMin))*(H-padT-padB);
+
+  // grid + left ticks
+  for(let v=0;v<=maxU;v+=3000){
+    const y=yU(v);
+    el('line',{x1:padL,y1:y,x2:W-padR,y2:y,class:'grid-line'},s);
+    txt(s,padL-8,y+3,fmt(v),{class:'tick','text-anchor':'end'});
+  }
+  // right ticks (%)
+  for(let v=pMin;v<=pMax;v+=3){
+    txt(s,W-padR+8,yP(v)+3,v+'%',{class:'tick','text-anchor':'start'});
+  }
+  el('line',{x1:padL,y1:padT,x2:padL,y2:H-padB,stroke:AXIS,'stroke-width':1},s);
+  el('line',{x1:W-padR,y1:padT,x2:W-padR,y2:H-padB,stroke:AXIS,'stroke-width':1},s);
+
+  // bars (units)
+  if(qualState.units) Q.forEach((q,i)=>{
+    const cx=padL+slot*i+slot/2;
+    const y=yU(q.units),h=H-padB-y;
+    const r=el('rect',{x:cx-bw/2,y:H-padB,width:bw,height:0,rx:3,fill:BLUE,opacity:0.85,style:'cursor:pointer'},s);
+    requestAnimationFrame(()=>{r.style.transition='height .7s cubic-bezier(.4,0,.2,1),y .7s cubic-bezier(.4,0,.2,1)';r.setAttribute('y',y);r.setAttribute('height',h);});
+    r.addEventListener('mousemove',e=>{r.setAttribute('opacity','1');showTip(qTip(q),e);});
+    r.addEventListener('mouseleave',()=>{r.setAttribute('opacity','0.85');hideTip();});
+  });
+  // x labels
+  Q.forEach((q,i)=>txt(s,padL+slot*i+slot/2,H-padB+18,q.label,{class:'tick','text-anchor':'middle'}));
+
+  // yield line (green)
+  if(qualState.yield) comboLine('yield',GREEN);
+  // reject line (red) — scaled on a small secondary mapping (0-12 over same right axis space is messy; map reject% onto left-bottom region)
+  if(qualState.reject){
+    const yR=v=>padT+(1-(v)/(12))*(H-padT-padB); // 0-12% band
+    const pts=Q.map((q,i)=>[padL+slot*i+slot/2,yR(q.reject)]);
+    plot(pts,RED,2.4,'5 4');
+    Q.forEach((q,i)=>{
+      const c=el('circle',{cx:pts[i][0],cy:pts[i][1],r:3.2,fill:'#fff',stroke:RED,'stroke-width':1.8,style:'cursor:pointer'},s);
+      c.addEventListener('mousemove',e=>showTip(qTip(q),e)); c.addEventListener('mouseleave',hideTip);
+    });
+  }
+
+  function comboLine(key,color){
+    const pts=Q.map((q,i)=>[padL+slot*i+slot/2,yP(q[key])]);
+    plot(pts,color,2.6,null);
+    Q.forEach((q,i)=>{
+      const c=el('circle',{cx:pts[i][0],cy:pts[i][1],r:3.4,fill:color,stroke:'#fff','stroke-width':1.5,style:'cursor:pointer'},s);
+      c.addEventListener('mousemove',e=>showTip(qTip(q),e)); c.addEventListener('mouseleave',hideTip);
+    });
+  }
+  function plot(pts,color,w,dash){
+    const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');
+    el('path',Object.assign({d,fill:'none',stroke:color,'stroke-width':w,'stroke-linejoin':'round','stroke-linecap':'round'},dash?{'stroke-dasharray':dash}:{}),s);
+  }
+  function qTip(q){
+    return `<div class="tt-title">${q.label} 2026</div>
+      <div class="tt-row"><span class="sw" style="background:${BLUE}"></span><span class="k">Units produced</span><span class="v">${fmt(q.units)}</span></div>
+      <div class="tt-row"><span class="sw" style="background:${GREEN}"></span><span class="k">Yield</span><span class="v">${q.yield}%</span></div>
+      <div class="tt-row"><span class="sw" style="background:${RED}"></span><span class="k">Rejection</span><span class="v">${q.reject}%</span></div>`;
+  }
+  txt(s,padL-46,padT-8,'Units',{class:'axis-label','font-weight':'600'});
+  txt(s,W-padR+6,padT-8,'Yield %',{class:'axis-label','font-weight':'600',fill:GREEN});
+
+  // legend (toggle)
+  const lg=document.getElementById('qualLegend'); lg.innerHTML='';
+  [['units','Units produced',BLUE,'sq'],['yield','Yield %',GREEN,'ln'],['reject','Rejection %',RED,'ln']].forEach(([key,label,color])=>{
+    const it=document.createElement('span'); it.className='item'+(qualState[key]?'':' off');
+    it.innerHTML=`<span class="sw" style="background:${color}"></span>${label}`;
+    it.addEventListener('click',()=>{qualState[key]=!qualState[key];renderQuality();});
+    lg.appendChild(it);
+  });
+}
+
+/* =========================================================
+   7. OEE — Radial gauges with benchmark marker
+   ========================================================= */
+function renderOEE(){
+  const host=document.getElementById('oeeWrap'); host.innerHTML='';
+  DATA.oee.forEach(g=>{
+    const wrap=document.createElement('div'); wrap.className='gauge';
+    const size=126,r=50,cx=size/2,cy=size/2, sw=12;
+    const s=svg(size,size+8); s.style.maxWidth=size+'px';
+    // background track (270° arc from 135° to 405°)
+    const a0=Math.PI*0.75, a1=Math.PI*2.25, span=a1-a0;
+    el('path',{d:arcStroke(cx,cy,r,a0,a1),fill:'none',stroke:GRID,'stroke-width':sw,'stroke-linecap':'round'},s);
+    // value arc
+    const va=a0+span*(g.value/100);
+    const col = g.value>=DATA.benchmark?GREEN:(g.value>=70?AMBER:RED);
+    const arc=el('path',{d:arcStroke(cx,cy,r,a0,a0+0.001),fill:'none',stroke:col,'stroke-width':sw,'stroke-linecap':'round'},s);
+    // animate sweep
+    let t0=null; const dur=900;
+    function step(ts){ if(!t0)t0=ts; const k=Math.min(1,(ts-t0)/dur);
+      const e=1-Math.pow(1-k,3);
+      arc.setAttribute('d',arcStroke(cx,cy,r,a0,a0+(va-a0)*e));
+      if(k<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    // benchmark marker
+    const ba=a0+span*(DATA.benchmark/100);
+    const bx=cx+(r)*Math.cos(ba), by=cy+(r)*Math.sin(ba);
+    const mk=el('path',{d:triangle(bx,by,ba,6),fill:NAVY},s);
+    // center value
+    txt(s,cx,cy+2,g.value+'%',{'text-anchor':'middle','font-size':g.name==='OEE'?'26':'22','font-weight':'700',fill:C('--neutral-900'),'font-family':'Poppins','letter-spacing':'-0.02em'});
+    if(g.name==='OEE') txt(s,cx,cy+18,'OEE',{'text-anchor':'middle','font-size':'9','font-weight':'600',fill:MUTE,'letter-spacing':'0.12em','font-family':'Poppins'});
+    wrap.appendChild(s);
+    const nm=document.createElement('div'); nm.className='gname'; nm.textContent=g.name; wrap.appendChild(nm);
+    const sub=document.createElement('div'); sub.className='gsub';
+    sub.textContent = g.value>=DATA.benchmark?'World-class':(g.value>=70?'Approaching':'Below target');
+    sub.style.color = col; wrap.appendChild(sub);
+    host.appendChild(wrap);
+  });
+}
+function arcStroke(cx,cy,r,a0,a1){
+  const large=(a1-a0)>Math.PI?1:0;
+  return `M${cx+r*Math.cos(a0)},${cy+r*Math.sin(a0)} A${r},${r} 0 ${large} 1 ${cx+r*Math.cos(a1)},${cy+r*Math.sin(a1)}`;
+}
+function triangle(x,y,ang,sz){ // small pointer triangle pointing inward
+  const t=ang+Math.PI; // inward
+  const p=(d,a)=>[x+d*Math.cos(a),y+d*Math.sin(a)];
+  const tip=p(sz,t), a=p(sz*0.5,t+2.6),b=p(sz*0.5,t-2.6);
+  return `M${tip[0]},${tip[1]} L${a[0]},${a[1]} L${b[0]},${b[1]} Z`;
+}
+
+/* =========================================================
+   INIT + period toggle
+   ========================================================= */
+function renderAll(){
+  renderKPIs(); renderCapacity(); renderMix(); renderUtil();
+  renderTrend(); renderQuality(); renderOEE();
+}
+document.getElementById('period-seg').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  document.querySelectorAll('#period-seg button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); period=b.dataset.p; renderAll();
+});
+window.addEventListener('resize',()=>{ /* SVG viewBox handles scaling; tooltip auto-repositions */ });
+renderAll();
+
+})();
+</script>
+</body>
+</html>
