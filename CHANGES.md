@@ -35,6 +35,17 @@ unchanged — only correctness, accessibility, and performance were improved.
   content is fully visible without JS or under reduced-motion, and a failsafe
   reveals everything after 3s regardless.
 
+## Mobile layout fix
+- **Root cause:** every responsive rule was written as `[style*="grid-template-columns:150px"]`
+  (colon, no space) but the inline styles are authored `grid-template-columns: 150px`
+  (colon + space), so **none of the mobile overrides matched** — multi-column grids
+  never collapsed and the agenda's fixed `150px + 110px` columns overflowed the screen.
+- Rewrote both `@media` blocks so each attribute selector matches the authored
+  spacing (and kept the no-space form too, so it survives re-serialisation).
+- Tightened mobile specifics: full-width agenda tabs, single-column agenda rows,
+  a tidy 4-cell countdown row, collapsed 2-column sections, added a `≤400px` tier.
+  Verified with no horizontal overflow at 360/390/768px.
+
 ## How to use
 Copy everything in `identity-2026.html` from the `<link …>` / `<style>` block down
 to the closing `</script>` and paste it into the Elementor HTML widget, replacing
