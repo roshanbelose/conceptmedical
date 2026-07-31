@@ -1,0 +1,875 @@
+<!--
+  Identity 2026 — Concept Leadership Conclave
+  Elementor "HTML" widget snippet (self-contained: <style> + markup + <script>).
+
+  This is a hardened, accessible revision of the original. Everything is scoped
+  under #id26 so it is safe to paste into a single Elementor HTML widget.
+  Paste the whole block below (from the <link>/<style> down to the closing
+  </script>) into the widget.
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
+#id26{--cm:#1D4E9F;--navy:#122248;--navy2:#213E7B;--cyan:#00B7F1;font-family:'Poppins',system-ui,sans-serif;color:#1B202B;background:#fff;line-height:1.5;overflow-x:clip}
+#id26,#id26 *,#id26 *::before,#id26 *::after{box-sizing:border-box}
+#id26 h1,#id26 h2,#id26 h3,#id26 p{margin:0}
+#id26 img{max-width:100%;display:block}
+#id26 a{text-decoration:none;color:#1D4E9F}
+#id26 a:focus-visible,#id26 button:focus-visible{outline:2px solid #00B7F1;outline-offset:3px;border-radius:6px}
+#id26 em.editorial{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
+#id26 .id26-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+#id26 .id26-tabs{display:flex;gap:10px;flex-wrap:wrap}
+#id26:not(.id26-js) .id26-tabs{display:none!important}
+#id26 .id26-tab{padding:12px 22px;border-radius:999px;font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:transparent;color:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.28);transition:background 160ms ease,color 160ms ease,border-color 160ms ease}
+#id26 .id26-tab:hover{border-color:rgba(255,255,255,.6);color:#fff}
+#id26 .id26-tab.is-on{background:#fff;color:#122248;border-color:#fff}
+
+#id26 .id26-day{display:block;margin-bottom:20px}
+#id26.id26-js .id26-day{display:none;margin-bottom:0}
+#id26.id26-js .id26-day.is-on{display:block}
+
+#id26 .reveal{opacity:1;transform:none}
+#id26.id26-anim .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+#id26.id26-anim .reveal.is-in{opacity:1;transform:none}
+
+#id26 nav a:hover{color:#fff}
+#id26 svg{display:block;max-width:none}
+
+@media(prefers-reduced-motion:reduce){
+  #id26 *,#id26 *::before,#id26 *::after{transition-duration:.001ms!important;animation-duration:.001ms!important;scroll-behavior:auto!important}
+  #id26.id26-anim .reveal{opacity:1;transform:none}
+}
+
+@media(max-width:1024px){
+  #id26 .id26-hl{grid-template-columns:1fr!important}
+  #id26 section{padding-left:24px!important;padding-right:24px!important;padding-top:80px!important;padding-bottom:80px!important}
+  #id26 [style*="grid-template-columns:minmax"]{grid-template-columns:1fr!important;gap:40px!important}
+  #id26 [style*="grid-template-columns:150px"]{grid-template-columns:1fr!important;gap:6px!important}
+  #id26 [style*="grid-template-columns:120px"]{grid-template-columns:1fr!important;gap:6px!important}
+  #id26 [style*="text-align:right"]{text-align:left!important}
+  #id26 nav{flex-wrap:wrap;gap:14px!important;padding:12px 20px!important}
+  #id26 nav>div:last-child{gap:14px!important;font-size:11.5px!important;flex-wrap:wrap}
+  #id26 [style*="border-left:1px solid"]{border-left:none!important;padding-left:0!important}
+}
+@media(max-width:640px){
+  #id26 .id26-hl{grid-template-columns:1fr!important;gap:18px!important}
+  #id26 section{padding-left:18px!important;padding-right:18px!important;padding-top:60px!important;padding-bottom:60px!important}
+  #id26 header nav{padding:10px 16px!important;gap:10px!important}
+  #id26 header nav>div:last-child{width:100%;gap:12px 16px!important;font-size:12px!important;justify-content:flex-start}
+  #id26 header nav img{height:40px!important}
+  #id26 #top{padding-top:76px!important;padding-bottom:64px!important}
+  #id26 #top h1{font-size:52px!important;line-height:.96!important}
+  #id26 [style*="display:grid"]{grid-template-columns:1fr!important}
+  #id26 [style*="grid-template-columns:22px"]{grid-template-columns:22px 1fr!important}
+  #id26 [style*="border-left:1px solid"]{border-left:none!important;padding-left:0!important}
+  #id26 [style*="padding:24px 44px"],#id26 [style*="padding:24px 0 0 44px"],
+  #id26 [style*="padding:34px 28px"],#id26 [style*="padding:34px 0 34px 28px"],
+  #id26 [style*="padding:22px 40px"],#id26 [style*="padding:22px 0 0 40px"]{padding-left:0!important;padding-right:0!important}
+  #id26 [style*="grid-template-columns:150px"],#id26 [style*="grid-template-columns:120px"]{gap:6px!important;padding-left:20px!important;padding-right:20px!important}
+  #id26 [style*="grid-template-columns:150px"]>div:last-child{text-align:left!important}
+  #id26 [data-cd]{font-size:34px!important}
+  #id26 h2{font-size:30px!important;line-height:1.14!important}
+  #id26 h2,#id26 p{max-width:100%!important}
+  #id26 [style*="padding:40px"]{padding:26px!important}
+  #id26 [style*="padding:38px 34px"]{padding:28px 22px!important}
+  #id26 [style*="padding:32px"]{padding:24px!important}
+  #id26 [style*="padding:30px"]{padding:24px!important}
+  #id26 [style*="padding:34px"]{padding:24px!important}
+  #id26 .id26-hl>div{padding:26px 22px!important}
+  #id26 [style*="height:380px"]{height:auto!important;aspect-ratio:4/5}
+  #id26 [style*="height:340px"]{height:260px!important}
+  #id26 [style*="height:300px"]{height:250px!important}
+  #id26 a[href^="#"],#id26 a[download],#id26 a[target]{min-height:44px;display:inline-flex;align-items:center}
+  #id26 .id26-tab{min-height:44px}
+  #id26 [aria-hidden="true"]{max-width:100vw}
+}
+</style>
+
+<div id="id26" lang="en">
+<div style="max-width: 100%; overflow-x: clip;"><header style="position: sticky; top: 0; z-index: 60; background: rgba(18,34,72,.94); backdrop-filter: saturate(140%) blur(6px); border-bottom: 1px solid rgba(255,255,255,.10);"><nav aria-label="Primary" style="max-width: 1280px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 28px;"><a style="display: flex; align-items: center; gap: 12px; flex: none;" href="#top">
+<img style="width: auto; height: 52px; max-width: 120px; object-fit: contain; display: block;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/CLC-New-Logo-scaled.png" alt="Concept Leadership Conclave" width="120" height="52" loading="eager" decoding="async" /></a><span style="font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.72); font-weight: 500; line-height: 1.3;">Identity 2026
+<span style="color: rgba(255,255,255,.45);">Up &amp; Beyond</span></span>
+<div style="flex: 1;"></div>
+<div style="display: flex; align-items: center; gap: 22px; font-size: 12.5px; font-weight: 500; letter-spacing: .02em;"><a style="color: rgba(255,255,255,.82);" href="#about">About</a>
+<a style="color: rgba(255,255,255,.82);" href="#theme">Theme</a>
+<a style="color: rgba(255,255,255,.82);" href="#agenda">Agenda</a>
+<a style="color: rgba(255,255,255,.82);" href="#speakers">Speakers</a>
+<a style="color: rgba(255,255,255,.82);" href="#artists">Entertainment</a>
+<a style="color: rgba(255,255,255,.82);" href="#venue">Venue</a>
+<a style="background: #FFFFFF; color: #122248; padding: 10px 20px; border-radius: 999px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 11px; white-space: nowrap; box-shadow: inset 0 1px 0 rgba(255,255,255,.6); transition: background 160ms ease,color 160ms ease;" href="#register">Add to Calendar</a></div>
+</nav></header><section id="top" style="position: relative; background: #122248; overflow: hidden; padding: 132px 32px 96px;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 62% 42%; opacity: .85;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Identity-2026.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" />
+<div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(18,34,72,.90) 0%, rgba(18,34,72,.72) 34%, rgba(18,34,72,.34) 66%, rgba(18,34,72,.16) 100%); pointer-events: none;"></div>
+<div style="position: absolute; inset: 0; background: linear-gradient(0deg, rgba(18,34,72,.55) 0%, rgba(18,34,72,0) 42%); pointer-events: none;"></div>
+<div style="position: absolute; width: 1500px; height: 1500px; right: -380px; top: -620px; border: 1px solid rgba(151,218,248,.30); border-radius: 50%; opacity: .55; pointer-events: none;"></div>
+<div style="position: absolute; width: 1180px; height: 1180px; right: -260px; top: -420px; border: 1px solid rgba(151,218,248,.14); border-radius: 50%; opacity: .55; pointer-events: none;"></div>
+<div style="position: absolute; left: 0; right: 0; bottom: 0; height: 280px; background: radial-gradient(120% 100% at 50% 100%, rgba(0,183,241,.24) 0%, rgba(18,34,72,0) 72%); pointer-events: none;"></div>
+<div style="position: relative; max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 34px;"><span style="font-size: 11.5px; letter-spacing: .30em; text-transform: uppercase; color: rgba(255,255,255,.72); font-weight: 500;">Concept Medical Group · Leadership Convention · Goa</span></div>
+<h1 style="margin: 0; font-size: clamp(52px,8vw,116px); line-height: .94; font-weight: 600; letter-spacing: -.02em; color: #ffffff; text-shadow: 0 2px 28px rgba(18,34,72,.55);">Identity <span style="font-weight: 300; color: rgba(255,255,255,.82);">2026</span></h1>
+<p style="margin: 12px 0 0; font-size: clamp(40px,6.4vw,92px); line-height: 1; color: #ffffff; font-weight: 400; text-shadow: 0 2px 28px rgba(18,34,72,.55);"><em class="editorial">Up <span style="color: #79a3dc;">&amp;</span> Beyond</em></p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 40px 0 0;"><span style="padding: 8px 18px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #ffffff;">Arrive</span>
+<span style="padding: 8px 18px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #ffffff;">Connect</span>
+<span style="padding: 8px 18px; border: 1px solid rgba(255,255,255,.24); border-radius: 999px; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #ffffff;">Identity</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 0; margin: 52px 0 0; border-top: 1px solid rgba(255,255,255,.16);">
+<div style="padding: 24px 44px 0 0; min-width: 220px;">
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px;">Dates</div>
+<div style="font-size: 19px; color: #ffffff; font-weight: 500;">6 – 8 August 2026</div>
+<div style="font-size: 13px; color: rgba(255,255,255,.62); margin-top: 2px;">Thursday to Saturday</div>
+</div>
+<div style="padding: 24px 44px 0; min-width: 220px; border-left: 1px solid rgba(255,255,255,.16);">
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px;">Venue</div>
+<div style="font-size: 19px; color: #ffffff; font-weight: 500;">The Westin, Goa</div>
+<div style="font-size: 13px; color: rgba(255,255,255,.62); margin-top: 2px;">Rooms Chapora &amp; Kashti</div>
+</div>
+<div style="padding: 24px 0 0 44px; min-width: 220px; border-left: 1px solid rgba(255,255,255,.16);">
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 8px;">Audience</div>
+<div style="font-size: 19px; color: #ffffff; font-weight: 500;">Senior &amp; Managerial Leaders</div>
+<div style="font-size: 13px; color: rgba(255,255,255,.62); margin-top: 2px;">By invitation, Concept Medical Group</div>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 48px;"><a style="background: #FFFFFF; color: #122248; padding: 16px 34px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; box-shadow: inset 0 1px 0 rgba(255,255,255,.6); transition: background 160ms ease;" href="#register">Add to Calendar</a>
+<a style="border: 1px solid rgba(255,255,255,.34); color: #ffffff; padding: 16px 34px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; transition: border-color 160ms ease,background 160ms ease;" href="#agenda">View the Agenda</a></div>
+</div>
+</section><section aria-label="Event at a glance" style="background: #182B53; border-top: 1px solid rgba(255,255,255,.10);">
+<div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr));">
+<div style="padding: 34px 28px 34px 0;">
+<div style="font-size: 38px; font-weight: 600; color: #ffffff; line-height: 1;">3</div>
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-top: 8px;">Days in Goa</div>
+</div>
+<div style="padding: 34px 28px; border-left: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 38px; font-weight: 600; color: #ffffff; line-height: 1;">14</div>
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-top: 8px;">Sessions &amp; Activities</div>
+</div>
+<div style="padding: 34px 28px; border-left: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 38px; font-weight: 600; color: #ffffff; line-height: 1;">15</div>
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-top: 8px;">Award Categories</div>
+</div>
+<div style="padding: 34px 0 34px 28px; border-left: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 38px; font-weight: 600; color: #ffffff; line-height: 1;">2</div>
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.62); margin-top: 8px;">Parallel Learning Tracks</div>
+</div>
+</div>
+</section><section id="about" class="reveal" style="background: #FFFFFF; padding: 112px 32px; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,.85fr); gap: 80px; align-items: start;">
+<div>
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">About Identity 2026</span></div>
+<h2 style="margin: 0 0 26px; font-size: clamp(34px,4vw,52px); line-height: 1.1; font-weight: 600; letter-spacing: -.015em; color: #122248; text-wrap: pretty;">The Concept Leadership Conclave brings our leaders together to <em class="editorial" style="font-weight: 500;">learn, reflect and recognise</em>.</h2>
+<p style="margin: 0 0 20px; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 62ch; text-wrap: pretty;">Identity 2026 is the annual leadership convention of the Concept Medical Group — three days in Goa dedicated to sharpening how we lead, how we work across functions, and how we hold ourselves to the standards our clinicians and patients depend on.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 62ch; text-wrap: pretty;">It pairs structured leadership development with an honest look at the year behind us — team presentations from every function, an open house on the challenges teams actually face, and a Rewards &amp; Recognition evening that puts our people on stage.</p>
+
+</div>
+<div style="border: 1px solid #DAE6F1; border-radius: 14px; padding: 34px; background: #F1F7FC;">
+<div style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #6b7589; font-weight: 600; margin-bottom: 26px;">At a Glance</div>
+<div style="display: grid; gap: 22px;">
+<div style="display: grid; gap: 5px;">
+<div style="font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5;">Event</div>
+<div style="font-size: 15.5px; color: #1b202b; font-weight: 500;">Concept Leadership Conclave — Identity 2026</div>
+</div>
+<div style="height: 1px; background: #DAE6F1;"></div>
+<div style="display: grid; gap: 5px;">
+<div style="font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5;">Theme</div>
+<div style="font-size: 15.5px; color: #1b202b; font-weight: 500;">Up &amp; Beyond</div>
+</div>
+<div style="height: 1px; background: #DAE6F1;"></div>
+<div style="display: grid; gap: 5px;">
+<div style="font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5;">Focus Areas</div>
+<div style="font-size: 15.5px; color: #1b202b; font-weight: 500;">Leadership Enhancement · Rewards &amp; Recognition · Target vs Achievement</div>
+</div>
+<div style="height: 1px; background: #DAE6F1;"></div>
+<div style="display: grid; gap: 5px;">
+<div style="font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5;">Dates</div>
+<div style="font-size: 15.5px; color: #1b202b; font-weight: 500;">Thursday 6 to Saturday 8 August 2026</div>
+</div>
+<div style="height: 1px; background: #DAE6F1;"></div>
+<div style="display: grid; gap: 5px;">
+<div style="font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5;">Venue</div>
+<div style="font-size: 15.5px; color: #1b202b; font-weight: 500;">The Westin, Goa · Rooms Chapora &amp; Kashti</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="theme" style="background: #213E7B; padding: 112px 32px; position: relative; overflow: hidden; scroll-margin-top: 78px;">
+<div style="position: absolute; inset: 0; background: radial-gradient(90% 80% at 15% 0%, rgba(151,218,248,.12) 0%, rgba(33,62,123,0) 60%); pointer-events: none;"></div>
+<div class="reveal" style="position: relative; max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #97daf8; font-weight: 600;">The Theme</span></div>
+<div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 80px; align-items: end; margin-bottom: 72px;">
+<div>
+<h2 style="margin: 0; font-size: clamp(46px,7vw,96px); line-height: .98; color: #ffffff; font-weight: 400;"><em class="editorial">Up <span style="color: #79a3dc;">&amp;</span> Beyond</em></h2>
+</div>
+<p style="margin: 0; font-size: 18px; line-height: 1.7; color: rgba(255,255,255,.80); text-wrap: pretty;">Up is direction — raising the standard of how we lead, decide and deliver. Beyond is distance — moving past the boundaries of our own function, our own market, our own last best year. Three days on the Goan coast, with the horizon in view, to do both.</p>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); border-radius: 14px; overflow: hidden;">
+<div style="background: #213E7B; padding: 38px 34px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 20px;">Pillar 01</div>
+<h3 style="margin: 0 0 12px; font-size: 23px; font-weight: 600; color: #ffffff;">Leadership Enhancement</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.76);">Communication, delegation, ownership and risk — taught as working practice, not theory, across two full programme days.</p>
+
+</div>
+<div style="background: #213E7B; padding: 38px 34px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 20px;">Pillar 02</div>
+<h3 style="margin: 0 0 12px; font-size: 23px; font-weight: 600; color: #ffffff;">Rewards &amp; Recognition</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.76);">Fifteen award categories honouring the individuals, teams and departments who moved the group forward this year.</p>
+
+</div>
+<div style="background: #213E7B; padding: 38px 34px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 20px;">Pillar 03</div>
+<h3 style="margin: 0 0 12px; font-size: 23px; font-weight: 600; color: #ffffff;">Target vs Achievement</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: rgba(255,255,255,.76);">An unvarnished review of commitments made and results delivered, presented by the heads of every function.</p>
+
+</div>
+</div>
+</div>
+</section><section id="leadership" class="reveal" style="background: #FFFFFF; padding: 112px 32px; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 48px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Leadership Message</span></div>
+<div style="display: grid; grid-template-columns: minmax(0,320px) minmax(0,1fr); gap: 64px; align-items: start;">
+<div>
+
+<img style="width: 100%; height: 380px; object-fit: cover; object-position: 50% 22%; border-radius: 14px; display: block;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Manish-Doshi.webp" alt="Dr. Manish Doshi" loading="lazy" decoding="async" />
+<div style="margin-top: 22px;">
+<div style="font-size: 19px; font-weight: 600; color: #122248;">Dr. Manish Doshi</div>
+<div style="font-size: 13.5px; color: #6b7589; margin-top: 4px; line-height: 1.5;">Founder &amp; Managing Director
+Concept Medical Group</div>
+</div>
+</div>
+<div>
+<p style="margin: 0 0 30px; font-size: clamp(26px,3vw,38px); line-height: 1.34; color: #122248; font-weight: 400; text-wrap: pretty;"><em class="editorial" style="color: #1d4e9f;">"Converting concepts into reality."</em> That has been our work since 2008, and it has never been the work of one person.</p>
+<p style="margin: 0 0 44px; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 66ch; text-wrap: pretty;">This year, our science stood on the world stage, and the world is now asking us to deliver at a scale we have never attempted. Every delay is a cost — to a hospital, to a clinician, to a patient waiting for a therapy that works. That urgency is our identity. Over these two days, speak plainly, listen closely, and leave with one commitment you will be measured against when we meet next year.</p>
+
+</div>
+</div>
+</div>
+</section><section id="leadership-ed" class="reveal" style="background: #F1F7FC; padding: 112px 32px; border-top: 1px solid #DAE6F1; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 48px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Leadership Message</span></div>
+<div style="display: grid; grid-template-columns: minmax(0,320px) minmax(0,1fr); gap: 64px; align-items: start;">
+<div>
+
+<img style="width: 100%; height: 380px; object-fit: cover; object-position: 50% 22%; border-radius: 14px; display: block;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Mr.Parth-Doshi.jpg" alt="Mr. Parth Doshi" loading="lazy" decoding="async" />
+<div style="margin-top: 22px;">
+<div style="font-size: 19px; font-weight: 600; color: #122248;">Parth Doshi</div>
+<div style="font-size: 13.5px; color: #6b7589; margin-top: 4px; line-height: 1.5;">Executive Director
+Concept Medical Group</div>
+</div>
+</div>
+<div>
+<p style="margin: 0 0 30px; font-size: clamp(26px,3vw,38px); line-height: 1.34; color: #122248; font-weight: 400; text-wrap: pretty;"><em class="editorial" style="color: #1d4e9f;">"Let's Make History."</em> Not a slogan — it's a decision we make every day. History is created when every individual, every function, and every action move in the same direction, with the same purpose.</p>
+<p style="margin: 0 0 20px; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 66ch; text-wrap: pretty;">Over these two days, all of us will sit in one room. Every function will put its identity on the table — what it owns, what it needs, and where it depends on the team beside it. Break the silos, understand each other's constraints, and leave aligned behind one shared vision. Extraordinary results are never achieved by individuals working harder; they are achieved by teams working together — up, and beyond.</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 66ch; text-wrap: pretty;">Let's return united, accountable, and ready to make history, together.</p>
+
+</div>
+</div>
+</div>
+</section><section id="why" class="reveal" style="background: #FFFFFF; padding: 112px 32px; scroll-margin-top: 78px;" data-screen-label="Event Highlights">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Event Highlights</span></div>
+<h2 style="margin: 0 0 56px; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #122248; max-width: 26ch; letter-spacing: -.015em;">The moments that define the three days.</h2>
+<div id="highlights" class="id26-hl" style="display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; scroll-margin-top: 110px;">
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 34px 30px;">
+<div style="width: 34px; height: 2px; background: #00B7F1; margin-bottom: 22px;"></div>
+<h3 style="margin: 0 0 10px; font-size: 20px; font-weight: 600; color: #122248;">AI in Our Industry</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">A grounded external perspective on where artificial intelligence genuinely changes medical-device research, manufacturing and evidence.</p>
+
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 34px 30px;">
+<div style="width: 34px; height: 2px; background: #00B7F1; margin-bottom: 22px;"></div>
+<h3 style="margin: 0 0 10px; font-size: 20px; font-weight: 600; color: #122248;">Emerging Leaders Lab</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">A dedicated training track for S3 and M1 colleagues in Room Kashti, running in parallel with senior team presentations.</p>
+
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 34px 30px;">
+<div style="width: 34px; height: 2px; background: #00B7F1; margin-bottom: 22px;"></div>
+<h3 style="margin: 0 0 10px; font-size: 20px; font-weight: 600; color: #122248;">Recognition &amp; Sufi Night</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">Day 2 closes with the Concept Classroom launch, the Rewards &amp; Recognition awards, and a live Sufi mehfil with dinner.</p>
+
+</div>
+</div>
+</div>
+</section><section id="agenda" style="background: #122248; padding: 112px 32px; scroll-margin-top: 78px; position: relative; overflow: hidden;">
+<div style="position: absolute; inset: 0; background: radial-gradient(80% 70% at 90% 0%, rgba(77,123,190,.22) 0%, rgba(18,34,72,0) 60%); pointer-events: none;"></div>
+<div style="position: relative; max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #97daf8; font-weight: 600;">Agenda</span></div>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; align-items: end; justify-content: space-between; margin-bottom: 44px;">
+<h2 style="margin: 0; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #ffffff; letter-spacing: -.015em; max-width: 24ch;">Three days, mapped hour by hour.</h2>
+<div class="id26-tabs" role="tablist" aria-label="Select agenda day"><button class="id26-tab is-on" type="button" data-day="1" role="tab" id="id26-tab-1" aria-controls="id26-panel-1" aria-selected="true" tabindex="0">Day 1 · Thu 6 Aug</button>
+<button class="id26-tab" type="button" data-day="2" role="tab" id="id26-tab-2" aria-controls="id26-panel-2" aria-selected="false" tabindex="-1">Day 2 · Fri 7 Aug</button>
+<button class="id26-tab" type="button" data-day="3" role="tab" id="id26-tab-3" aria-controls="id26-panel-3" aria-selected="false" tabindex="-1">Day 3 · Sat 8 Aug</button></div>
+</div>
+<div class="id26-day is-on" data-day="1" role="tabpanel" id="id26-panel-1" aria-labelledby="id26-tab-1" tabindex="0">
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.04);">
+<div style="padding: 30px 34px; border-bottom: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline; justify-content: space-between;">
+<div>
+<div style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #97daf8; margin-bottom: 8px;">Day 1 · Thursday, 6 August 2026</div>
+<div style="font-size: 26px; font-weight: 600; color: #ffffff;">Arrive &amp; Kick-Off</div>
+</div>
+<div style="font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.6; text-align: right;">Morning attire: White T-shirt &amp; blue jeans
+Evening attire: Smart casuals</div>
+</div>
+<div style="display: grid;">
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">09:30 – 12:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Breakfast at Artjuna Café</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Open arrival</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">12:00 – 13:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Welcome &amp; Check-in</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">The Westin, Goa · Led by the Event Team</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">13:00 – 14:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Lunch</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">14:30 – 15:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Welcome Address</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Mr. Parth Doshi · Executive Director</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">15:00 – 16:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Artificial Intelligence in Our Industry</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Dr. Sivapriya Kirubakaran · External Trainer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">16:00 – 16:15</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Refreshment Break</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">16:15 – 19:15</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">
+
+Parallel Tracks
+<div style="font-size: 14px; color: rgba(255,255,255,.68); font-weight: 400; margin-top: 8px; line-height: 1.6;">Group 1 (M2 &amp; above) — Team Presentation, Room Chapora
+Group 2 (S3 &amp; M1) — Emerging Leaders Lab, Room Kashti</div>
+</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Ms. Ishita Nandwani · Corporate Trainer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: #00b7f1; text-align: right;">Split</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">19:15 – 19:45</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Refresh &amp; Get Ready</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px;">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">19:45</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">
+
+An Evening of Laughter
+<div style="font-size: 14px; color: rgba(255,255,255,.68); font-weight: 400; margin-top: 6px;">Followed by Dinner &amp; DJ</div>
+</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68); line-height: 1.6;">Humorously Yours — Vipul Goyal
+DJ Jotesh</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+</div>
+</div>
+</div>
+<div class="id26-day" data-day="2" role="tabpanel" id="id26-panel-2" aria-labelledby="id26-tab-2" tabindex="0">
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.04);">
+<div style="padding: 30px 34px; border-bottom: 1px solid rgba(255,255,255,.14); display: flex; flex-wrap: wrap; gap: 24px; align-items: baseline; justify-content: space-between;">
+<div>
+<div style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #97daf8; margin-bottom: 8px;">Day 2 · Friday, 7 August 2026 · Room Kashti</div>
+<div style="font-size: 26px; font-weight: 600; color: #ffffff;">Learn, Reflect &amp; Recognise</div>
+</div>
+<div style="font-size: 13px; color: rgba(255,255,255,.70); line-height: 1.6; text-align: right;">Morning attire: Black T-shirt &amp; blue jeans
+Evening attire: Smart casuals, preferably with a blazer or jacket</div>
+</div>
+<div style="display: grid;">
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">09:30 – 10:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Quick Quiz</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Ms. Ishita Nandwani · Corporate Trainer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">10:00 – 11:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">
+
+Team Presentations
+<div style="font-size: 14px; color: rgba(255,255,255,.68); font-weight: 400; margin-top: 6px;">Promoting cross-functional coordination &amp; collaboration</div>
+</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Presented by HODs · Room Kashti</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">11:00 – 12:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Leadership Communication Session</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Mr. Asit Mehta</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">13:15 – 14:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Lunch Break</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">14:00 – 15:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">The Five Pillars of Teamwork</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Group activity · Ms. Ishita Nandwani</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">15:30 – 16:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Game &amp; Tea on the Table</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Ms. Ishita Nandwani · Corporate Trainer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">16:30 – 17:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Our Mission, Values &amp; Beliefs</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Dr. Avinash Shejale · Chief Financial and Risk Officer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">17:00 – 17:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Open House — Team Speak</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Open discussion on team-submitted challenges &amp; solutions</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">17:30 – 18:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">The Conclusion</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Concluding address by Dr. Manish Doshi · Managing Director</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">18:00 – 19:30</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Refresh &amp; Get Ready</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">19:30 – 19:45</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Concept Classroom Launch</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">—</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px; border-bottom: 1px solid rgba(255,255,255,.09); background: rgba(0,183,241,.06);">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">19:45 – 21:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Rewards &amp; Recognition</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">Anchored by Ms. Ishita Nandwani · Corporate Trainer</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px;">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">21:15</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Sufi Night with Dinner</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68); line-height: 1.6;">Mehfil-E-Zor
+by Rachit Agarwal</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+</div>
+</div>
+</div>
+<div class="id26-day" data-day="3" role="tabpanel" id="id26-panel-3" aria-labelledby="id26-tab-3" tabindex="0">
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.04);">
+<div style="padding: 30px 34px; border-bottom: 1px solid rgba(255,255,255,.14);">
+<div style="font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: #97daf8; margin-bottom: 8px;">Day 3 · Saturday, 8 August 2026</div>
+<div style="font-size: 26px; font-weight: 600; color: #ffffff;">Wrap-Up &amp; Departure</div>
+</div>
+<div style="display: grid; grid-template-columns: 150px minmax(0,1fr) minmax(0,320px) 110px; gap: 24px; padding: 24px 34px;">
+<div style="font-size: 14px; color: #97daf8; font-weight: 500; font-variant-numeric: tabular-nums;">12:00</div>
+<div style="font-size: 16.5px; color: #ffffff; font-weight: 500;">Breakfast, Check-out &amp; Departure</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.68);">A relaxed close to Identity 2026</div>
+<div style="font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.55); text-align: right;">All</div>
+</div>
+<div style="padding: 34px; border-top: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.03);">
+<div style="font-size: clamp(24px,3vw,34px); color: #ffffff; line-height: 1.3;"><em class="editorial">Together we learn. Together we lead. Together we grow.</em></div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="speakers" class="reveal" style="background: #FFFFFF; padding: 112px 32px; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Speakers &amp; Faculty</span></div>
+<h2 style="margin: 0 0 56px; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #122248; max-width: 24ch; letter-spacing: -.015em;">Voices from inside the group — and beyond it.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(272px,1fr)); gap: 24px;">
+<div style="border: 1px solid #DAE6F1; border-radius: 14px; overflow: hidden; background: #FFFFFF; display: flex; flex-direction: column; transition: box-shadow 160ms ease,border-color 160ms ease;">
+<div style="aspect-ratio: 4/5; background: #E7F0F8; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Dr.-Sivapriya-Kirubakaran.jpg" alt="Dr. Sivapriya Kirubakaran" loading="lazy" decoding="async" /></div>
+<div style="padding: 26px 26px 28px; display: flex; flex-direction: column; flex: 1;">
+<div style="font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 12px;">Training Faculty</div>
+<h3 style="margin: 0 0 6px; font-size: 19px; font-weight: 600; color: #122248; overflow-wrap: break-word;">Dr. Sivapriya Kirubakaran</h3>
+<div style="font-size: 13.5px; color: #6b7589; line-height: 1.55;">Professor &amp; Head, Department of Chemistry, IIT Gandhinagar</div>
+<div style="height: 1px; background: #DAE6F1; margin: 18px 0 14px;"></div>
+<div style="font-size: 14px; color: #1b202b; line-height: 1.5; margin-top: auto;">
+
+Artificial Intelligence in Our Industry
+<div style="font-size: 13px; color: #6b7589; margin-top: 4px;">Day 1 · 15:00</div>
+</div>
+</div>
+</div>
+<div style="border: 1px solid #DAE6F1; border-radius: 14px; overflow: hidden; background: #FFFFFF; display: flex; flex-direction: column; transition: box-shadow 160ms ease,border-color 160ms ease;">
+<div style="aspect-ratio: 4/5; background: #E7F0F8; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Avinash-Shejale.jpg" alt="Dr. Avinash Shejale" loading="lazy" decoding="async" /></div>
+<div style="padding: 26px 26px 28px; display: flex; flex-direction: column; flex: 1;">
+<div style="font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 12px;">Leadership Speak</div>
+<h3 style="margin: 0 0 6px; font-size: 19px; font-weight: 600; color: #122248;">Dr. Avinash Shejale</h3>
+<div style="font-size: 13.5px; color: #6b7589; line-height: 1.55;">Chief Financial and Risk Officer
+Concept Medical Group</div>
+<div style="height: 1px; background: #DAE6F1; margin: 18px 0 14px;"></div>
+<div style="font-size: 14px; color: #1b202b; line-height: 1.5; margin-top: auto;">
+
+Our Mission, Values &amp; Beliefs
+<div style="font-size: 13px; color: #6b7589; margin-top: 4px;">Day 2 · 16:30</div>
+</div>
+</div>
+</div>
+<div style="border: 1px solid #DAE6F1; border-radius: 14px; overflow: hidden; background: #FFFFFF; display: flex; flex-direction: column; transition: box-shadow 160ms ease,border-color 160ms ease;">
+<div style="aspect-ratio: 4/5; background: #E7F0F8; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Asit-Mehta.webp" alt="Mr. Asit Mehta" loading="lazy" decoding="async" /></div>
+<div style="padding: 26px 26px 28px; display: flex; flex-direction: column; flex: 1;">
+<div style="font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 12px;">Invited Faculty</div>
+<h3 style="margin: 0 0 6px; font-size: 19px; font-weight: 600; color: #122248;">Mr. Asit Mehta</h3>
+<div style="font-size: 13.5px; color: #6b7589; line-height: 1.55;">Market Veteran · Fintech Pioneer · Institution Builder</div>
+<div style="height: 1px; background: #DAE6F1; margin: 18px 0 14px;"></div>
+<div style="font-size: 14px; color: #1b202b; line-height: 1.5; margin-top: auto;">
+
+Leadership Communication Session
+<div style="font-size: 13px; color: #6b7589; margin-top: 4px;">Day 2 · 11:00</div>
+</div>
+</div>
+</div>
+<div style="border: 1px solid #DAE6F1; border-radius: 14px; overflow: hidden; background: #FFFFFF; display: flex; flex-direction: column; transition: box-shadow 160ms ease,border-color 160ms ease;">
+<div style="aspect-ratio: 4/5; background: #E7F0F8; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Ishita-Nandwani-1.png" alt="Ms. Ishita Nandwani" loading="lazy" decoding="async" /></div>
+<div style="padding: 26px 26px 28px; display: flex; flex-direction: column; flex: 1;">
+<div style="font-size: 10.5px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 12px;">Corporate Trainer</div>
+<h3 style="margin: 0 0 6px; font-size: 19px; font-weight: 600; color: #122248;">Ms. Ishita Nandwani</h3>
+<div style="font-size: 13.5px; color: #6b7589; line-height: 1.55;">Certified Image Consultant · Soft Skills Trainer · POSH Enabler</div>
+<div style="height: 1px; background: #DAE6F1; margin: 18px 0 14px;"></div>
+<div style="font-size: 14px; color: #1b202b; line-height: 1.5; margin-top: auto;">
+
+The Game Theory
+<div style="font-size: 13px; color: #6b7589; margin-top: 4px;">Day 1 &amp; Day 2 · Anchor, Rewards &amp; Recognition</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="artists" style="background: #182B53; padding: 112px 32px; scroll-margin-top: 78px; position: relative; overflow: hidden;">
+<div style="position: absolute; inset: 0; background: radial-gradient(85% 75% at 10% 100%, rgba(151,218,248,.13) 0%, rgba(24,43,83,0) 62%); pointer-events: none;"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(70% 60% at 95% 8%, rgba(0,183,241,.18) 0%, rgba(24,43,83,0) 60%); pointer-events: none;"></div>
+<div style="position: relative; max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #97daf8; font-weight: 600;">Artists &amp; Entertainment</span></div>
+<div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 80px; align-items: end; margin-bottom: 64px;">
+<h2 style="margin: 0; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #ffffff; letter-spacing: -.015em;">The evenings are part of the programme.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,.78); text-wrap: pretty;">Two nights in Goa — a live Sufi mehfil, India's sharpest observational comedian, and a DJ set to close.</p>
+
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 24px; margin-bottom: 64px;">
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.05);">
+<div style="height: 300px; position: relative; overflow: hidden; background: #1A0F06;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/MEZ-Rachit.webp" alt="Mehfil-E-Zor" loading="lazy" decoding="async" /></div>
+<div style="padding: 32px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 14px;">Live Sufi Band</div>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; color: #ffffff;">Mehfil-E-Zor</h3>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-bottom: 18px;">by Rachit Agarwal</div>
+<p style="margin: 0 0 20px; font-size: 15px; line-height: 1.68; color: rgba(255,255,255,.78);">A soulful live band bringing Sufi and Qawwali to life in a mehfil-style setting — traditional kalaam, contemporary arrangement, and vocals that hold a room from the first note.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><span style="font-size: 11.5px; padding: 6px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: rgba(255,255,255,.82);">Sufi &amp; Qawwali</span>
+<span style="font-size: 11.5px; padding: 6px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: rgba(255,255,255,.82);">Sufi Night · Day 2</span></div>
+</div>
+</div>
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.05);">
+<div style="height: 300px; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/vipul_goyal_1619-orig1687534880.jpeg" alt="Vipul Goyal" loading="lazy" decoding="async" /></div>
+<div style="padding: 32px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 14px;">Stand-Up Comedy</div>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; color: #ffffff;">Vipul Goyal</h3>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-bottom: 18px;">Comedian &amp; actor · IIT Bombay alumnus</div>
+<p style="margin: 0 0 20px; font-size: 15px; line-height: 1.68; color: rgba(255,255,255,.78);">One of India's leading stand-up comedians, known for clean, intelligent observational humour. Creator and star of the TVF series <em>Humorously Yours</em>, and an IIT Bombay engineer before he turned to comedy full-time.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><span style="font-size: 11.5px; padding: 6px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: rgba(255,255,255,.82);">Observational comedy</span>
+<span style="font-size: 11.5px; padding: 6px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: rgba(255,255,255,.82);">Humorously Yours, TVF</span></div>
+</div>
+</div>
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.05);">
+<div style="height: 300px; position: relative; overflow: hidden;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 40%;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/DJ-Josh.webp" alt="DJ Jotesh" loading="lazy" decoding="async" /></div>
+<div style="padding: 32px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #97daf8; margin-bottom: 14px;">DJ Set</div>
+<h3 style="margin: 0 0 6px; font-size: 24px; font-weight: 600; color: #ffffff;">DJ Jotesh</h3>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-bottom: 18px;">Corporate &amp; club circuit</div>
+<p style="margin: 0 0 20px; font-size: 15px; line-height: 1.68; color: rgba(255,255,255,.78);">Closing out Day 1 after dinner with a set built for a mixed room — reading the floor rather than dictating it, and keeping the first night going late.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px;"><span style="font-size: 11.5px; padding: 6px 14px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: rgba(255,255,255,.82);">Day 1 · After dinner</span></div>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,.9fr); gap: 64px; align-items: start;">
+<div>
+<h3 style="margin: 0 0 26px; font-size: 22px; font-weight: 600; color: #ffffff; letter-spacing: .01em;">Performance Schedule</h3>
+<div style="border-top: 1px solid rgba(255,255,255,.16);">
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 13px; color: #97daf8; font-weight: 500;">Thu · 19:45</div>
+<div>
+<div style="font-size: 16px; color: #ffffff; font-weight: 500;">An Evening of Laughter</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-top: 4px;">Humorously Yours — Vipul Goyal, followed by dinner &amp; DJ Jotesh</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 13px; color: #97daf8; font-weight: 500;">Fri · 19:45</div>
+<div>
+<div style="font-size: 16px; color: #ffffff; font-weight: 500;">Rewards &amp; Recognition</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-top: 4px;">Awards ceremony opening the evening</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.12);">
+<div style="font-size: 13px; color: #97daf8; font-weight: 500;">Fri · 21:15</div>
+<div>
+<div style="font-size: 16px; color: #ffffff; font-weight: 500;">Sufi Night with Dinner</div>
+<div style="font-size: 14px; color: rgba(255,255,255,.66); margin-top: 4px;">Mehfil-E-Zor, by Rachit Agarwal</div>
+</div>
+</div>
+</div>
+<p style="margin: 20px 0 0; font-size: 12.5px; color: rgba(255,255,255,.52); line-height: 1.6;">Performance running order is indicative and will be confirmed on site by the Event Team.</p>
+
+</div>
+<div style="border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 34px; background: rgba(255,255,255,.05);">
+<h3 style="margin: 0 0 24px; font-size: 16px; font-weight: 600; color: #ffffff; letter-spacing: .06em; text-transform: uppercase;">Entertainment Highlights</h3>
+<div style="display: grid; gap: 18px;">
+<div style="display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 14px; align-items: start;"><span aria-hidden="true" style="color: #00b7f1; font-size: 18px; line-height: 1.3;">•</span><span style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.82);">A full mehfil-style Sufi set — seated, acoustic-forward, built for listening</span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 14px; align-items: start;"><span aria-hidden="true" style="color: #00b7f1; font-size: 18px; line-height: 1.3;">•</span><span style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.82);">Clean, corporate-appropriate stand-up — no compromise on sharpness</span></div>
+<div style="display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 14px; align-items: start;"><span aria-hidden="true" style="color: #00b7f1; font-size: 18px; line-height: 1.3;">•</span><span style="font-size: 15px; line-height: 1.6; color: rgba(255,255,255,.82);">Quick Quiz and Game &amp; Tea on the Table woven into the programme days</span></div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="venue" class="reveal" style="background: #F1F7FC; padding: 112px 32px; border-top: 1px solid #DAE6F1; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Venue &amp; Event Information</span></div>
+<div style="display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 64px; align-items: start;">
+<div>
+<h2 style="margin: 0 0 20px; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #122248; letter-spacing: -.015em;">The Westin, Goa</h2>
+<p style="margin: 0 0 32px; font-size: 17px; line-height: 1.68; color: #4a5267; max-width: 56ch; text-wrap: pretty;">All sessions, meals and evening programmes take place at the hotel. Two rooms carry the programme: Chapora and Kashti.</p>
+
+<div style="border-radius: 14px; overflow: hidden; border: 1px solid #DAE6F1; height: 340px; position: relative;"><img style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/Westin-Goa.jpg" alt="The Westin, Goa" loading="lazy" decoding="async" /></div>
+</div>
+<div style="display: grid; gap: 20px;">
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 30px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 16px;">Session Rooms</div>
+<div style="display: grid; gap: 14px;">
+<div style="display: flex; justify-content: space-between; gap: 20px; align-items: baseline;">
+<div style="font-size: 16px; font-weight: 500; color: #122248;">Room Chapora</div>
+<div style="font-size: 13.5px; color: #6b7589; text-align: right;">Day 1 · Team Presentation
+Group 1 (M2 &amp; above)</div>
+</div>
+<div style="height: 1px; background: #E7F0F8;"></div>
+<div style="display: flex; justify-content: space-between; gap: 20px; align-items: baseline;">
+<div style="font-size: 16px; font-weight: 500; color: #122248;">Room Kashti</div>
+<div style="font-size: 13.5px; color: #6b7589; text-align: right;">Day 1 · Emerging Leaders Lab
+Day 2 · Full programme</div>
+</div>
+</div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 30px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 16px;">Dress Code</div>
+<div style="display: grid; gap: 14px;">
+<div>
+<div style="font-size: 15px; font-weight: 500; color: #122248;">Day 1 · Thursday</div>
+<div style="font-size: 14px; color: #4a5267; margin-top: 4px; line-height: 1.6;">Morning — white T-shirt &amp; blue jeans · Evening — smart casuals</div>
+</div>
+<div style="height: 1px; background: #E7F0F8;"></div>
+<div>
+<div style="font-size: 15px; font-weight: 500; color: #122248;">Day 2 · Friday</div>
+<div style="font-size: 14px; color: #4a5267; margin-top: 4px; line-height: 1.6;">Morning — black T-shirt &amp; blue jeans · Evening — smart casuals, preferably with a blazer, jacket or coat</div>
+</div>
+</div>
+</div>
+<div style="background: #FFFFFF; border: 1px solid #DAE6F1; border-radius: 14px; padding: 30px;">
+<div style="font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #1d4e9f; font-weight: 600; margin-bottom: 16px;">Good to Know</div>
+<div style="display: grid; gap: 12px; font-size: 14.5px; color: #4a5267; line-height: 1.6;">
+<div>
+
+Day 1 breakfast is hosted off-site at Artjuna Café (09:30 – 12:00).
+<div style="color: #6b7589; margin-top: 4px;">Applicable only for early arrivals.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="takeaways" class="reveal" style="background: #FFFFFF; padding: 112px 32px; scroll-margin-top: 78px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 26px;"><span style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: #1d4e9f; font-weight: 600;">Key Takeaways</span></div>
+<h2 style="margin: 0 0 56px; font-size: clamp(32px,3.6vw,46px); line-height: 1.12; font-weight: 600; color: #122248; max-width: 24ch; letter-spacing: -.015em;">What every leader leaves with.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 44px;">
+<div>
+<div aria-hidden="true" style="font-size: 44px; font-weight: 300; color: #79a3dc; line-height: 1; margin-bottom: 20px;">01</div>
+<h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: #122248;">A clearer read on the group</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">Where every function stands against its targets, and where the handoffs between them break down.</p>
+
+</div>
+<div>
+<div aria-hidden="true" style="font-size: 44px; font-weight: 300; color: #79a3dc; line-height: 1; margin-bottom: 20px;">02</div>
+<h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: #122248;">Practical leadership tools</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">Communication, delegation and risk framed as decisions you will make next week, not concepts.</p>
+
+</div>
+<div>
+<div aria-hidden="true" style="font-size: 44px; font-weight: 300; color: #79a3dc; line-height: 1; margin-bottom: 20px;">03</div>
+<h3 style="margin: 0 0 10px; font-size: 19px; font-weight: 600; color: #122248;">One commitment, on record</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.65; color: #4a5267;">Every leader leaves with a stated commitment for the year ahead — and the network in the room to deliver it.</p>
+
+</div>
+</div>
+</div>
+</section><section id="register" style="background: #1D4E9F; padding: 104px 32px; position: relative; overflow: hidden; scroll-margin-top: 78px;">
+<div style="position: absolute; width: 1100px; height: 1100px; right: -300px; top: -500px; border: 1px solid rgba(255,255,255,.16); border-radius: 50%; pointer-events: none;"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(90% 110% at 88% 118%, rgba(0,183,241,.34) 0%, rgba(29,78,159,0) 62%); pointer-events: none;"></div>
+<div style="position: relative; max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,auto); gap: 56px; align-items: center;">
+<div>
+<div style="font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: rgba(255,255,255,.72); font-weight: 600; margin-bottom: 20px;">Countdown to Identity 2026</div>
+<h2 style="margin: 0 0 30px; font-size: clamp(34px,4.4vw,58px); line-height: 1.06; font-weight: 600; color: #ffffff; letter-spacing: -.02em; max-width: 20ch;">Goa. 6 August.</h2>
+<div role="timer" aria-label="Time remaining until Identity 2026 begins on 6 August 2026" style="display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid rgba(255,255,255,.28);">
+<div style="padding: 22px 40px 0 0;">
+<div style="font-size: clamp(38px,5vw,64px); font-weight: 600; color: #ffffff; line-height: 1; font-variant-numeric: tabular-nums;"><span data-cd="d">00</span></div>
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.66); margin-top: 10px;">Days</div>
+</div>
+<div style="padding: 22px 40px 0; border-left: 1px solid rgba(255,255,255,.28);">
+<div style="font-size: clamp(38px,5vw,64px); font-weight: 600; color: #ffffff; line-height: 1; font-variant-numeric: tabular-nums;"><span data-cd="h">00</span></div>
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.66); margin-top: 10px;">Hours</div>
+</div>
+<div style="padding: 22px 40px 0; border-left: 1px solid rgba(255,255,255,.28);">
+<div style="font-size: clamp(38px,5vw,64px); font-weight: 600; color: #ffffff; line-height: 1; font-variant-numeric: tabular-nums;"><span data-cd="m">00</span></div>
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.66); margin-top: 10px;">Minutes</div>
+</div>
+<div style="padding: 22px 0 0 40px; border-left: 1px solid rgba(255,255,255,.28);">
+<div style="font-size: clamp(38px,5vw,64px); font-weight: 600; color: #ffffff; line-height: 1; font-variant-numeric: tabular-nums;"><span data-cd="s">00</span></div>
+<div style="font-size: 10.5px; letter-spacing: .24em; text-transform: uppercase; color: rgba(255,255,255,.66); margin-top: 10px;">Seconds</div>
+</div>
+</div>
+</div>
+<div style="display: grid; gap: 14px; justify-items: start;"><a style="background: #FFFFFF; color: #1d4e9f; padding: 18px 38px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; box-shadow: inset 0 1px 0 rgba(255,255,255,.6); transition: background 160ms ease,color 160ms ease;" href="#" download="Identity-2026.ics" data-ics>Add to Calendar</a>
+<a style="border: 1px solid rgba(255,255,255,.4); color: #ffffff; padding: 18px 38px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; transition: background 160ms ease;" href="https://www.conceptmedical.com/wp-content/uploads/2026/07/Identity_Agenda_V6.pdf" target="_blank" rel="noopener">Download the Agenda</a></div>
+</div>
+</section><footer style="background: #122248; padding: 64px 32px 44px;">
+<div style="max-width: 1280px; margin: 0 auto;">
+<div style="display: flex; flex-wrap: wrap; gap: 44px; justify-content: space-between; align-items: start; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,.12);">
+<div style="max-width: 420px;">
+
+<img style="width: auto; height: 88px; max-width: 190px; object-fit: contain; display: block; margin-bottom: 22px;" src="https://www.conceptmedical.com/wp-content/uploads/2026/07/CLC-New-Logo-scaled.png" alt="Concept Leadership Conclave" loading="lazy" decoding="async" />
+<div style="font-size: clamp(20px,2.4vw,26px); color: #ffffff; line-height: 1.35;"><em class="editorial">Together we learn. Together we lead. Together we grow.</em></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 56px;">
+<div>
+<div style="font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 16px;">Programme</div>
+<div style="display: grid; gap: 10px; font-size: 14px;"><a style="color: rgba(255,255,255,.82);" href="#about">About</a>
+<a style="color: rgba(255,255,255,.82);" href="#agenda">Agenda</a>
+<a style="color: rgba(255,255,255,.82);" href="#speakers">Speakers &amp; Faculty</a>
+<a style="color: rgba(255,255,255,.82);" href="#artists">Artists &amp; Entertainment</a></div>
+</div>
+<div>
+<div style="font-size: 10.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 16px;">Details</div>
+<div style="display: grid; gap: 10px; font-size: 14px; color: rgba(255,255,255,.82);">
+<div>6 – 8 August 2026</div>
+<div>The Westin, Goa</div>
+<div>Senior &amp; Managerial Leaders</div>
+<div><a style="color: #97daf8;" href="mailto:events@conceptmedical.com">events@conceptmedical.com</a></div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding-top: 28px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; font-size: 12.5px; color: rgba(255,255,255,.52);">
+<div>Concept Medical Group · Envision Scientific Pvt. Ltd. — Converting Concepts Into Reality</div>
+<div>Identity 2026 · Internal leadership convention</div>
+</div>
+</div>
+</footer></div>
+</div>
+<script>
+(function(){
+ var root=document.getElementById('id26'); if(!root) return;
+ root.classList.add('id26-js');
+
+ var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ /* ---- Agenda tabs (ARIA tab pattern + keyboard support) ---- */
+ var tabs=[].slice.call(root.querySelectorAll('.id26-tab'));
+ var panels=[].slice.call(root.querySelectorAll('.id26-day'));
+ function selectDay(day,focus){
+   tabs.forEach(function(t){
+     var on=t.dataset.day===day;
+     t.classList.toggle('is-on',on);
+     t.setAttribute('aria-selected',on?'true':'false');
+     t.tabIndex=on?0:-1;
+     if(on&&focus)t.focus();
+   });
+   panels.forEach(function(p){p.classList.toggle('is-on',p.dataset.day===day);});
+ }
+ tabs.forEach(function(tab,i){
+   tab.addEventListener('click',function(){selectDay(tab.dataset.day,false);});
+   tab.addEventListener('keydown',function(e){
+     var k=e.key,n;
+     if(k==='ArrowRight'||k==='ArrowDown')n=(i+1)%tabs.length;
+     else if(k==='ArrowLeft'||k==='ArrowUp')n=(i-1+tabs.length)%tabs.length;
+     else if(k==='Home')n=0;
+     else if(k==='End')n=tabs.length-1;
+     else return;
+     e.preventDefault();
+     selectDay(tabs[n].dataset.day,true);
+   });
+ });
+
+ /* ---- Countdown ---- */
+ var START=Date.parse('2026-08-06T09:30:00+05:30');
+ function pad(n){return String(n).padStart(2,'0');}
+ var cds=[].slice.call(root.querySelectorAll('[data-cd]'));
+ function tick(){
+   var s=Math.max(0,Math.floor((START-Date.now())/1000));
+   var v={d:pad(Math.floor(s/86400)),h:pad(Math.floor(s/3600)%24),m:pad(Math.floor(s/60)%60),s:pad(s%60)};
+   cds.forEach(function(e){e.textContent=v[e.dataset.cd];});
+ }
+ tick(); setInterval(tick,1000);
+
+ /* ---- "Add to Calendar": generate a real .ics on demand ---- */
+ function buildICS(){
+   var stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+   return [
+     'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Concept Medical Group//Identity 2026//EN',
+     'CALSCALE:GREGORIAN','METHOD:PUBLISH','BEGIN:VEVENT',
+     'UID:identity-2026@conceptmedical.com','DTSTAMP:'+stamp,
+     'DTSTART:20260806T040000Z','DTEND:20260808T063000Z',
+     'SUMMARY:Identity 2026 — Concept Leadership Conclave',
+     'LOCATION:The Westin\\, Goa (Rooms Chapora & Kashti)',
+     'DESCRIPTION:Concept Medical Group leadership convention. Theme: Up & Beyond.',
+     'END:VEVENT','END:VCALENDAR'
+   ].join('\r\n');
+ }
+ root.querySelectorAll('a[data-ics]').forEach(function(a){
+   a.setAttribute('href','data:text/calendar;charset=utf-8,'+encodeURIComponent(buildICS()));
+ });
+
+ /* ---- Smooth anchor scrolling (respecting reduced-motion) ---- */
+ root.querySelectorAll('a[href^="#"]').forEach(function(a){
+   a.addEventListener('click',function(ev){
+     var href=a.getAttribute('href');
+     if(href==='#'||href.length<2)return;
+     var el=root.querySelector(href); if(!el) return; ev.preventDefault();
+     var y=el.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop||document.body.scrollTop)-70;
+     window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+   });
+ });
+
+ /* ---- Scroll reveal (progressive enhancement; content stays visible without JS) ---- */
+ if(!reduce&&'IntersectionObserver'in window){
+   root.classList.add('id26-anim');
+   var io=new IntersectionObserver(function(entries){
+     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); } });
+   },{rootMargin:'0px 0px -10% 0px',threshold:0});
+   var reveals=[].slice.call(root.querySelectorAll('.reveal'));
+   reveals.forEach(function(el){io.observe(el);});
+   setTimeout(function(){reveals.forEach(function(el){el.classList.add('is-in');});},3000);
+ }
+})();
+</script>
