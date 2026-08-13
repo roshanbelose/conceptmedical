@@ -17,7 +17,7 @@
   /* ▼▼▼ IMAGES (conceptmedical.com) — swap URLs here to change them ▼▼▼ */
   --img-product: url("https://www.conceptmedical.com/wp-content/uploads/2026/06/MagicTouch-AVF-Drug-Coated-Balloon.png");
   --img-tech:    url("https://www.conceptmedical.com/wp-content/uploads/2025/05/Nanolute-Sirolimus-Coated-Balloon-MagicTouch-PTA.png");
-  --img-logo:    url("https://www.conceptmedical.com/wp-content/uploads/2026/05/MTpta-04-scaled.png");
+  --img-logo:    url("https://www.conceptmedical.com/wp-content/uploads/2026/04/MagicTouch-PTA-Logo-PNG.png");
   /* ▲▲▲ IMAGES ▲▲▲ */
 
   /* brand blues */
@@ -39,9 +39,19 @@
   font-family:var(--font-brand); color:var(--n-800); background:var(--n-0);
   line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
 }
-#cmc26 *{ box-sizing:border-box; }
-#cmc26 img{ max-width:100%; display:block; }
-#cmc26 a{ text-decoration:none; }
+/* theme-proofing reset — neutralises WordPress/Elementor theme styles that
+   would otherwise leak into this block (heading margins, list bullets,
+   inherited text-align / line-height, link underlines, etc.) */
+#cmc26, #cmc26 *{ box-sizing:border-box; }
+#cmc26{ text-align:left; }
+#cmc26 h1,#cmc26 h2,#cmc26 h3,#cmc26 h4,#cmc26 h5,#cmc26 h6,#cmc26 p,#cmc26 ul,#cmc26 li,#cmc26 figure{
+  margin:0; padding:0; font-family:var(--font-brand); }
+#cmc26 h1,#cmc26 h2,#cmc26 h3,#cmc26 h4,#cmc26 h5{ line-height:1.1; font-weight:600; }
+#cmc26 ul{ list-style:none; }
+#cmc26 img{ max-width:100%; height:auto; display:block; }
+#cmc26 a{ text-decoration:none; color:inherit; }
+#cmc26 a:hover{ text-decoration:none; }
+#cmc26 svg{ display:block; }
 
 /* layout primitives */
 #cmc26 .wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
@@ -171,7 +181,7 @@
 #cmc26 .stage.product .img{ background-image:var(--img-product); }
 #cmc26 .stage.tech{ padding:0; }
 #cmc26 .stage.tech .img{ height:360px; background-image:var(--img-tech); background-size:cover; border-radius:var(--radius-xl); filter:none; }
-#cmc26 .plogo{ height:56px; width:240px; max-width:70%; margin-bottom:20px;
+#cmc26 .plogo{ height:52px; width:260px; max-width:75%; margin:14px 0 22px;
   background:var(--img-logo) left center/contain no-repeat; }
 #cmc26 .pbadge{ position:absolute; z-index:2; bottom:22px; left:22px; display:inline-flex; align-items:center; gap:8px;
   background:rgba(255,255,255,.95); border-radius:var(--radius-pill); padding:8px 14px; font-size:12px; font-weight:600; color:var(--cm-blue-700); box-shadow:var(--shadow-md); }
