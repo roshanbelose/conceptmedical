@@ -1,11 +1,16 @@
 <!-- ============================================================
-     CONCEPT MEDICAL · CIRSE 2026 LANDING PAGE
-     Paste this ENTIRE block into an Elementor "HTML" widget.
-     (Editor → drag "HTML" widget onto a Canvas/blank page → paste.)
+     CONCEPT MEDICAL · CIRSE 2026 LANDING PAGE  (Elementor embed)
+     Paste this ENTIRE block into one Elementor "HTML" widget.
+     No header / no footer — your WordPress theme provides those.
 
      ▸ Everything is scoped under #cmc26 so it will NOT touch your theme.
-     ▸ Only 2 things to edit: the two --img-* URLs just below.
-       Upload the images to Media Library and paste their URLs here.
+     ▸ Set the TWO image URLs just below. Paste any direct image URL — from
+       your WordPress Media Library, conceptmedical.com, a Google-hosted
+       image, or any CDN. To grab one: open the image in a browser,
+       right-click → "Copy image address", paste it between the quotes.
+       Reference product pages if you need a source image:
+         • MagicTouch render → https://www.conceptmedical.com/magictouch-pta/
+         • Nanolute visual   → https://www.conceptmedical.com/technology/nanolute/
      ============================================================ -->
 
 <div id="cmc26">
@@ -13,9 +18,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap");
 
 #cmc26{
-  /* ▼▼▼ EDIT THESE TWO IMAGE URLS ▼▼▼ */
-  --img-product: url("https://YOURSITE.com/wp-content/uploads/magictouch-scb-render.png");
-  --img-tech:    url("https://YOURSITE.com/wp-content/uploads/nanolute-technology.webp");
+  /* ▼▼▼ EDIT THESE TWO IMAGE URLS — paste any direct image link ▼▼▼ */
+  --img-product: url("PASTE_MAGICTOUCH_IMAGE_URL_HERE");
+  --img-tech:    url("PASTE_NANOLUTE_IMAGE_URL_HERE");
   /* ▲▲▲ EDIT THESE TWO IMAGE URLS ▲▲▲ */
 
   /* brand blues */
@@ -87,21 +92,6 @@
 #cmc26 .btn-wghost:hover{ background:rgba(255,255,255,.10); border-color:#fff; }
 #cmc26 .btn-lg{ padding:17px 32px; font-size:14px; }
 
-/* header */
-#cmc26 .hdr{ position:sticky; top:0; z-index:40; background:rgba(255,255,255,.88);
-  backdrop-filter:saturate(160%) blur(12px); -webkit-backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid var(--n-200); }
-#cmc26 .hdr-in{ display:flex; align-items:center; justify-content:space-between; height:76px; }
-#cmc26 .lock{ display:flex; align-items:center; gap:12px; }
-#cmc26 .mark{ width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff;
-  font-weight:700; font-size:13px; letter-spacing:.02em;
-  background:radial-gradient(120% 120% at 30% 20%,var(--cm-blue-200),var(--cm-blue-500) 60%,var(--cm-blue-700)); }
-#cmc26 .lock .name{ font-weight:700; font-size:15px; color:var(--cm-blue-700); line-height:1.05; }
-#cmc26 .lock .sub{ font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--cm-blue-200); }
-#cmc26 .nav{ display:flex; align-items:center; gap:30px; }
-#cmc26 .nav a{ font-size:14px; font-weight:500; color:var(--n-700); transition:color .14s; }
-#cmc26 .nav a:hover{ color:var(--cm-blue-500); }
-#cmc26 .hdr .btn{ padding:11px 20px; }
-
 /* hero */
 #cmc26 .hero{ position:relative; overflow:hidden; color:#fff;
   background:radial-gradient(120% 120% at 82% 8%,rgba(0,183,241,.30) 0%,transparent 46%),
@@ -109,7 +99,7 @@
 #cmc26 .hero .grid{ position:absolute; inset:0; opacity:.5;
   background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
   background-size:64px 64px; -webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%); mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%); }
-#cmc26 .hero-in{ position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding:84px 0 96px; }
+#cmc26 .hero-in{ position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding:96px 0; }
 #cmc26 .ebrow-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
 #cmc26 .flag{ display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:var(--radius-pill);
   background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.16); font-size:11px; font-weight:600;
@@ -233,17 +223,6 @@
 #cmc26 .ctab-act .btn{ justify-content:center; }
 #cmc26 .ctab-note{ font-size:13px; color:rgba(255,255,255,.6); text-align:center; }
 
-/* footer */
-#cmc26 .ftr{ background:var(--cm-blue-900); color:rgba(255,255,255,.72); padding:70px 0 34px; }
-#cmc26 .ftr-top{ display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.10); }
-#cmc26 .ftr .name{ color:#fff; }
-#cmc26 .ftr-brand p{ font-size:14px; color:rgba(255,255,255,.6); margin:18px 0 0; max-width:300px; }
-#cmc26 .ftr-col h5{ font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5); margin:0 0 16px; }
-#cmc26 .ftr-col a{ display:block; font-size:14px; color:rgba(255,255,255,.75); margin-bottom:11px; transition:color .14s; }
-#cmc26 .ftr-col a:hover{ color:var(--cm-blue-100); }
-#cmc26 .ftr-legal{ max-width:760px; font-size:11.5px; line-height:1.6; color:rgba(255,255,255,.42); margin:20px 0 0; }
-#cmc26 .ftr-bottom{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-top:26px; font-size:12.5px; color:rgba(255,255,255,.5); }
-
 /* responsive */
 @media(max-width:1080px){
   #cmc26 .hero-in{ grid-template-columns:1fr; gap:12px; }
@@ -254,12 +233,10 @@
   #cmc26 .split{ grid-template-columns:1fr; gap:36px; }
   #cmc26 .split.rev .media{ order:-1; }
   #cmc26 .ctab-in{ grid-template-columns:1fr; gap:28px; }
-  #cmc26 .ftr-top{ grid-template-columns:1fr 1fr; }
 }
 @media(max-width:720px){
   #cmc26 .wrap{ padding:0 20px; }
   #cmc26 .sec{ padding:72px 0; }
-  #cmc26 .nav{ display:none; }
   #cmc26 .hmeta{ gap:18px; }
   #cmc26 .stat-grid{ grid-template-columns:1fr 1fr; gap:26px; }
   #cmc26 .stat+.stat{ border-left:0; }
@@ -268,30 +245,12 @@
   #cmc26 .ag{ grid-template-columns:1fr; gap:8px; }
   #cmc26 .ag-tag{ justify-self:start; }
   #cmc26 .cd-in{ justify-content:center; text-align:center; }
-  #cmc26 .ftr-top{ grid-template-columns:1fr; }
   #cmc26 .chip.tl{ left:0; } #cmc26 .chip.br{ right:0; }
 }
 @media(prefers-reduced-motion:reduce){
   #cmc26 .render,#cmc26 .chip,#cmc26 .btn-primary::before{ animation:none !important; }
 }
 </style>
-
-<!-- HEADER -->
-<header class="hdr">
-  <div class="wrap hdr-in">
-    <a class="lock" href="#cmc26-top">
-      <span class="mark">CM</span>
-      <span><span class="name" style="display:block">Concept Medical</span><span class="sub">CIRSE 2026</span></span>
-    </a>
-    <nav class="nav">
-      <a href="#cmc26-why">Why visit</a>
-      <a href="#cmc26-product">MagicTouch</a>
-      <a href="#cmc26-programme">Programme</a>
-      <a href="#cmc26-evidence">Evidence</a>
-    </nav>
-    <a class="btn btn-primary" href="#cmc26-meet"><span>Book a meeting</span><span class="ar">→</span></a>
-  </div>
-</header>
 
 <!-- HERO -->
 <section class="hero" id="cmc26-top">
@@ -319,7 +278,7 @@
         <div class="halo"></div>
         <div class="render" role="img" aria-label="MagicTouch Sirolimus Coated Balloon"></div>
         <div class="chip tl"><div class="ck">Sirolimus DCB</div><div class="cv">MagicTouch</div><div class="cs">Nanolute® platform</div></div>
-        <div class="chip br"><div class="ck">Global experience</div><div class="cv">30,000+</div><div class="cs">patients treated</div></div>
+        <div class="chip br"><div class="ck">Global experience</div><div class="cv">50,000+</div><div class="cs">patients treated</div></div>
       </div>
     </div>
   </div>
@@ -378,7 +337,7 @@
           <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Sub-micron sirolimus encapsulated in a biocompatible carrier</li>
           <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Studied across Below-the-Knee (BTK) and Superficial Femoral Artery (SFA) disease</li>
           <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>FDA Breakthrough Device Designation &amp; IDE approvals for peripheral indications</li>
-          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>A sirolimus platform with a commercial history across 30,000+ patients worldwide</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>A sirolimus platform with a commercial history across 50,000+ patients worldwide</li>
         </ul>
         <div class="pills"><span class="pill">Sirolimus DCB</span><span class="pill">Nanolute®</span><span class="pill">BTK</span><span class="pill">SFA</span><span class="pill">Peripheral</span></div>
       </div>
@@ -411,7 +370,7 @@
   <div class="wrap">
     <div class="shead"><span class="eyebrow">By the numbers</span><h2 class="stitle">A platform with <em>global</em> reach</h2></div>
     <div class="stat-grid">
-      <div class="stat"><div class="s-num">30,000<em>+</em></div><div class="s-lab">Patients treated with the sirolimus platform worldwide</div></div>
+      <div class="stat"><div class="s-num">50,000<em>+</em></div><div class="s-lab">Patients treated with the sirolimus platform worldwide</div></div>
       <div class="stat"><div class="s-num">4</div><div class="s-lab">US IDE approvals across peripheral indications</div></div>
       <div class="stat"><div class="s-num">2</div><div class="s-lab">FDA Breakthrough Device Designations</div></div>
       <div class="stat"><div class="s-num">5</div><div class="s-lab">Days of science, demos &amp; conversation in Copenhagen</div></div>
@@ -462,26 +421,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="ftr">
-  <div class="wrap">
-    <div class="ftr-top">
-      <div class="ftr-brand">
-        <a class="lock" href="#cmc26-top"><span class="mark">CM</span><span><span class="name" style="display:block">Concept Medical</span><span class="sub">CIRSE 2026</span></span></a>
-        <p>Pioneering sirolimus drug-delivery technology for cardiovascular and peripheral intervention.</p>
-      </div>
-      <div class="ftr-col"><h5>Congress</h5><a href="#cmc26-why">Why visit</a><a href="#cmc26-programme">Booth programme</a><a href="#cmc26-meet">Book a meeting</a></div>
-      <div class="ftr-col"><h5>Products</h5><a href="#cmc26-product">MagicTouch SCB</a><a href="#cmc26-product">Nanolute® platform</a><a href="#cmc26-evidence">Clinical evidence</a></div>
-      <div class="ftr-col"><h5>Company</h5><a href="https://www.conceptmedical.com" target="_blank" rel="noopener">conceptmedical.com</a><a href="mailto:info@conceptmedical.com">Contact us</a></div>
-    </div>
-    <p class="ftr-legal">Product availability, indications and regulatory status vary by country. Certain products or indications referenced here are investigational and not available for sale in all markets, including the United States. This page is intended for healthcare professionals attending the CIRSE 2026 Annual Congress. Congress dates and venue: 5–9 September 2026, Bella Center, Copenhagen, Denmark. Booth location, session times and speakers are to be confirmed. Nanolute® and MagicTouch are trademarks of Concept Medical Inc.</p>
-    <div class="ftr-bottom">
-      <span>© 2026 Concept Medical Inc. All rights reserved.</span>
-      <span>Not affiliated with or endorsed by CIRSE.</span>
-    </div>
-  </div>
-</footer>
-
 <script>
 (function(){
   var root=document.getElementById("cmc26"); if(!root) return;
@@ -493,8 +432,6 @@
     var dd=Math.floor(t/86400);t-=dd*86400; var hh=Math.floor(t/3600);t-=hh*3600; var mm=Math.floor(t/60);t-=mm*60;
     d.textContent=dd; h.textContent=p(hh); m.textContent=p(mm); s.textContent=p(t); }
   if(d){ tick(); setInterval(tick,1000); }
-  var hdr=root.querySelector(".hdr");
-  if(hdr){ window.addEventListener("scroll",function(){ hdr.style.boxShadow=window.scrollY>12?"var(--shadow-sm)":"none"; },{passive:true}); }
 })();
 </script>
 </div>
