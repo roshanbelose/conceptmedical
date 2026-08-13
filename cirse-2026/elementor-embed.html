@@ -1,0 +1,501 @@
+<!-- ============================================================
+     CONCEPT MEDICAL · CIRSE 2026 LANDING PAGE
+     Paste this ENTIRE block into an Elementor "HTML" widget.
+     (Editor → drag "HTML" widget onto a Canvas/blank page → paste.)
+
+     ▸ Everything is scoped under #cmc26 so it will NOT touch your theme.
+     ▸ Only 2 things to edit: the two --img-* URLs just below.
+       Upload the images to Media Library and paste their URLs here.
+     ============================================================ -->
+
+<div id="cmc26">
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap");
+
+#cmc26{
+  /* ▼▼▼ EDIT THESE TWO IMAGE URLS ▼▼▼ */
+  --img-product: url("https://YOURSITE.com/wp-content/uploads/magictouch-scb-render.png");
+  --img-tech:    url("https://YOURSITE.com/wp-content/uploads/nanolute-technology.webp");
+  /* ▲▲▲ EDIT THESE TWO IMAGE URLS ▲▲▲ */
+
+  /* brand blues */
+  --cm-blue-50:#E8EFF9; --cm-blue-100:#97DAF8; --cm-blue-200:#00B7F1; --cm-blue-300:#4D7BBE;
+  --cm-blue-400:#3260AD; --cm-blue-500:#1D4E9F; --cm-blue-600:#1B499F; --cm-blue-700:#213E7B;
+  --cm-blue-800:#182B53; --cm-blue-900:#122248;
+  /* neutrals */
+  --n-0:#FFFFFF; --n-50:#F7F8FB; --n-100:#EEF1F6; --n-200:#E1E6EE; --n-300:#C9D0DC;
+  --n-400:#9AA3B5; --n-500:#6B7589; --n-600:#4A5267; --n-700:#2F3645; --n-800:#1B202B;
+  --product-yellow:#FECF0C; --product-red:#EF3F2C; --warning:#C77700;
+  --font-brand:"Poppins","Segoe UI",Roboto,-apple-system,sans-serif;
+  --font-display:"Cormorant Garamond",Georgia,serif;
+  --radius-xs:2px; --radius-sm:4px; --radius-md:8px; --radius-lg:14px; --radius-xl:22px; --radius-pill:999px;
+  --shadow-xs:0 1px 2px rgba(18,34,72,.06); --shadow-sm:0 2px 6px rgba(18,34,72,.08);
+  --shadow-md:0 8px 22px rgba(18,34,72,.10); --shadow-lg:0 18px 48px rgba(18,34,72,.14);
+  --shadow-inset:inset 0 1px 0 rgba(255,255,255,.6);
+  --tracking-eyebrow:.18em; --tracking-button:.06em;
+
+  font-family:var(--font-brand); color:var(--n-800); background:var(--n-0);
+  line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+#cmc26 *{ box-sizing:border-box; }
+#cmc26 img{ max-width:100%; display:block; }
+#cmc26 a{ text-decoration:none; }
+
+/* layout primitives */
+#cmc26 .wrap{ max-width:1240px; margin:0 auto; padding:0 32px; }
+#cmc26 .sec{ padding:104px 0; position:relative; }
+#cmc26 .sec.tight{ padding:72px 0; }
+#cmc26 .sec.alt{ background:var(--n-50); }
+#cmc26 .sec.navy{ background:var(--cm-blue-900); color:#fff; }
+#cmc26 .eyebrow{ display:inline-flex; align-items:center; gap:10px; font-size:11px; font-weight:600;
+  letter-spacing:var(--tracking-eyebrow); text-transform:uppercase; color:var(--cm-blue-500); }
+#cmc26 .eyebrow::before{ content:""; width:26px; height:2px; border-radius:2px; background:var(--cm-blue-200); }
+#cmc26 .sec.navy .eyebrow, #cmc26 .hero .eyebrow{ color:var(--cm-blue-200); }
+#cmc26 .stitle{ font-weight:600; font-size:clamp(2rem,3.4vw,2.875rem); line-height:1.1;
+  letter-spacing:-.018em; color:var(--cm-blue-900); margin:16px 0 18px; max-width:780px; }
+#cmc26 .sec.navy .stitle{ color:#fff; }
+#cmc26 .stitle em{ font-family:var(--font-display); font-style:italic; font-weight:500; color:var(--cm-blue-500); }
+#cmc26 .sec.navy .stitle em{ color:var(--cm-blue-200); }
+#cmc26 .slead{ font-size:18px; line-height:1.6; color:var(--n-600); max-width:660px; margin:0; }
+#cmc26 .sec.navy .slead{ color:rgba(255,255,255,.78); }
+#cmc26 .shead{ max-width:780px; margin:0 auto 56px; text-align:center; }
+#cmc26 .shead .stitle,#cmc26 .shead .slead{ margin-left:auto; margin-right:auto; }
+
+/* buttons */
+#cmc26 .btn{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-brand);
+  font-weight:600; font-size:13px; letter-spacing:var(--tracking-button); text-transform:uppercase;
+  padding:15px 26px; border:1px solid transparent; border-radius:var(--radius-xs); cursor:pointer;
+  transition:all .16s ease; background:none; white-space:nowrap; }
+#cmc26 .btn .ar{ transition:transform .2s ease; }
+#cmc26 .btn:hover .ar{ transform:translateX(4px); }
+#cmc26 .btn-primary{ color:#fff; box-shadow:var(--shadow-inset); position:relative; overflow:hidden; isolation:isolate; background:var(--cm-blue-600); }
+#cmc26 .btn-primary::before{ content:""; position:absolute; inset:-80%; z-index:-1; background-color:var(--cm-blue-600);
+  background-image:radial-gradient(34% 42% at 22% 28%,var(--cm-blue-400) 0%,transparent 60%),
+   radial-gradient(40% 48% at 78% 34%,var(--cm-blue-200) 0%,transparent 62%),
+   radial-gradient(46% 54% at 58% 84%,var(--cm-blue-800) 0%,transparent 60%),
+   radial-gradient(38% 46% at 8% 80%,var(--cm-blue-300) 0%,transparent 60%);
+  background-repeat:no-repeat; filter:saturate(118%); transform:rotate(0) scale(1.35); animation:cmc26Aurora 9s linear infinite; }
+#cmc26 .btn-primary:hover{ background:var(--cm-blue-700); }
+#cmc26 .btn-primary>*{ position:relative; z-index:1; }
+@keyframes cmc26Aurora{ 0%{transform:rotate(0) scale(1.35)} 25%{transform:rotate(90deg) scale(1.55)}
+ 50%{transform:rotate(180deg) scale(1.4)} 75%{transform:rotate(270deg) scale(1.6)} 100%{transform:rotate(360deg) scale(1.35)} }
+#cmc26 .btn-sec{ background:transparent; color:var(--cm-blue-500); border-color:var(--cm-blue-500); }
+#cmc26 .btn-sec:hover{ background:var(--cm-blue-500); color:#fff; }
+#cmc26 .btn-white{ background:#fff; color:var(--cm-blue-700); }
+#cmc26 .btn-white:hover{ background:var(--cm-blue-100); }
+#cmc26 .btn-wghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.42); }
+#cmc26 .btn-wghost:hover{ background:rgba(255,255,255,.10); border-color:#fff; }
+#cmc26 .btn-lg{ padding:17px 32px; font-size:14px; }
+
+/* header */
+#cmc26 .hdr{ position:sticky; top:0; z-index:40; background:rgba(255,255,255,.88);
+  backdrop-filter:saturate(160%) blur(12px); -webkit-backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid var(--n-200); }
+#cmc26 .hdr-in{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+#cmc26 .lock{ display:flex; align-items:center; gap:12px; }
+#cmc26 .mark{ width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#fff;
+  font-weight:700; font-size:13px; letter-spacing:.02em;
+  background:radial-gradient(120% 120% at 30% 20%,var(--cm-blue-200),var(--cm-blue-500) 60%,var(--cm-blue-700)); }
+#cmc26 .lock .name{ font-weight:700; font-size:15px; color:var(--cm-blue-700); line-height:1.05; }
+#cmc26 .lock .sub{ font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--cm-blue-200); }
+#cmc26 .nav{ display:flex; align-items:center; gap:30px; }
+#cmc26 .nav a{ font-size:14px; font-weight:500; color:var(--n-700); transition:color .14s; }
+#cmc26 .nav a:hover{ color:var(--cm-blue-500); }
+#cmc26 .hdr .btn{ padding:11px 20px; }
+
+/* hero */
+#cmc26 .hero{ position:relative; overflow:hidden; color:#fff;
+  background:radial-gradient(120% 120% at 82% 8%,rgba(0,183,241,.30) 0%,transparent 46%),
+   linear-gradient(160deg,var(--cm-blue-800) 0%,var(--cm-blue-900) 58%,#0c1a3a 100%); }
+#cmc26 .hero .grid{ position:absolute; inset:0; opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:64px 64px; -webkit-mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%); mask-image:radial-gradient(70% 60% at 50% 30%,#000,transparent 78%); }
+#cmc26 .hero-in{ position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; padding:84px 0 96px; }
+#cmc26 .ebrow-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:22px; }
+#cmc26 .flag{ display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:var(--radius-pill);
+  background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.16); font-size:11px; font-weight:600;
+  letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.92); }
+#cmc26 .hero h1{ font-size:clamp(2.6rem,5vw,4.1rem); line-height:1.03; letter-spacing:-.025em; font-weight:600; color:#fff; margin:0 0 22px; }
+#cmc26 .hero h1 em{ font-family:var(--font-display); font-style:italic; font-weight:500; color:var(--cm-blue-100); }
+#cmc26 .hlead{ font-size:19px; line-height:1.58; color:rgba(255,255,255,.82); max-width:540px; margin:0 0 30px; }
+#cmc26 .hlead strong{ color:#fff; font-weight:600; }
+#cmc26 .cta-row{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+#cmc26 .hmeta{ display:flex; gap:30px; flex-wrap:wrap; }
+#cmc26 .hmeta .hm{ border-left:2px solid rgba(0,183,241,.6); padding-left:14px; }
+#cmc26 .hmeta .k{ font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--cm-blue-200); margin-bottom:5px; }
+#cmc26 .hmeta .v{ font-size:16px; font-weight:600; color:#fff; }
+#cmc26 .hmeta .v small{ display:block; font-size:12.5px; font-weight:400; color:rgba(255,255,255,.66); }
+#cmc26 .tbc::after{ content:"TBC"; font-size:9px; font-weight:700; letter-spacing:.08em; vertical-align:super;
+  margin-left:5px; color:var(--warning); background:rgba(199,119,0,.16); padding:1px 5px; border-radius:3px; }
+
+#cmc26 .hvis{ position:relative; display:flex; justify-content:center; align-items:center; min-height:420px; }
+#cmc26 .halo{ position:absolute; width:460px; height:460px; border-radius:50%;
+  background:radial-gradient(circle,rgba(0,183,241,.35) 0%,rgba(29,78,159,.12) 45%,transparent 70%); filter:blur(6px); }
+#cmc26 .render{ position:relative; z-index:2; width:min(94%,460px); height:340px;
+  background-image:var(--img-product); background-size:contain; background-repeat:no-repeat; background-position:center;
+  filter:drop-shadow(0 30px 60px rgba(0,0,0,.5)); animation:cmc26Float 7s ease-in-out infinite; }
+@keyframes cmc26Float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+#cmc26 .chip{ position:absolute; z-index:3; background:rgba(255,255,255,.96); border:1px solid rgba(255,255,255,.7);
+  box-shadow:var(--shadow-lg); border-radius:var(--radius-lg); padding:12px 16px; }
+#cmc26 .chip .ck{ font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cm-blue-300); }
+#cmc26 .chip .cv{ font-size:22px; font-weight:700; color:var(--cm-blue-700); line-height:1.1; letter-spacing:-.02em; }
+#cmc26 .chip .cs{ font-size:11px; color:var(--n-500); }
+#cmc26 .chip.tl{ top:8%; left:-2%; animation:cmc26Float 6s ease-in-out infinite; }
+#cmc26 .chip.br{ bottom:6%; right:-3%; animation:cmc26Float 8s ease-in-out infinite reverse; }
+
+/* countdown */
+#cmc26 .cd{ position:relative; z-index:2; border-top:1px solid rgba(255,255,255,.12); background:rgba(9,20,46,.55); }
+#cmc26 .cd-in{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:22px 0; flex-wrap:wrap; }
+#cmc26 .cd-lab{ font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--cm-blue-200); }
+#cmc26 .cd-clock{ display:flex; gap:14px; align-items:flex-start; }
+#cmc26 .cd-u{ text-align:center; min-width:66px; }
+#cmc26 .cd-u .num{ font-size:34px; font-weight:700; color:#fff; line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums; }
+#cmc26 .cd-u .l{ font-size:10.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.55); margin-top:7px; }
+#cmc26 .cd-sep{ font-size:30px; color:rgba(255,255,255,.25); margin-top:2px; }
+
+/* at a glance */
+#cmc26 .glance-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+#cmc26 .glance{ background:#fff; border:1px solid var(--n-200); border-radius:var(--radius-lg); padding:26px 24px; box-shadow:var(--shadow-xs); }
+#cmc26 .g-ico{ width:46px; height:46px; border-radius:var(--radius-md); display:grid; place-items:center; margin-bottom:16px; background:var(--cm-blue-50); color:var(--cm-blue-500); }
+#cmc26 .g-ico svg{ width:24px; height:24px; }
+#cmc26 .g-k{ font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--cm-blue-300); margin-bottom:6px; }
+#cmc26 .g-v{ font-size:21px; font-weight:700; color:var(--cm-blue-900); letter-spacing:-.01em; line-height:1.15; }
+#cmc26 .g-s{ font-size:14px; color:var(--n-500); margin-top:6px; }
+
+/* features */
+#cmc26 .feat-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+#cmc26 .feat{ background:#fff; border:1px solid var(--n-200); border-radius:var(--radius-lg); padding:34px 30px;
+  transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease; position:relative; overflow:hidden; }
+#cmc26 .feat::after{ content:""; position:absolute; left:0; top:0; height:3px; width:100%;
+  background:linear-gradient(90deg,var(--cm-blue-500),var(--cm-blue-200)); transform:scaleX(0); transform-origin:left; transition:transform .26s ease; }
+#cmc26 .feat:hover{ transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:var(--cm-blue-100); }
+#cmc26 .feat:hover::after{ transform:scaleX(1); }
+#cmc26 .f-ico{ width:52px; height:52px; border-radius:var(--radius-md); background:var(--cm-blue-50); color:var(--cm-blue-500); display:grid; place-items:center; margin:0 0 18px; }
+#cmc26 .f-ico svg{ width:26px; height:26px; }
+#cmc26 .feat h3{ font-size:20px; color:var(--cm-blue-900); margin:0 0 10px; font-weight:600; }
+#cmc26 .feat p{ font-size:15px; color:var(--n-600); margin:0; }
+
+/* split / product */
+#cmc26 .split{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+#cmc26 .split.rev .media{ order:2; }
+#cmc26 .stage{ position:relative; border-radius:var(--radius-xl); padding:40px; overflow:hidden;
+  background:radial-gradient(90% 90% at 30% 20%,rgba(0,183,241,.16),transparent 60%),linear-gradient(155deg,var(--cm-blue-700),var(--cm-blue-900));
+  box-shadow:var(--shadow-lg); }
+#cmc26 .stage .img{ position:relative; z-index:1; height:300px; background-size:contain; background-repeat:no-repeat; background-position:center; filter:drop-shadow(0 24px 44px rgba(0,0,0,.45)); }
+#cmc26 .stage.product .img{ background-image:var(--img-product); }
+#cmc26 .stage.tech{ padding:0; }
+#cmc26 .stage.tech .img{ height:360px; background-image:var(--img-tech); background-size:cover; border-radius:var(--radius-xl); filter:none; }
+#cmc26 .pbadge{ position:absolute; z-index:2; bottom:22px; left:22px; display:inline-flex; align-items:center; gap:8px;
+  background:rgba(255,255,255,.95); border-radius:var(--radius-pill); padding:8px 14px; font-size:12px; font-weight:600; color:var(--cm-blue-700); box-shadow:var(--shadow-md); }
+#cmc26 .pbadge .dot{ width:8px; height:8px; border-radius:50%; background:var(--product-yellow); }
+#cmc26 .specs{ list-style:none; margin:26px 0 30px; padding:0; display:grid; gap:14px; }
+#cmc26 .specs li{ display:flex; gap:12px; align-items:flex-start; font-size:15.5px; color:var(--n-700); }
+#cmc26 .tick{ flex:0 0 22px; width:22px; height:22px; border-radius:50%; background:var(--cm-blue-50); color:var(--cm-blue-500); display:grid; place-items:center; margin-top:1px; }
+#cmc26 .tick svg{ width:13px; height:13px; }
+#cmc26 .pills{ display:flex; flex-wrap:wrap; gap:10px; }
+#cmc26 .pill{ font-size:12px; font-weight:600; padding:7px 14px; border-radius:var(--radius-pill); background:var(--cm-blue-50); color:var(--cm-blue-600); border:1px solid var(--cm-blue-100); }
+
+/* stat band */
+#cmc26 .stat-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:30px; }
+#cmc26 .stat{ text-align:center; }
+#cmc26 .s-num{ font-size:clamp(2.4rem,4vw,3.4rem); font-weight:700; letter-spacing:-.03em; line-height:1; color:#fff; font-variant-numeric:tabular-nums; }
+#cmc26 .s-num em{ font-family:var(--font-display); font-style:italic; color:var(--cm-blue-200); }
+#cmc26 .s-lab{ font-size:14px; color:rgba(255,255,255,.72); margin-top:12px; line-height:1.45; }
+#cmc26 .stat+.stat{ border-left:1px solid rgba(255,255,255,.10); }
+
+/* programme */
+#cmc26 .agenda{ display:grid; max-width:860px; margin:0 auto; }
+#cmc26 .ag{ display:grid; grid-template-columns:168px 1fr auto; gap:26px; align-items:center; padding:24px 4px; border-bottom:1px solid var(--n-100); }
+#cmc26 .ag:first-child{ border-top:1px solid var(--n-100); }
+#cmc26 .ag-t{ font-weight:700; color:var(--cm-blue-600); font-variant-numeric:tabular-nums; font-size:15px; }
+#cmc26 .ag-t small{ display:block; font-weight:500; color:var(--n-400); font-size:12px; letter-spacing:.08em; text-transform:uppercase; margin-top:3px; }
+#cmc26 .ag h4{ font-size:17px; color:var(--cm-blue-900); margin:0 0 4px; font-weight:600; }
+#cmc26 .ag p{ font-size:14px; color:var(--n-500); margin:0; }
+#cmc26 .ag-tag{ font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:var(--radius-pill); background:var(--cm-blue-50); color:var(--cm-blue-500); white-space:nowrap; }
+#cmc26 .ag-tag.live{ background:rgba(239,63,44,.10); color:var(--product-red); }
+
+/* quote */
+#cmc26 .quote{ position:relative; color:#fff; overflow:hidden; background:linear-gradient(155deg,var(--cm-blue-800),var(--cm-blue-900)); }
+#cmc26 .quote-in{ position:relative; z-index:1; max-width:900px; margin:0 auto; text-align:center; }
+#cmc26 .qm{ font-family:var(--font-display); font-style:italic; font-size:90px; line-height:.6; color:var(--cm-blue-200); }
+#cmc26 .qt{ font-family:var(--font-display); font-size:clamp(1.6rem,3vw,2.4rem); line-height:1.3; font-weight:500; margin:18px 0 24px; }
+#cmc26 .qt em{ color:var(--cm-blue-100); }
+#cmc26 .qc{ font-size:15px; color:rgba(255,255,255,.72); }
+#cmc26 .qc strong{ color:#fff; font-weight:600; }
+
+/* CTA band */
+#cmc26 .ctab{ position:relative; overflow:hidden; background:linear-gradient(150deg,var(--cm-blue-600),var(--cm-blue-800)); color:#fff; }
+#cmc26 .ctab .glow{ position:absolute; width:620px; height:620px; border-radius:50%; right:-180px; top:-220px; background:radial-gradient(circle,rgba(0,183,241,.4),transparent 68%); }
+#cmc26 .ctab-in{ position:relative; z-index:1; display:grid; grid-template-columns:1.2fr .8fr; gap:50px; align-items:center; }
+#cmc26 .ctab-in h2{ font-size:clamp(2rem,3.6vw,3rem); color:#fff; letter-spacing:-.02em; line-height:1.08; margin:16px 0; font-weight:600; }
+#cmc26 .ctab-in h2 em{ font-family:var(--font-display); font-style:italic; color:var(--cm-blue-100); }
+#cmc26 .ctab-in p{ font-size:18px; color:rgba(255,255,255,.82); margin:0; }
+#cmc26 .ctab-act{ display:flex; flex-direction:column; gap:14px; }
+#cmc26 .ctab-act .btn{ justify-content:center; }
+#cmc26 .ctab-note{ font-size:13px; color:rgba(255,255,255,.6); text-align:center; }
+
+/* footer */
+#cmc26 .ftr{ background:var(--cm-blue-900); color:rgba(255,255,255,.72); padding:70px 0 34px; }
+#cmc26 .ftr-top{ display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding-bottom:44px; border-bottom:1px solid rgba(255,255,255,.10); }
+#cmc26 .ftr .name{ color:#fff; }
+#cmc26 .ftr-brand p{ font-size:14px; color:rgba(255,255,255,.6); margin:18px 0 0; max-width:300px; }
+#cmc26 .ftr-col h5{ font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.5); margin:0 0 16px; }
+#cmc26 .ftr-col a{ display:block; font-size:14px; color:rgba(255,255,255,.75); margin-bottom:11px; transition:color .14s; }
+#cmc26 .ftr-col a:hover{ color:var(--cm-blue-100); }
+#cmc26 .ftr-legal{ max-width:760px; font-size:11.5px; line-height:1.6; color:rgba(255,255,255,.42); margin:20px 0 0; }
+#cmc26 .ftr-bottom{ display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; padding-top:26px; font-size:12.5px; color:rgba(255,255,255,.5); }
+
+/* responsive */
+@media(max-width:1080px){
+  #cmc26 .hero-in{ grid-template-columns:1fr; gap:12px; }
+  #cmc26 .hvis{ order:-1; min-height:320px; }
+  #cmc26 .render{ width:min(70%,340px); }
+  #cmc26 .glance-grid{ grid-template-columns:repeat(2,1fr); }
+  #cmc26 .feat-grid{ grid-template-columns:1fr 1fr; }
+  #cmc26 .split{ grid-template-columns:1fr; gap:36px; }
+  #cmc26 .split.rev .media{ order:-1; }
+  #cmc26 .ctab-in{ grid-template-columns:1fr; gap:28px; }
+  #cmc26 .ftr-top{ grid-template-columns:1fr 1fr; }
+}
+@media(max-width:720px){
+  #cmc26 .wrap{ padding:0 20px; }
+  #cmc26 .sec{ padding:72px 0; }
+  #cmc26 .nav{ display:none; }
+  #cmc26 .hmeta{ gap:18px; }
+  #cmc26 .stat-grid{ grid-template-columns:1fr 1fr; gap:26px; }
+  #cmc26 .stat+.stat{ border-left:0; }
+  #cmc26 .stat-grid .stat:nth-child(n+3){ padding-top:26px; border-top:1px solid rgba(255,255,255,.10); }
+  #cmc26 .feat-grid,#cmc26 .glance-grid{ grid-template-columns:1fr; }
+  #cmc26 .ag{ grid-template-columns:1fr; gap:8px; }
+  #cmc26 .ag-tag{ justify-self:start; }
+  #cmc26 .cd-in{ justify-content:center; text-align:center; }
+  #cmc26 .ftr-top{ grid-template-columns:1fr; }
+  #cmc26 .chip.tl{ left:0; } #cmc26 .chip.br{ right:0; }
+}
+@media(prefers-reduced-motion:reduce){
+  #cmc26 .render,#cmc26 .chip,#cmc26 .btn-primary::before{ animation:none !important; }
+}
+</style>
+
+<!-- HEADER -->
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="lock" href="#cmc26-top">
+      <span class="mark">CM</span>
+      <span><span class="name" style="display:block">Concept Medical</span><span class="sub">CIRSE 2026</span></span>
+    </a>
+    <nav class="nav">
+      <a href="#cmc26-why">Why visit</a>
+      <a href="#cmc26-product">MagicTouch</a>
+      <a href="#cmc26-programme">Programme</a>
+      <a href="#cmc26-evidence">Evidence</a>
+    </nav>
+    <a class="btn btn-primary" href="#cmc26-meet"><span>Book a meeting</span><span class="ar">→</span></a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="cmc26-top">
+  <div class="grid"></div>
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <div class="ebrow-row">
+          <span class="eyebrow">CIRSE Annual Congress 2026</span>
+          <span class="flag">🇩🇰 Copenhagen</span>
+        </div>
+        <h1>Meet Concept Medical at <em>CIRSE&nbsp;2026</em></h1>
+        <p class="hlead">Join us at the Bella Center to experience the science behind sirolimus — the <strong>MagicTouch</strong> drug-coated balloon family and the <strong>Nanolute</strong> delivery platform advancing care below the knee and beyond.</p>
+        <div class="cta-row">
+          <a class="btn btn-white btn-lg" href="#cmc26-meet"><span>Book a meeting</span><span class="ar">→</span></a>
+          <a class="btn btn-wghost btn-lg" href="#cmc26-programme"><span>View programme</span></a>
+        </div>
+        <div class="hmeta">
+          <div class="hm"><div class="k">Dates</div><div class="v">5–9 September 2026</div></div>
+          <div class="hm"><div class="k">Venue</div><div class="v">Bella Center<small>Copenhagen, Denmark</small></div></div>
+          <div class="hm"><div class="k">Find us at</div><div class="v"><span class="tbc">Booth&nbsp;—</span><small>Exhibition hall</small></div></div>
+        </div>
+      </div>
+      <div class="hvis">
+        <div class="halo"></div>
+        <div class="render" role="img" aria-label="MagicTouch Sirolimus Coated Balloon"></div>
+        <div class="chip tl"><div class="ck">Sirolimus DCB</div><div class="cv">MagicTouch</div><div class="cs">Nanolute® platform</div></div>
+        <div class="chip br"><div class="ck">Global experience</div><div class="cv">30,000+</div><div class="cs">patients treated</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cd">
+    <div class="wrap cd-in">
+      <span class="cd-lab">Congress opens in</span>
+      <div class="cd-clock" id="cmc26-cd">
+        <div class="cd-u"><div class="num" data-cd="days">—</div><div class="l">Days</div></div><span class="cd-sep">:</span>
+        <div class="cd-u"><div class="num" data-cd="hours">—</div><div class="l">Hours</div></div><span class="cd-sep">:</span>
+        <div class="cd-u"><div class="num" data-cd="mins">—</div><div class="l">Minutes</div></div><span class="cd-sep">:</span>
+        <div class="cd-u"><div class="num" data-cd="secs">—</div><div class="l">Seconds</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AT A GLANCE -->
+<section class="sec tight">
+  <div class="wrap">
+    <div class="glance-grid">
+      <div class="glance"><div class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></div><div class="g-k">When</div><div class="g-v">5–9 Sep 2026</div><div class="g-s">Saturday to Wednesday</div></div>
+      <div class="glance"><div class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-5.2-7-10a7 7 0 0 1 14 0c0 4.8-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></div><div class="g-k">Where</div><div class="g-v">Bella Center</div><div class="g-s">Ørestad, Copenhagen</div></div>
+      <div class="glance"><div class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a2 2 0 0 1 2-2h9l5 5v13"/><path d="M4 21h16M9 8h4M9 12h6M9 16h6"/></svg></div><div class="g-k">Congress theme</div><div class="g-v">Breaking barriers, expanding care</div></div>
+      <div class="glance"><div class="g-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 5.5a3 3 0 0 1 0 5.4M16.5 20a6.5 6.5 0 0 0-3-5.5"/></svg></div><div class="g-k">Meet</div><div class="g-v">Our clinical &amp; R&amp;D team</div><div class="g-s">On-booth demos daily</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY VISIT -->
+<section class="sec alt" id="cmc26-why">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">Why visit our booth</span>
+      <h2 class="stitle">Four reasons to <em>stop by</em> in Copenhagen</h2>
+      <p class="slead">From live device walk-throughs to the latest sirolimus evidence, here's what's waiting for you on the Concept Medical stand.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12c3-4 6-6 9-6s6 2 9 6c-3 4-6 6-9 6s-6-2-9-6Z"/><circle cx="12" cy="12" r="2.4"/></svg></div><h3>See MagicTouch in the hand</h3><p>Get hands-on with the MagicTouch Sirolimus Coated Balloon and feel the difference the Nanolute coating makes.</p></div>
+      <div class="feat"><div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"/><circle cx="12" cy="12" r="3"/></svg></div><h3>The Nanolute® platform</h3><p>Explore how sub-micron sirolimus particles in a biocompatible carrier are engineered for controlled, sustained drug delivery.</p></div>
+      <div class="feat"><div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M4 19h16M8 15l3-4 3 3 4-6"/></svg></div><h3>Fresh clinical evidence</h3><p>Review the latest data across BTK and SFA indications with the physicians and scientists behind the programme.</p></div>
+      <div class="feat"><div class="f-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 10h8M8 14h5"/><path d="M21 12a8 8 0 0 1-8 8H4l2-3a8 8 0 1 1 15-5Z"/></svg></div><h3>Talk to the team</h3><p>Book a one-to-one with our clinical, regulatory and R&amp;D leads — or just drop by for a coffee and a conversation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="sec" id="cmc26-product">
+  <div class="wrap">
+    <div class="split">
+      <div class="media"><div class="stage product"><div class="img"></div><span class="pbadge"><span class="dot"></span>MagicTouch family</span></div></div>
+      <div>
+        <span class="eyebrow">Featured at CIRSE 2026</span>
+        <h2 class="stitle">MagicTouch <em>Sirolimus</em> Coated Balloon</h2>
+        <p class="slead">A sirolimus drug-coated balloon built on Concept Medical's pioneering Nanolute technology — delivering the drug where it's needed, with a coating designed for controlled release in peripheral arteries.</p>
+        <ul class="specs">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Sub-micron sirolimus encapsulated in a biocompatible carrier</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Studied across Below-the-Knee (BTK) and Superficial Femoral Artery (SFA) disease</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>FDA Breakthrough Device Designation &amp; IDE approvals for peripheral indications</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>A sirolimus platform with a commercial history across 30,000+ patients worldwide</li>
+        </ul>
+        <div class="pills"><span class="pill">Sirolimus DCB</span><span class="pill">Nanolute®</span><span class="pill">BTK</span><span class="pill">SFA</span><span class="pill">Peripheral</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="sec alt">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="media"><div class="stage tech"><div class="img"></div></div></div>
+      <div>
+        <span class="eyebrow">The science</span>
+        <h2 class="stitle">Engineered for <em>controlled</em> delivery</h2>
+        <p class="slead">Nanolute is Concept Medical's proprietary sirolimus delivery platform. By formulating the drug as sub-micron particles within a biocompatible carrier, it's designed to reach the vessel wall and release in a sustained, controlled manner.</p>
+        <ul class="specs">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Proven coronary heritage extended to peripheral applications</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>Sirolimus — a limus drug with a well-characterised safety profile</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4 10-11"/></svg></span>A growing body of global clinical evidence</li>
+        </ul>
+        <a class="btn btn-sec" href="#cmc26-meet"><span>Discuss the data with us</span><span class="ar">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAT BAND -->
+<section class="sec navy tight" id="cmc26-evidence">
+  <div class="wrap">
+    <div class="shead"><span class="eyebrow">By the numbers</span><h2 class="stitle">A platform with <em>global</em> reach</h2></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="s-num">30,000<em>+</em></div><div class="s-lab">Patients treated with the sirolimus platform worldwide</div></div>
+      <div class="stat"><div class="s-num">4</div><div class="s-lab">US IDE approvals across peripheral indications</div></div>
+      <div class="stat"><div class="s-num">2</div><div class="s-lab">FDA Breakthrough Device Designations</div></div>
+      <div class="stat"><div class="s-num">5</div><div class="s-lab">Days of science, demos &amp; conversation in Copenhagen</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section class="sec" id="cmc26-programme">
+  <div class="wrap">
+    <div class="shead">
+      <span class="eyebrow">On the stand</span>
+      <h2 class="stitle">Booth <em>programme</em></h2>
+      <p class="slead">A daily rhythm of live demonstrations and expert sessions. Full schedule and speakers to be announced closer to the congress.</p>
+    </div>
+    <div class="agenda">
+      <div class="ag"><div class="ag-t">Daily<small class="tbc">Time</small></div><div><h4>MagicTouch device walk-through</h4><p>Hands-on demonstration of the Sirolimus Coated Balloon with our product specialists.</p></div><span class="ag-tag">Demo</span></div>
+      <div class="ag"><div class="ag-t">Daily<small class="tbc">Time</small></div><div><h4>Meet the Nanolute® scientists</h4><p>Ask-me-anything with the team behind the sirolimus delivery platform.</p></div><span class="ag-tag">Talk</span></div>
+      <div class="ag"><div class="ag-t">TBA<small class="tbc">Session</small></div><div><h4>Clinical evidence update</h4><p>Latest results across BTK &amp; SFA, presented with visiting faculty.</p></div><span class="ag-tag live">Featured</span></div>
+      <div class="ag"><div class="ag-t">Daily<small class="tbc">Time</small></div><div><h4>Coffee &amp; conversation</h4><p>Informal networking with the Concept Medical team on-booth.</p></div><span class="ag-tag">Social</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="sec quote">
+  <div class="wrap quote-in">
+    <div class="qm">“</div>
+    <p class="qt">Sirolimus is reshaping how we think about drug delivery in the periphery — and CIRSE is where that <em>conversation</em> happens.</p>
+    <p class="qc"><strong>Concept Medical</strong> · Clinical &amp; Scientific Affairs</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec ctab" id="cmc26-meet">
+  <div class="glow"></div>
+  <div class="wrap ctab-in">
+    <div>
+      <span class="eyebrow">Let's meet in Copenhagen</span>
+      <h2>Reserve your <em>time</em> with our team</h2>
+      <p>Tell us what you'd like to see and we'll set up a slot that works for your congress schedule — device demos, data deep-dives, or partnership conversations.</p>
+    </div>
+    <div class="ctab-act">
+      <a class="btn btn-white btn-lg" href="mailto:info@conceptmedical.com?subject=CIRSE%202026%20meeting%20request"><span>Book a meeting</span><span class="ar">→</span></a>
+      <a class="btn btn-wghost btn-lg" href="https://www.conceptmedical.com" target="_blank" rel="noopener"><span>Explore our products</span></a>
+      <span class="ctab-note">Prefer email? Write to info@conceptmedical.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <a class="lock" href="#cmc26-top"><span class="mark">CM</span><span><span class="name" style="display:block">Concept Medical</span><span class="sub">CIRSE 2026</span></span></a>
+        <p>Pioneering sirolimus drug-delivery technology for cardiovascular and peripheral intervention.</p>
+      </div>
+      <div class="ftr-col"><h5>Congress</h5><a href="#cmc26-why">Why visit</a><a href="#cmc26-programme">Booth programme</a><a href="#cmc26-meet">Book a meeting</a></div>
+      <div class="ftr-col"><h5>Products</h5><a href="#cmc26-product">MagicTouch SCB</a><a href="#cmc26-product">Nanolute® platform</a><a href="#cmc26-evidence">Clinical evidence</a></div>
+      <div class="ftr-col"><h5>Company</h5><a href="https://www.conceptmedical.com" target="_blank" rel="noopener">conceptmedical.com</a><a href="mailto:info@conceptmedical.com">Contact us</a></div>
+    </div>
+    <p class="ftr-legal">Product availability, indications and regulatory status vary by country. Certain products or indications referenced here are investigational and not available for sale in all markets, including the United States. This page is intended for healthcare professionals attending the CIRSE 2026 Annual Congress. Congress dates and venue: 5–9 September 2026, Bella Center, Copenhagen, Denmark. Booth location, session times and speakers are to be confirmed. Nanolute® and MagicTouch are trademarks of Concept Medical Inc.</p>
+    <div class="ftr-bottom">
+      <span>© 2026 Concept Medical Inc. All rights reserved.</span>
+      <span>Not affiliated with or endorsed by CIRSE.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.getElementById("cmc26"); if(!root) return;
+  var TARGET=Date.UTC(2026,8,5,7,0,0); // 5 Sep 2026, 09:00 CEST
+  var d=root.querySelector('[data-cd="days"]'),h=root.querySelector('[data-cd="hours"]'),
+      m=root.querySelector('[data-cd="mins"]'),s=root.querySelector('[data-cd="secs"]');
+  function p(n){return (n<10?"0":"")+n;}
+  function tick(){ if(!d) return; var x=Math.max(0,TARGET-Date.now()),t=Math.floor(x/1000);
+    var dd=Math.floor(t/86400);t-=dd*86400; var hh=Math.floor(t/3600);t-=hh*3600; var mm=Math.floor(t/60);t-=mm*60;
+    d.textContent=dd; h.textContent=p(hh); m.textContent=p(mm); s.textContent=p(t); }
+  if(d){ tick(); setInterval(tick,1000); }
+  var hdr=root.querySelector(".hdr");
+  if(hdr){ window.addEventListener("scroll",function(){ hdr.style.boxShadow=window.scrollY>12?"var(--shadow-sm)":"none"; },{passive:true}); }
+})();
+</script>
+</div>
+<!-- ============ END CONCEPT MEDICAL · CIRSE 2026 ============ -->
