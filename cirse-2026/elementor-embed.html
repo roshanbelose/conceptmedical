@@ -4,13 +4,9 @@
      No header / no footer — your WordPress theme provides those.
 
      ▸ Everything is scoped under #cmc26 so it will NOT touch your theme.
-     ▸ Set the TWO image URLs just below. Paste any direct image URL — from
-       your WordPress Media Library, conceptmedical.com, a Google-hosted
-       image, or any CDN. To grab one: open the image in a browser,
-       right-click → "Copy image address", paste it between the quotes.
-       Reference product pages if you need a source image:
-         • MagicTouch render → https://www.conceptmedical.com/magictouch-pta/
-         • Nanolute visual   → https://www.conceptmedical.com/technology/nanolute/
+     ▸ Images are pulled live from conceptmedical.com (see the 3 --img-*
+       URLs just below). To swap any of them, paste a new direct image URL
+       between the quotes.
      ============================================================ -->
 
 <div id="cmc26">
@@ -18,10 +14,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&display=swap");
 
 #cmc26{
-  /* ▼▼▼ EDIT THESE TWO IMAGE URLS — paste any direct image link ▼▼▼ */
-  --img-product: url("PASTE_MAGICTOUCH_IMAGE_URL_HERE");
-  --img-tech:    url("PASTE_NANOLUTE_IMAGE_URL_HERE");
-  /* ▲▲▲ EDIT THESE TWO IMAGE URLS ▲▲▲ */
+  /* ▼▼▼ IMAGES (conceptmedical.com) — swap URLs here to change them ▼▼▼ */
+  --img-product: url("https://www.conceptmedical.com/wp-content/uploads/2026/06/MagicTouch-AVF-Drug-Coated-Balloon.png");
+  --img-tech:    url("https://www.conceptmedical.com/wp-content/uploads/2025/05/Nanolute-Sirolimus-Coated-Balloon-MagicTouch-PTA.png");
+  --img-logo:    url("https://www.conceptmedical.com/wp-content/uploads/2026/05/MTpta-04-scaled.png");
+  /* ▲▲▲ IMAGES ▲▲▲ */
 
   /* brand blues */
   --cm-blue-50:#E8EFF9; --cm-blue-100:#97DAF8; --cm-blue-200:#00B7F1; --cm-blue-300:#4D7BBE;
@@ -174,6 +171,8 @@
 #cmc26 .stage.product .img{ background-image:var(--img-product); }
 #cmc26 .stage.tech{ padding:0; }
 #cmc26 .stage.tech .img{ height:360px; background-image:var(--img-tech); background-size:cover; border-radius:var(--radius-xl); filter:none; }
+#cmc26 .plogo{ height:56px; width:240px; max-width:70%; margin-bottom:20px;
+  background:var(--img-logo) left center/contain no-repeat; }
 #cmc26 .pbadge{ position:absolute; z-index:2; bottom:22px; left:22px; display:inline-flex; align-items:center; gap:8px;
   background:rgba(255,255,255,.95); border-radius:var(--radius-pill); padding:8px 14px; font-size:12px; font-weight:600; color:var(--cm-blue-700); box-shadow:var(--shadow-md); }
 #cmc26 .pbadge .dot{ width:8px; height:8px; border-radius:50%; background:var(--product-yellow); }
@@ -331,6 +330,7 @@
       <div class="media"><div class="stage product"><div class="img"></div><span class="pbadge"><span class="dot"></span>MagicTouch family</span></div></div>
       <div>
         <span class="eyebrow">Featured at CIRSE 2026</span>
+        <div class="plogo" role="img" aria-label="MagicTouch PTA"></div>
         <h2 class="stitle">MagicTouch <em>Sirolimus</em> Coated Balloon</h2>
         <p class="slead">A sirolimus drug-coated balloon built on Concept Medical's pioneering Nanolute technology — delivering the drug where it's needed, with a coating designed for controlled release in peripheral arteries.</p>
         <ul class="specs">
