@@ -1,0 +1,467 @@
+<!-- ============================================================
+ESC 2026 Landing Section — Concept Medical — Booth T300
+SCROLL-DRIVEN EDITION
+
+Paste this entire block into an Elementor Pro HTML widget.
+Self-contained: fonts, styles, and scroll-animation JS included.
+
+Every animation is scrubbed by scroll position (not one-shot triggers):
+reveals, word-by-word headings, counting statistics, bar meters, parallax,
+ring rotation and progress rails all track how far the element has
+travelled through the viewport, forwards and backwards.
+
+ONE THING TO REPLACE: the hero image src marked YOUR-MUNICH-IMAGE-URL
+(upload your Munich photo to the WordPress Media Library and paste its URL).
+============================================================ -->
+<div id="cm-esc-2026">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap');
+#cm-esc-2026{
+  --cmb-50:#EEF3FA;--cmb-100:#D8E4F5;--cmb-200:#97DAF8;--cmb-500:#1D4E9F;--cmb-600:#173F82;--cmb-700:#213E7B;
+  --cm-n300:#B6BDC9;--cm-n400:#8E97A6;--cm-n500:#6B7484;--cm-n600:#4C5564;
+  --cm-border:#E3E7EE;--cm-border-strong:#C9D1DC;
+  --cm-r-sm:4px;--cm-r-md:8px;--cm-r-lg:14px;
+  font-family:'Poppins',sans-serif;color:#0E1119;background:#fff;line-height:1.5;
+}
+#cm-esc-2026 *,#cm-esc-2026 *::before,#cm-esc-2026 *::after{box-sizing:border-box;margin:0;padding:0}
+#cm-esc-2026 .cm-container{max-width:1200px;margin:0 auto;padding:0 24px}
+#cm-esc-2026 .cm-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cmb-500)}
+#cm-esc-2026 .cm-editorial{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600}
+#cm-esc-2026 h1,#cm-esc-2026 h2,#cm-esc-2026 h3{font-family:'Poppins',sans-serif;font-weight:600;line-height:1.15}
+#cm-esc-2026 .cm-h2{font-size:clamp(1.7rem,2.6vw,2.3rem);margin-bottom:14px}
+#cm-esc-2026 .cm-sub{font-size:16px;color:var(--cm-n500);max-width:640px;margin-bottom:44px}
+#cm-esc-2026 .cm-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background 160ms ease,transform 160ms ease,border-color 160ms ease,color 160ms ease}
+#cm-esc-2026 .cm-btn-primary{background:var(--cmb-500);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+#cm-esc-2026 .cm-btn-primary:hover{background:var(--cmb-600);color:#fff}
+#cm-esc-2026 .cm-btn-primary:active{transform:translateY(1px)}
+#cm-esc-2026 .cm-btn-secondary{background:#fff;color:var(--cmb-500);border:1px solid var(--cm-border-strong)}
+#cm-esc-2026 .cm-btn-secondary:hover{border-color:var(--cmb-500);color:var(--cmb-600)}
+#cm-esc-2026 .cm-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+#cm-esc-2026 .cm-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+#cm-esc-2026 .cm-card{background:#fff;border:1px solid var(--cm-border);border-radius:var(--cm-r-lg);padding:32px;transition:box-shadow 160ms ease,border-color 160ms ease}
+#cm-esc-2026 .cm-card:hover{box-shadow:0 8px 24px rgba(18,34,72,.10);border-color:var(--cm-border-strong)}
+
+/* ---------- scroll-animation primitives ----------
+   Nothing is hidden unless JS is running (.cm-js), so a no-script or
+   failed-script visitor still gets the full, static section. */
+#cm-esc-2026.cm-js [data-cm="reveal"],
+#cm-esc-2026.cm-js [data-cm="words"] .cm-word{opacity:0}
+#cm-esc-2026 .cm-word{display:inline-block;white-space:pre-wrap;will-change:transform,opacity}
+#cm-esc-2026 [data-cm="reveal"],#cm-esc-2026 [data-cm="parallax"],#cm-esc-2026 [data-cm="heroout"]{will-change:transform,opacity}
+#cm-esc-2026 [data-cm="bar"]{width:0}
+#cm-esc-2026 [data-cm-count]{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+
+/* hero intro — plays once on load, then the hero is handed over to scroll */
+#cm-esc-2026.cm-js .cm-hero-el{opacity:0;transform:translateY(20px);transition:opacity 800ms cubic-bezier(.2,.8,.2,1),transform 800ms cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+#cm-esc-2026.cm-hero-go .cm-hero-el{opacity:1;transform:none}
+
+/* scroll progress rails */
+#cm-esc-2026 .cm-rail{position:absolute;left:0;top:0;bottom:0;width:2px;background:rgba(255,255,255,.14);border-radius:2px;overflow:hidden}
+#cm-esc-2026 .cm-rail-fill{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(180deg,var(--cmb-200),#fff);border-radius:2px}
+#cm-esc-2026 .cm-railx{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.12)}
+#cm-esc-2026 .cm-railx-fill{height:100%;width:0;background:var(--cmb-200)}
+
+/* date chips light up as the block scrolls through */
+#cm-esc-2026 .cm-day{width:56px;padding:10px 0;border:1px solid var(--cm-border);border-radius:var(--cm-r-md);text-align:center;background:#fff;transition:border-color 260ms ease,background 260ms ease,transform 260ms ease,box-shadow 260ms ease}
+#cm-esc-2026 .cm-day.cm-day-on{border-color:var(--cmb-500);background:var(--cmb-50);transform:translateY(-4px);box-shadow:0 6px 16px rgba(18,34,72,.10)}
+
+@media (prefers-reduced-motion:reduce){
+  #cm-esc-2026.cm-js [data-cm="reveal"],#cm-esc-2026.cm-js [data-cm="words"] .cm-word,#cm-esc-2026.cm-js .cm-hero-el{opacity:1 !important;transform:none !important;transition:none !important}
+}
+@media (max-width:900px){
+  #cm-esc-2026 .cm-grid3{grid-template-columns:1fr}
+  #cm-esc-2026 .cm-grid4{grid-template-columns:1fr 1fr}
+  #cm-esc-2026 .cm-hero-grid,#cm-esc-2026 .cm-meet-grid{grid-template-columns:1fr !important;gap:40px !important}
+  #cm-esc-2026 .cm-hero-rings{display:none}
+  #cm-esc-2026 .cm-rail{display:none}
+}
+</style>
+<script>(function(){var r=document.getElementById('cm-esc-2026');if(r)r.className='cm-js'})();</script>
+
+<!-- HERO -->
+<section style="padding:72px 0 64px;position:relative;overflow:hidden;background:#fff">
+<svg class="cm-hero-rings" data-cm="parallax" data-speed="90" viewBox="0 0 600 600" style="position:absolute;right:-140px;top:-180px;width:620px;height:620px;pointer-events:none" aria-hidden="true">
+<circle cx="300" cy="300" r="120" fill="none" stroke="#E8EFF9" stroke-width="1.5"></circle>
+<circle cx="300" cy="300" r="180" fill="none" stroke="#E8EFF9" stroke-width="1.5"></circle>
+<circle cx="300" cy="300" r="240" fill="none" stroke="#E8EFF9" stroke-width="1.5"></circle>
+<circle cx="300" cy="300" r="295" fill="none" stroke="#EEF1F6" stroke-width="1.5"></circle>
+<g data-cm="spin" data-speed="150" style="transform-origin:300px 300px"><circle cx="300" cy="300" r="180" fill="none" stroke="#97DAF8" stroke-width="1.5" stroke-dasharray="3 9" opacity="0.7"></circle></g>
+<g data-cm="spin" data-speed="-95" style="transform-origin:300px 300px"><circle cx="300" cy="300" r="240" fill="none" stroke="#BFD3EE" stroke-width="1.5" stroke-dasharray="2 14" opacity="0.6"></circle></g>
+</svg>
+<div class="cm-container cm-hero-grid" style="display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center;position:relative">
+<div data-cm="heroout">
+<div class="cm-eyebrow cm-hero-el" style="margin-bottom:20px">ESC Congress 2026 &nbsp;&middot;&nbsp; Munich, Germany &nbsp;&middot;&nbsp; 28&ndash;31 August</div>
+<h1 data-cm-heroword style="font-size:clamp(2.4rem,4.4vw,3.6rem);margin-bottom:24px">Transforming <span style="color:var(--cmb-500)">Cardiovascular Care</span> at ESC 2026</h1>
+<p class="cm-hero-el" style="--d:.62s;font-size:18px;color:var(--cm-n600);margin-bottom:32px">Explore next-generation <em class="cm-editorial" style="font-size:1.15em">drug-coated balloon technology.</em> Discover Concept Medical at booth T300 &mdash; advanced sirolimus DCB technology, redefining vascular intervention and patient care.</p>
+<div class="cm-hero-el" style="--d:.74s;display:flex;gap:16px;flex-wrap:wrap">
+<a class="cm-btn cm-btn-primary" href="#cm-esc-meet">Join Us <span>&rarr;</span></a>
+<a class="cm-btn cm-btn-secondary" href="#cm-esc-evidence">Explore the Evidence</a>
+</div>
+</div>
+<div class="cm-hero-el" style="--d:.34s;border-radius:var(--cm-r-lg);overflow:hidden;border:1px solid var(--cm-border);box-shadow:0 8px 24px rgba(18,34,72,.10);position:relative">
+<!-- YOUR-MUNICH-IMAGE-URL -->
+<img data-cm="parallax" data-speed="70" data-scale="1.08" src="https://www.conceptmedical.com/wp-content/uploads/2025/06/SCB-Image-scaled.webp" alt="Munich, Germany &mdash; host city of ESC Congress 2026" style="width:100%;display:block;aspect-ratio:823/398;object-fit:cover">
+<div style="position:absolute;left:0;right:0;bottom:0;padding:14px 20px;background:linear-gradient(transparent,rgba(18,34,72,.82));color:#fff;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600">Munich, Germany &middot; 28&ndash;31 August 2026</div>
+</div>
+</div>
+</section>
+
+<!-- EVENT BAR -->
+<section data-cm="railx" style="background:var(--cmb-700);color:#fff;padding:26px 0;position:relative;overflow:hidden">
+<div class="cm-container" style="display:flex;flex-wrap:wrap;gap:14px 56px;align-items:center;justify-content:space-between">
+<div data-cm="reveal" data-delay="0" style="display:flex;gap:14px;align-items:baseline"><span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Congress</span><span style="font-size:15px;font-weight:500">ESC 2026 &mdash; European Society of Cardiology</span></div>
+<div data-cm="reveal" data-delay=".1" style="display:flex;gap:14px;align-items:baseline"><span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Dates</span><span style="font-size:15px;font-weight:500">28&ndash;31 August 2026</span></div>
+<div data-cm="reveal" data-delay=".2" style="display:flex;gap:14px;align-items:baseline"><span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Location</span><span style="font-size:15px;font-weight:500">Munich, Germany</span></div>
+<div data-cm="reveal" data-delay=".3" style="display:flex;gap:14px;align-items:baseline"><span style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:600">Booth</span><span style="font-size:15px;font-weight:600;color:var(--cmb-100)">T300</span></div>
+</div>
+<div class="cm-railx"><div class="cm-railx-fill" data-cm-fill></div></div>
+</section>
+
+<!-- THREE REASONS -->
+<section id="cm-esc-why" style="padding:96px 0;background:#fff">
+<div class="cm-container">
+<h2 class="cm-h2" data-cm="words">Three Reasons to Stop By</h2>
+<p class="cm-sub" data-cm="reveal">Our clinical and commercial team will be at booth T300 through all four days of the congress.</p>
+<div class="cm-grid3">
+<div class="cm-card" data-cm="reveal" data-delay="0" data-lift="34" style="border-top:3px solid var(--cmb-500)">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+<span style="width:44px;height:44px;border-radius:var(--cm-r-md);background:var(--cmb-50);display:flex;align-items:center;justify-content:center;color:var(--cmb-500)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></span>
+<span style="font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--cm-n300)">01</span>
+</div>
+<h3 style="font-size:20px;margin-bottom:12px">Sirolimus for the Coronaries</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65">See how Nanolute&trade; technology delivers sirolimus into the vessel wall &mdash; a leave-nothing-behind option for small vessels, ISR, and de novo disease.</p>
+</div>
+<div class="cm-card" data-cm="reveal" data-delay=".12" data-lift="34" style="border-top:3px solid var(--cmb-500)">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+<span style="width:44px;height:44px;border-radius:var(--cm-r-md);background:var(--cmb-50);display:flex;align-items:center;justify-content:center;color:var(--cmb-500)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg></span>
+<span style="font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--cm-n300)">02</span>
+</div>
+<h3 style="font-size:20px;margin-bottom:12px">The Evidence, First-Hand</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65">Our clinical team will walk you through the current MagicTouch coronary data set &mdash; the most clinically studied sirolimus DCB program &mdash; every day at the booth.</p>
+</div>
+<div class="cm-card" data-cm="reveal" data-delay=".24" data-lift="34" style="border-top:3px solid var(--cmb-500)">
+<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+<span style="width:44px;height:44px;border-radius:var(--cm-r-md);background:var(--cmb-50);display:flex;align-items:center;justify-content:center;color:var(--cmb-500)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"></path><path d="M14 10V4a2 2 0 0 0-4 0v2"></path><path d="M10 10.5V6a2 2 0 0 0-4 0v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></span>
+<span style="font-size:12px;font-weight:600;letter-spacing:.2em;color:var(--cm-n300)">03</span>
+</div>
+<h3 style="font-size:20px;margin-bottom:12px">Hands-On With the Device</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65">Handle the balloon, review sizing and technique, and talk case selection with the people who build it.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- EVIDENCE — EASTBOURNE -->
+<section id="cm-esc-evidence" data-cm="rail" style="padding:100px 0;background:var(--cmb-700)">
+<div class="cm-container" style="position:relative">
+<div class="cm-rail" aria-hidden="true"><div class="cm-rail-fill" data-cm-fill></div></div>
+<div class="cm-eyebrow" data-cm="reveal" style="color:var(--cmb-100);margin-bottom:14px">Clinical Evidence &mdash; EASTBOURNE Registry</div>
+<h2 class="cm-h2" data-cm="words" style="color:#fff">The World's Largest Investigator-Driven Prospective SCB Registry</h2>
+<p class="cm-sub" data-cm="reveal" data-delay=".08" style="color:rgba(255,255,255,.78)">EASTBOURNE &mdash; 24-month clinical outcomes with MagicTouch SCB in coronary lesions. Global Chairman: Prof. Bernardo Cortese.</p>
+<div class="cm-grid4" style="margin-bottom:28px">
+<div data-cm="reveal" data-delay="0" data-lift="30" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:28px 24px;text-align:center">
+<div style="font-size:40px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="2123" data-sep="1">2,123</span></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:10px;color:var(--cmb-100)">Real-World Patients</div>
+</div>
+<div data-cm="reveal" data-delay=".08" data-lift="30" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:28px 24px;text-align:center">
+<div style="font-size:40px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="38">38</span></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:10px;color:var(--cmb-100)">Global Centres</div>
+</div>
+<div data-cm="reveal" data-delay=".16" data-lift="30" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:28px 24px;text-align:center">
+<div style="font-size:40px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="22">22</span></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:10px;color:var(--cmb-100)">Sub-Studies</div>
+</div>
+<div data-cm="reveal" data-delay=".24" data-lift="30" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:28px 24px;text-align:center">
+<div style="font-size:40px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="35" data-suf="+">35+</span></div>
+<div style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:10px;color:var(--cmb-100)">Publications</div>
+</div>
+</div>
+<div class="cm-grid3">
+<div data-cm="reveal" data-delay="0" data-lift="34" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:36px 32px;display:flex;flex-direction:column">
+<div style="font-size:44px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="7">7</span><span style="font-size:24px">%</span></div>
+<div style="font-size:15px;font-weight:600;margin:14px 0 8px;color:var(--cmb-100)">Overall TLR at 2 Years</div>
+<div style="display:flex;flex-direction:column;gap:8px;margin:6px 0 14px">
+<div style="display:flex;align-items:center;gap:10px"><span data-cm="bar" data-w="18" style="height:8px;border-radius:4px;background:var(--cmb-200)"></span><span style="font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.06em">De Novo (n=1,284) &middot; 2.6%</span></div>
+<div style="display:flex;align-items:center;gap:10px"><span data-cm="bar" data-w="62" data-delay=".12" style="height:8px;border-radius:4px;background:rgba(255,255,255,0.25)"></span><span style="font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em">ISR (n=1,055) &middot; 12.3%</span></div>
+</div>
+<p style="font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;flex:1">Target lesion revascularization by lesion type &mdash; Kaplan-Meier divergence by lesion type, P&lt;0.0001.</p>
+</div>
+<div data-cm="reveal" data-delay=".12" data-lift="34" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:36px 32px;display:flex;flex-direction:column">
+<div style="font-size:44px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="1.3" data-dec="1" data-pre="+">+1.3</span><span style="font-size:24px">%</span></div>
+<div style="font-size:15px;font-weight:600;margin:14px 0 8px;color:var(--cmb-100)">MACE Increase, Year 1 &rarr; 2</div>
+<div style="display:flex;flex-direction:column;gap:8px;margin:6px 0 14px">
+<div style="display:flex;align-items:center;gap:10px"><span data-cm="bar" data-w="26" style="height:8px;border-radius:4px;background:var(--cmb-200)"></span><span style="font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.06em">TLR +1.1% &middot; MI +1.7%</span></div>
+<div style="display:flex;align-items:center;gap:10px"><span data-cm="bar" data-w="14" data-delay=".12" style="height:8px;border-radius:4px;background:rgba(255,255,255,0.25)"></span><span style="font-size:11px;color:rgba(255,255,255,.55);letter-spacing:.06em">Cardiac mortality +0.1% &middot; BARC 2&ndash;5 +0.6%</span></div>
+</div>
+<p style="font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;flex:1">Minimal increase in events at 2 years (n=1,907) &mdash; event rates remained stable from Year 1 to Year 2.</p>
+</div>
+<div data-cm="reveal" data-delay=".24" data-lift="34" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--cm-r-lg);padding:36px 32px;display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:14px"><span style="font-size:44px;font-weight:600;line-height:1;color:#fff;letter-spacing:-0.01em"><span data-cm-count="24">24</span></span><svg data-cm="draw" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#97DAF8" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+<div style="font-size:15px;font-weight:600;margin:14px 0 8px;color:var(--cmb-100)">Months of Clinical Outcomes</div>
+<p style="font-size:13.5px;color:rgba(255,255,255,.7);line-height:1.6;flex:1">Real-world data confirms strong safety and performance of MagicTouch SCB at both short- and long-term follow-up.</p>
+</div>
+</div>
+<p data-cm="reveal" style="font-size:12px;color:rgba(255,255,255,.55);margin:24px 0 0;line-height:1.6">Data published in EuroIntervention Journal: DOI 10.4244/EIJ-D-23-00966, Vol. 20, No. 13 &mdash; PP Leone et al., 2024. 2-year data presented at TCT USA 2025.</p>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="cm-esc-products" style="padding:96px 0;background:#F6F8FB">
+<div class="cm-container">
+<h2 class="cm-h2" data-cm="words">What We're Bringing to Munich</h2>
+<p class="cm-sub" data-cm="reveal">Indications and availability vary by region.</p>
+<div class="cm-grid3">
+<div class="cm-card" data-cm="reveal" data-delay="0" data-lift="34" style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#F5C518"></span><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cm-n500)">Sirolimus DCB</span></div>
+<h3 style="font-size:22px">MagicTouch</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65;flex:1">Sirolimus-coated balloon for coronary artery disease &mdash; small vessels, ISR, and de novo lesions.</p>
+<div style="font-size:12px;color:var(--cm-n400)">Not available in all markets.</div>
+</div>
+<div class="cm-card" data-cm="reveal" data-delay=".12" data-lift="34" style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#18A999"></span><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cm-n500)">Sirolimus DES</span></div>
+<h3 style="font-size:22px">Abluminus DES+</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65;flex:1">Sirolimus-eluting stent with a focus on diabetic patients.</p>
+<div style="font-size:12px;color:var(--cm-n400)">Not available in all markets.</div>
+</div>
+<div class="cm-card" data-cm="reveal" data-delay=".24" data-lift="34" style="display:flex;flex-direction:column;gap:14px">
+<div style="display:flex;align-items:center;gap:10px"><span style="width:10px;height:10px;border-radius:50%;background:#97DAF8"></span><span style="font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--cm-n500)">Delivery Platform</span></div>
+<h3 style="font-size:22px">Nanolute&trade;</h3>
+<p style="font-size:14.5px;color:var(--cm-n600);line-height:1.65;flex:1">The encapsulation and delivery platform behind the portfolio.</p>
+<div style="font-size:12px;color:var(--cm-n400)">Technology platform.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- MEETING REQUEST -->
+<section id="cm-esc-meet" style="padding:100px 0;background:#fff">
+<div class="cm-container cm-meet-grid" style="display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start">
+<div>
+<div class="cm-eyebrow" data-cm="reveal" style="margin-bottom:14px">Meeting Request</div>
+<h2 class="cm-h2" data-cm="words">Let's Put Time <em class="cm-editorial">in the diary.</em></h2>
+<p class="cm-sub" data-cm="reveal" data-delay=".08" style="margin-bottom:32px">Tell us what you'd like to discuss and we'll have the right person waiting at booth T300.</p>
+<div style="display:flex;flex-direction:column;gap:12px;font-size:14px;color:var(--cm-n600)">
+<div data-cm="reveal" data-delay="0" style="display:flex;gap:12px;align-items:baseline"><span style="color:var(--cmb-500);font-weight:600">&mdash;</span>Clinical team on-site all four days</div>
+<div data-cm="reveal" data-delay=".1" style="display:flex;gap:12px;align-items:baseline"><span style="color:var(--cmb-500);font-weight:600">&mdash;</span>Confirmation and calendar reminder by email</div>
+</div>
+<div style="margin-top:36px">
+<div class="cm-eyebrow" data-cm="reveal" style="font-size:11px;letter-spacing:.18em;color:var(--cm-n400);margin-bottom:14px">Four Days in Munich</div>
+<div data-cm="chips" data-start="1.02" data-end="0.34" style="display:flex;gap:10px;flex-wrap:wrap">
+<div class="cm-day"><div style="font-size:20px;font-weight:600;color:var(--cmb-700);line-height:1.1">28</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cm-n400)">Fri</div></div>
+<div class="cm-day"><div style="font-size:20px;font-weight:600;color:var(--cmb-700);line-height:1.1">29</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cm-n400)">Sat</div></div>
+<div class="cm-day"><div style="font-size:20px;font-weight:600;color:var(--cmb-700);line-height:1.1">30</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cm-n400)">Sun</div></div>
+<div class="cm-day"><div style="font-size:20px;font-weight:600;color:var(--cmb-700);line-height:1.1">31</div><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cm-n400)">Mon</div></div>
+</div>
+<div style="font-size:12px;color:var(--cm-n500);margin-top:10px">August 2026 &mdash; booth T300 staffed all four days.</div>
+</div>
+</div>
+<div data-cm="reveal" data-lift="26" style="background:#fff;border:1px solid var(--cm-border);border-radius:var(--cm-r-lg);padding:24px;box-shadow:0 2px 8px rgba(18,34,72,.08)">
+<iframe src="https://go.conceptmedical.com/l/1080043/2026-08-18/p7x4j" width="100%" height="760" type="text/html" frameborder="0" allowtransparency="true" style="border:0;display:block" title="ESC 2026 — Booth T300 Meeting Request"></iframe>
+</div>
+</div>
+</section>
+
+<script>
+/* ============================================================
+   Scroll engine — every effect is scrubbed against how far the
+   element has travelled through the viewport, so animations play
+   forwards on the way down and rewind on the way up.
+   No dependencies, one rAF-throttled scroll handler.
+   ============================================================ */
+(function(){
+  var root=document.getElementById('cm-esc-2026');if(!root)return;
+  var mq=window.matchMedia?window.matchMedia('(prefers-reduced-motion:reduce)'):null;
+  var reduce=!!(mq&&mq.matches);
+  var items=[],raf=0,vh=1,wide=true;
+
+  function clamp(v){return v<0?0:(v>1?1:v)}
+  function easeOut(t){return 1-Math.pow(1-t,3)}
+
+  /* wrap every word of a heading in its own span, keeping inline markup */
+  function splitWords(el){
+    var out=[];
+    (function walk(node){
+      var kids=Array.prototype.slice.call(node.childNodes);
+      for(var i=0;i<kids.length;i++){
+        var n=kids[i];
+        if(n.nodeType===3){
+          if(!n.nodeValue||!n.nodeValue.replace(/\s/g,''))continue;
+          var frag=document.createDocumentFragment();
+          var parts=n.nodeValue.split(/(\s+)/);
+          for(var j=0;j<parts.length;j++){
+            var p=parts[j];if(!p)continue;
+            if(/^\s+$/.test(p)){frag.appendChild(document.createTextNode(p));continue}
+            var s=document.createElement('span');
+            s.className='cm-word';s.textContent=p;
+            frag.appendChild(s);out.push(s);
+          }
+          node.replaceChild(frag,n);
+        }else if(n.nodeType===1){walk(n)}
+      }
+    })(el);
+    return out;
+  }
+
+  function num(el,attr,dflt){var v=parseFloat(el.getAttribute(attr));return isNaN(v)?dflt:v}
+
+  function build(){
+    items=[];
+    var nodes=root.querySelectorAll('[data-cm],[data-cm-count]');
+    for(var i=0;i<nodes.length;i++){
+      var el=nodes[i];
+      var it={el:el,type:el.getAttribute('data-cm')||'count',
+        start:num(el,'data-start',0.94),end:num(el,'data-end',0.62),
+        delay:num(el,'data-delay',0),speed:num(el,'data-speed',0),
+        lift:num(el,'data-lift',24),scale:num(el,'data-scale',1)};
+      if(it.type==='words'){it.words=splitWords(el)}
+      if(it.type==='bar'){it.w=num(el,'data-w',100)}
+      if(it.type==='chips'){it.chips=Array.prototype.slice.call(el.children)}
+      if(it.type==='rail'||it.type==='railx'){it.fill=el.querySelector('[data-cm-fill]')}
+      if(el.hasAttribute('data-cm-count')){
+        it.type='count';
+        it.to=num(el,'data-cm-count',0);
+        it.dec=num(el,'data-dec',0);
+        it.sep=el.hasAttribute('data-sep');
+        it.pre=el.getAttribute('data-pre')||'';
+        it.suf=el.getAttribute('data-suf')||'';
+        it.last=null;
+      }
+      if(it.type==='draw'){
+        it.paths=Array.prototype.slice.call(el.querySelectorAll('path,polyline,circle,line'));
+        for(var k=0;k<it.paths.length;k++){
+          var len=0;
+          try{len=it.paths[k].getTotalLength()}catch(e){len=0}
+          if(!len)len=120;
+          it.paths[k].style.strokeDasharray=len;
+          it.paths[k].style.strokeDashoffset=len;
+          it.paths[k].setAttribute('data-len',len);
+        }
+      }
+      items.push(it);
+    }
+  }
+
+  function fmt(v,it){
+    var s=it.dec?v.toFixed(it.dec):String(Math.round(v));
+    if(it.sep&&!it.dec)s=s.replace(/\B(?=(\d{3})+(?!\d))/g,',');
+    return it.pre+s+it.suf;
+  }
+
+  /* 0 -> 1 as the element crosses the viewport from bottom to top */
+  function band(r){return clamp((vh-r.top)/(vh+r.height))}
+  /* 0 -> 1 across the element's own scroll travel, used by the progress rails */
+  function travel(r){return clamp((vh*0.6-r.top)/Math.max(vh*0.3,r.height-vh*0.4))}
+
+  function update(){
+    raf=0;
+    vh=window.innerHeight||document.documentElement.clientHeight||1;
+    wide=window.innerWidth>900;
+    var doc=document.documentElement;
+    var atBottom=(window.pageYOffset||doc.scrollTop)+vh>=(doc.scrollHeight-2);
+
+    for(var i=0;i<items.length;i++){
+      var it=items[i],el=it.el,r=el.getBoundingClientRect(),t=it.type;
+      var span=Math.max(1,vh*(it.start-it.end));
+      var p=clamp((vh*it.start-r.top)/span);
+      if(it.delay>0)p=clamp((p-it.delay)/(1-it.delay));
+      if(atBottom)p=1;
+      var e=easeOut(p);
+
+      if(t==='reveal'){
+        if(reduce){el.style.opacity='';el.style.transform='';continue}
+        el.style.opacity=p;
+        el.style.transform='translate3d(0,'+((1-e)*it.lift).toFixed(2)+'px,0)';
+      }
+      else if(t==='words'){
+        if(reduce)continue;
+        var n=it.words.length,spread=0.55;
+        for(var w=0;w<n;w++){
+          var wp=clamp((p-(w/Math.max(1,n))*spread)/(1-spread)),we=easeOut(wp);
+          var s=it.words[w].style;
+          s.opacity=wp;
+          s.transform='translate3d(0,'+((1-we)*18).toFixed(2)+'px,0)';
+        }
+      }
+      else if(t==='count'){
+        var v=fmt(it.to*e,it);
+        if(v!==it.last){el.textContent=v;it.last=v}
+      }
+      else if(t==='bar'){
+        el.style.width=(reduce?it.w:it.w*e).toFixed(2)+'%';
+      }
+      else if(t==='draw'){
+        for(var d=0;d<it.paths.length;d++){
+          var L=parseFloat(it.paths[d].getAttribute('data-len'))||0;
+          it.paths[d].style.strokeDashoffset=(reduce?0:L*(1-e)).toFixed(2);
+        }
+      }
+      else if(t==='chips'){
+        var cn=it.chips.length;
+        for(var c=0;c<cn;c++){
+          var on=p>=(c+0.35)/cn*0.9;
+          it.chips[c].classList.toggle('cm-day-on',reduce?true:on);
+        }
+      }
+      else if(t==='parallax'){
+        if(reduce||!wide){el.style.transform=it.scale!==1?'scale('+it.scale+')':'';continue}
+        var y=(band(r)-0.5)*it.speed;
+        el.style.transform='translate3d(0,'+y.toFixed(2)+'px,0)'+(it.scale!==1?' scale('+it.scale+')':'');
+      }
+      else if(t==='spin'){
+        if(reduce){el.style.transform='';continue}
+        el.style.transform='rotate('+((band(r)-0.5)*it.speed).toFixed(2)+'deg)';
+      }
+      else if(t==='heroout'){
+        if(reduce){el.style.opacity='';el.style.transform='';continue}
+        var q=clamp(-r.top/Math.max(1,r.height*0.9));
+        el.style.opacity=(1-q*0.85).toFixed(3);
+        el.style.transform='translate3d(0,'+(-q*56).toFixed(2)+'px,0)';
+      }
+      else if(t==='rail'){
+        /* fills while the section travels the viewport: empty when its top
+           crosses 60% of the screen, full when its bottom reaches the base */
+        if(!it.fill)continue;
+        it.fill.style.height=(travel(r)*100).toFixed(2)+'%';
+      }
+      else if(t==='railx'){
+        /* reading progress for the whole section block */
+        if(!it.fill)continue;
+        var rr=root.getBoundingClientRect();
+        it.fill.style.width=(clamp(-rr.top/Math.max(1,rr.height-vh))*100).toFixed(2)+'%';
+      }
+    }
+  }
+
+  function tick(){if(!raf)raf=window.requestAnimationFrame(update)}
+
+  /* hero intro: word-by-word on load, then scroll takes over */
+  function heroIntro(){
+    var h1=root.querySelector('[data-cm-heroword]');
+    if(h1){
+      var words=splitWords(h1);
+      for(var i=0;i<words.length;i++){
+        words[i].className+=' cm-hero-el';
+        words[i].style.setProperty('--d',(0.18+i*0.05).toFixed(2)+'s');
+      }
+    }
+    window.requestAnimationFrame(function(){
+      window.requestAnimationFrame(function(){root.className='cm-js cm-hero-go'});
+    });
+  }
+
+  build();
+  heroIntro();
+  update();
+
+  window.addEventListener('scroll',tick,{passive:true});
+  window.addEventListener('resize',tick);
+  window.addEventListener('orientationchange',tick);
+  window.addEventListener('load',tick);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(tick);
+  if(mq&&mq.addEventListener)mq.addEventListener('change',function(ev){reduce=ev.matches;tick()});
+  /* Elementor / lazy-loaded layouts can shift heights after paint */
+  if(window.ResizeObserver){new ResizeObserver(tick).observe(root)}
+  setTimeout(tick,600);setTimeout(tick,2000);
+})();
+</script>
+</div>
