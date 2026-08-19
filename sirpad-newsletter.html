@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SirPAD Trial Primary Results – Concept Medical</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .wrapper {
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 20px 0;
+    }
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      background-color: #ffffff;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      background-color: #0a1e5e;
+      padding: 28px 30px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .header-title {
+      color: #f5c518;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 4px;
+      font-style: italic;
+    }
+    .header-subtitle {
+      color: #ffffff;
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 16px;
+    }
+    .header-device {
+      width: 100%;
+      max-width: 380px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* ── LOGOS ── */
+    .logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 18px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      background-color: #fff;
+    }
+    .logo-item {
+      text-align: center;
+    }
+    .logo-cm {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .logo-cm-badge {
+      background-color: #0a5ca8;
+      color: #fff;
+      font-weight: 900;
+      font-size: 13px;
+      border-radius: 4px;
+      padding: 4px 7px;
+      letter-spacing: 0.5px;
+    }
+    .logo-cm-text {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0a5ca8;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .logo-usz {
+      font-size: 18px;
+      font-weight: 900;
+      color: #003087;
+      letter-spacing: 1px;
+    }
+    .logo-usz-sub {
+      font-size: 9px;
+      color: #333;
+      font-weight: 600;
+    }
+    .logo-mt {
+      font-size: 15px;
+      font-weight: 900;
+      color: #0a1e5e;
+    }
+    .logo-mt-sub {
+      font-size: 7px;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── NEJM BANNER ── */
+    .nejm-banner {
+      background-color: #0a1e5e;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .nejm-banner em {
+      font-style: italic;
+      font-weight: 700;
+      color: #f5c518;
+    }
+
+    /* ── BODY TEXT ── */
+    .body-text {
+      padding: 20px 28px;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.6;
+    }
+    .body-text p {
+      margin: 0 0 12px;
+    }
+    .body-text em {
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* ── KEY HIGHLIGHTS ── */
+    .highlights {
+      padding: 0 28px 20px;
+    }
+    .highlights h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0a1e5e;
+      margin: 0 0 12px;
+    }
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+      color: #333;
+      line-height: 1.5;
+    }
+    .check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background-color: #0a5ca8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .check-icon::after {
+      content: "✓";
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .highlight-item span em {
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    /* ── PROVEN SECTION ── */
+    .proven-section {
+      background-color: #0a1e5e;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .proven-title {
+      color: #f5c518;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+    .proven-subtitle {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0 0 24px;
+    }
+    .proven-subtitle sup {
+      font-size: 9px;
+    }
+
+    /* ── BAR CHART ── */
+    .bar-chart {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 30px;
+      padding: 0 20px 10px;
+    }
+    .bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 160px;
+    }
+    .bar-pct {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .bar-box {
+      width: 140px;
+      border-radius: 6px 6px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bar-box-mt {
+      background-color: #f5c518;
+      height: 100px;
+    }
+    .bar-box-ub {
+      background-color: transparent;
+      border: 3px solid #ffffff;
+      height: 160px;
+    }
+    .bar-label-mt {
+      color: #0a1e5e;
+      font-size: 15px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .bar-label-ub {
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .diff-box {
+      background-color: #f5c518;
+      color: #0a1e5e;
+      font-size: 16px;
+      font-weight: 900;
+      border-radius: 6px;
+      padding: 10px 20px;
+      margin: 16px auto 8px;
+      display: inline-block;
+      letter-spacing: 0.5px;
+    }
+    .diff-note {
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 6px 0 10px;
+    }
+    .diff-note sup { font-size: 8px; }
+    .pvalue {
+      color: #fff;
+      font-size: 12px;
+      margin: 4px 0 0;
+    }
+    .footnote-star {
+      color: #ccc;
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    /* ── INDIVIDUAL COMPONENTS ── */
+    .components-section {
+      padding: 22px 20px;
+      background-color: #fff;
+    }
+    .components-title {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #0a1e5e;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0 0 18px;
+    }
+    .components-cols {
+      display: flex;
+      gap: 16px;
+    }
+    .comp-col {
+      flex: 1;
+      border: 2px solid #0a1e5e;
+      border-radius: 6px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .comp-col-title {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0a1e5e;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin: 0 0 14px;
+      line-height: 1.4;
+      min-height: 32px;
+    }
+    .comp-bars {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .comp-bar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .comp-pct {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0a1e5e;
+      margin-bottom: 4px;
+    }
+    .comp-bar-box {
+      width: 60px;
+      border-radius: 4px 4px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .comp-bar-mt {
+      background-color: #f5c518;
+    }
+    .comp-bar-ub {
+      background-color: transparent;
+      border: 2px solid #0a1e5e;
+    }
+    .comp-bar-lbl {
+      font-size: 8px;
+      font-weight: 700;
+      color: #0a1e5e;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .comp-bar-lbl-ub {
+      font-size: 8px;
+      font-weight: 700;
+      color: #0a1e5e;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .comp-diff {
+      background-color: #f5c518;
+      color: #0a1e5e;
+      font-size: 11px;
+      font-weight: 800;
+      border-radius: 4px;
+      padding: 5px 10px;
+      display: inline-block;
+      margin: 6px 0 4px;
+    }
+    .comp-ci {
+      font-size: 10px;
+      color: #333;
+      font-weight: 600;
+    }
+
+    /* ── EMERGING STANDARD ── */
+    .emerging-section {
+      padding: 22px 28px;
+      background-color: #fff;
+      border-top: 3px solid #f0f0f0;
+    }
+    .emerging-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0a1e5e;
+      margin: 0 0 10px;
+    }
+    .emerging-text {
+      font-size: 13px;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── PRESENTERS ── */
+    .presenters-section {
+      padding: 22px 28px;
+      background-color: #fff;
+      text-align: center;
+      border-top: 3px solid #f0f0f0;
+    }
+    .presenters-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a1e5e;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 20px;
+    }
+    .presenters-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+    .presenter-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .presenter-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid #f5c518;
+      background-color: #c8d8e8;
+      overflow: hidden;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #fff;
+      font-weight: 700;
+    }
+    .presenter-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #0a1e5e;
+      margin: 0 0 2px;
+    }
+    .presenter-role {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    /* ── QUOTE SECTIONS ── */
+    .quote-section {
+      padding: 20px 28px;
+      border-top: 3px solid #f0f0f0;
+    }
+    .quote-text {
+      font-size: 12.5px;
+      color: #333;
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ── DOSHI SECTION ── */
+    .doshi-section {
+      padding: 20px 28px;
+      border-top: 3px solid #f0f0f0;
+    }
+    .doshi-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #0a1e5e;
+      margin: 0 0 2px;
+    }
+    .doshi-role {
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 12px;
+    }
+    .doshi-quote {
+      font-size: 12.5px;
+      color: #333;
+      line-height: 1.7;
+      font-style: italic;
+      margin: 0;
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-section {
+      text-align: center;
+      padding: 28px 20px 32px;
+      border-top: 3px solid #f0f0f0;
+    }
+    .cta-btn {
+      display: inline-block;
+      background-color: #f5c518;
+      color: #0a1e5e;
+      font-size: 15px;
+      font-weight: 900;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .components-cols { flex-direction: column; }
+      .presenters-row { flex-direction: column; align-items: center; gap: 24px; }
+      .header-title { font-size: 28px; }
+      .proven-title { font-size: 16px; }
+      .bar-chart { gap: 14px; }
+      .bar-col { width: 130px; }
+      .bar-box { width: 110px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+      <div class="header-title">SirPAD Trial</div>
+      <div class="header-subtitle">Primary Results</div>
+      <!-- Device illustration (inline SVG catheter) -->
+      <svg class="header-device" viewBox="0 0 380 60" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="tubeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#b0c4de;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#e8f0f8;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#7090b0;stop-opacity:1"/>
+          </linearGradient>
+          <linearGradient id="balloonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#d4a017;stop-opacity:1"/>
+            <stop offset="50%" style="stop-color:#f5c518;stop-opacity:1"/>
+            <stop offset="100%" style="stop-color:#b8860b;stop-opacity:1"/>
+          </linearGradient>
+        </defs>
+        <!-- Main tube -->
+        <rect x="0" y="25" width="380" height="10" rx="5" fill="url(#tubeGrad)" />
+        <!-- Balloon segment -->
+        <ellipse cx="200" cy="30" rx="70" ry="18" fill="url(#balloonGrad)" opacity="0.92"/>
+        <!-- Balloon texture lines -->
+        <line x1="160" y1="14" x2="160" y2="46" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <line x1="175" y1="12" x2="175" y2="48" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <line x1="190" y1="12" x2="190" y2="48" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <line x1="205" y1="12" x2="205" y2="48" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <line x1="220" y1="12" x2="220" y2="48" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <line x1="235" y1="14" x2="235" y2="46" stroke="#b8860b" stroke-width="1" opacity="0.5"/>
+        <!-- Tip -->
+        <ellipse cx="370" cy="30" rx="12" ry="5" fill="#90a8c0"/>
+        <path d="M370,25 Q385,30 370,35" fill="#7090b0"/>
+      </svg>
+    </div>
+
+    <!-- LOGOS -->
+    <div class="logos-row">
+      <div class="logo-item">
+        <div class="logo-cm">
+          <div class="logo-cm-badge">CM</div>
+          <div class="logo-cm-text">Concept<br>Medical</div>
+        </div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-usz">USZ</div>
+        <div class="logo-usz-sub">Universit&auml;ts<br>Spital Z&uuml;rich</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-mt">MagicTouch <span style="color:#0a5ca8;font-size:10px;font-weight:900;">PTA</span></div>
+        <div class="logo-mt-sub">Sirolimus-coated PTA balloon catheter</div>
+      </div>
+    </div>
+
+    <!-- NEJM BANNER -->
+    <div class="nejm-banner">
+      Published in the <em>New England Journal of Medicine</em>
+    </div>
+
+    <!-- BODY TEXT -->
+    <div class="body-text">
+      <p>Concept Medical announces the publication of the primary results of the Sirolimus-coated balloon for Peripheral Artery Disease (SirPAD) trial in the <em>New England Journal of Medicine</em> after presentation as a Late-Breaking Clinical Trial at ACC.26.</p>
+      <p>In the SirPAD randomized trial, the world's largest of its kind, angioplasty with MagicTouch PTA sirolimus-coated balloon was both noninferior and superior compared to uncoated balloons for the primary one-year outcome of major adverse limb events.</p>
+    </div>
+
+    <!-- KEY HIGHLIGHTS -->
+    <div class="highlights">
+      <h3>Key Highlights</h3>
+      <div class="highlight-item">
+        <div class="check-icon"></div>
+        <span>First-ever trial in PAD to demonstrate reduction of "hard" clinical outcomes</span>
+      </div>
+      <div class="highlight-item">
+        <div class="check-icon"></div>
+        <span>Angioplasty with sirolimus-coated balloon vs uncoated balloon</span>
+      </div>
+      <div class="highlight-item">
+        <div class="check-icon"></div>
+        <span>1252 real-world, all-comers patients</span>
+      </div>
+      <div class="highlight-item">
+        <div class="check-icon"></div>
+        <span>Primary one-year results published online in the <em>New England Journal of Medicine</em></span>
+      </div>
+    </div>
+
+    <!-- PROVEN SECTION -->
+    <div class="proven-section">
+      <div class="proven-title">Proven Noninferiority &amp; Superiority</div>
+      <div class="proven-subtitle">Primary Outcome / MALE<sup>#</sup> at One Year</div>
+
+      <!-- Bar chart -->
+      <div class="bar-chart">
+        <!-- MagicTouch bar -->
+        <div class="bar-col">
+          <div class="bar-pct">8.8%</div>
+          <div class="bar-box bar-box-mt">
+            <div class="bar-label-mt">MagicTouch</div>
+          </div>
+        </div>
+        <!-- Uncoated Balloon bar -->
+        <div class="bar-col">
+          <div class="bar-pct">15.0%</div>
+          <div class="bar-box bar-box-ub">
+            <div class="bar-label-ub">Uncoated<br>Balloon</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <div class="diff-box">-4.9% (-8.5 to -1.3)*</div>
+        <div class="diff-note">*Median Unbiased Estimate of the Absolute Risk Difference (95% CI)</div>
+        <div class="pvalue">P&lt;0.001 for noninferiority &nbsp;|&nbsp; P = 0.009 for superiority</div>
+        <div class="footnote-star"><sup>#</sup>MALE = composite of unplanned major target-limb amputation or target lesion revascularization for critical limb ischemia</div>
+      </div>
+    </div>
+
+    <!-- INDIVIDUAL COMPONENTS -->
+    <div class="components-section">
+      <div class="components-title">Individual Components of the Primary Outcome at One Year</div>
+      <div class="components-cols">
+
+        <!-- Column 1: Unplanned Target-Limb Amputations -->
+        <div class="comp-col">
+          <div class="comp-col-title">Unplanned Target<br>-Limb Amputations</div>
+          <div class="comp-bars">
+            <div class="comp-bar-col">
+              <div class="comp-pct">8 (1.3%)</div>
+              <div class="comp-bar-box comp-bar-mt" style="height:40px;">
+                <div class="comp-bar-lbl">Magic<br>Touch</div>
+              </div>
+            </div>
+            <div class="comp-bar-col">
+              <div class="comp-pct">17 (2.7%)</div>
+              <div class="comp-bar-box comp-bar-ub" style="height:70px;">
+                <div class="comp-bar-lbl-ub">Uncoated<br>Balloon</div>
+              </div>
+            </div>
+          </div>
+          <div class="comp-diff">-1.4% (-3.1 to 0.2)</div>
+          <div class="comp-ci">Absolute Risk Difference (95% CI)</div>
+        </div>
+
+        <!-- Column 2: Target Lesion Revascularization -->
+        <div class="comp-col">
+          <div class="comp-col-title">Target Lesion Revascularization<br>for Critical Limb Ischemia</div>
+          <div class="comp-bars">
+            <div class="comp-bar-col">
+              <div class="comp-pct">52 (8.3%)</div>
+              <div class="comp-bar-box comp-bar-mt" style="height:55px;">
+                <div class="comp-bar-lbl">Magic<br>Touch</div>
+              </div>
+            </div>
+            <div class="comp-bar-col">
+              <div class="comp-pct">83 (13.3%)</div>
+              <div class="comp-bar-box comp-bar-ub" style="height:90px;">
+                <div class="comp-bar-lbl-ub">Uncoated<br>Balloon</div>
+              </div>
+            </div>
+          </div>
+          <div class="comp-diff">-5.0% (-8.4 to -1.5)</div>
+          <div class="comp-ci">Absolute Risk Difference (95% CI)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EMERGING STANDARD -->
+    <div class="emerging-section">
+      <div class="emerging-title">From Alternative to Emerging Standard</div>
+      <p class="emerging-text">The SirPAD publication adds high-level clinical evidence supporting the routine use of sirolimus-coated balloon angioplasty in femoropopliteal and below-the-knee PAD.</p>
+    </div>
+
+    <!-- PRESENTERS -->
+    <div class="presenters-section">
+      <div class="presenters-label">Presented by:</div>
+      <div class="presenters-row">
+        <div class="presenter-item">
+          <div class="presenter-avatar" style="background-color:#5a7a9a;">SB</div>
+          <div class="presenter-name">Prof. Dr. Stefano Barco</div>
+          <div class="presenter-role">Co-Principal Investigator<br>University Hospital Zurich</div>
+        </div>
+        <div class="presenter-item">
+          <div class="presenter-avatar" style="background-color:#4a6a8a;">NK</div>
+          <div class="presenter-name">Prof. Nils Kucher</div>
+          <div class="presenter-role">Co-Principal Investigator<br>University Hospital Zurich</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BARCO QUOTE -->
+    <div class="quote-section">
+      <p class="quote-text">"We are excited about the primary outcome results of SirPAD. It is one of the very few trials in this field that successfully included an all-comers population, meaning consecutive patients without eligibility restrictions related to target-lesion characteristics or PAD stage. With nearly 50% of enrolled patients having acute or chronic limb-threatening ischemia and 30% of patients with below-the-knee PAD, we could demonstrate superiority for hard clinical outcomes at one year. Moreover, we have shown an overall reduction of TLR."</p>
+    </div>
+
+    <!-- DOSHI SECTION -->
+    <div class="doshi-section">
+      <div class="doshi-name">Dr. Manish Doshi</div>
+      <div class="doshi-role">Founder &amp; Managing Director, Concept Medical</div>
+      <p class="doshi-quote">"SirPAD is an important milestone for the PAD community. This level of evidence reinforces our belief that meaningful innovation must be validated through rigorous science."</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <a href="#" class="cta-btn">Read the NEJM Publication</a>
+    </div>
+
+  </div><!-- /container -->
+</div><!-- /wrapper -->
+</body>
+</html>
